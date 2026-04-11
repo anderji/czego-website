@@ -51,7 +51,7 @@
 
   <section class="section">
     <div class="container">
-      <div id="members-grid" class="members-grid"></div>
+      <div id="members-grid"></div>
     </div>
   </section>
 
@@ -83,8 +83,22 @@
 
   fetchJSON('data/members.json')
     .then(members => {
-      const sorted = [...members].sort((a, b) => a.order - b.order);
-      grid.innerHTML = sorted.map(m => {
+      const ROLE_ORDER = {
+        'Dirigent':         0,
+        'Sopránová kytara': 1,
+        '1. kytara':        2,
+        '2. kytara':        3,
+        '3. kytara':        4,
+        '4. kytara':        5,
+        'Basová kytara':    6,
+      };
+      const sorted = [...members].sort((a, b) => {
+        const ra = ROLE_ORDER[a.role_cs] ?? Infinity;
+        const rb = ROLE_ORDER[b.role_cs] ?? Infinity;
+        if (ra !== rb) return ra - rb;
+        return a.name.localeCompare(b.name, 'cs');
+      });
+      function memberCardHTML(m) {
         const hasSocial = m.social && (m.social.instagram || m.social.facebook);
         return `
         <div class="member-card reveal">
@@ -104,7 +118,24 @@
             </div>` : ''}
           </div>
         </div>`;
-      }).join('');
+      }
+
+      // Seskup podle role (zachová pořadí z ROLE_ORDER)
+      const groupMap = new Map();
+      for (const m of sorted) {
+        if (!groupMap.has(m.role_cs)) groupMap.set(m.role_cs, { role_cs: m.role_cs, role_en: m.role_en, members: [] });
+        groupMap.get(m.role_cs).members.push(m);
+      }
+
+      grid.innerHTML = [...groupMap.values()].map(g => `
+        <div class="members-group">
+          <div class="members-group__header">
+            <span class="members-group__label">${escHtml(isCs ? g.role_cs : g.role_en)}</span>
+          </div>
+          <div class="members-grid${g.members.length === 1 ? ' members-grid--solo' : ''}">
+            ${g.members.map(memberCardHTML).join('')}
+          </div>
+        </div>`).join('');
 
       // Structured data pro členy
       const persons = sorted.map(m => ({

@@ -6,8 +6,12 @@
     "title_en": "Na dvanácti strunách Festival",
     "venue": "Piaristické náměstí, České Budějovice",
     "time": "19:00–20:00",
-    "price_cs": "Předem přes CBsystem nebo na místě",
-    "price_en": "Available via CBsystem or at the door",
+    "price_cs": "dle pořadatele festivalu",
+    "price_en": "see festival organiser",
+    "tickets": {
+      "on_site": true,
+      "online_url": "https://www.cbsystem.cz"
+    },
     "description_cs": "Netradiční vystoupení v Českých Budějovicích v rámci prestižního kytarového festivalu Na dvanácti strunách.",
     "description_en": "A unique performance in České Budějovice as part of the prestigious Na dvanácti strunách guitar festival.",
     "image": "assets/images/concerts/festival-dvanact-strun.jpg",
@@ -24,6 +28,9 @@
     "time": "18:00–19:30",
     "price_cs": "150–250 Kč",
     "price_en": "150–250 CZK",
+    "tickets": {
+      "on_site": true
+    },
     "description_cs": "Přijďte si poslechnout novinky v repertoáru i starší klasiky, které nám zaranžoval náš bývalý člen Ryan Chan. Vstupenky na místě hotově nebo QR kódem.",
     "description_en": "Join us for new pieces and beloved classics, arranged by our former member Ryan Chan. Tickets available at the door – cash or QR code.",
     "image": "assets/images/concerts/vanocni-2025.jpg",
@@ -40,6 +47,9 @@
     "time": "18:00–19:30",
     "price_cs": "150–250 Kč",
     "price_en": "150–250 CZK",
+    "tickets": {
+      "on_site": true
+    },
     "description_cs": "Každoroční vánoční vystoupení orchestru v historickém prostředí Emauzského opatství.",
     "description_en": "Our annual Christmas performance in the historic setting of the Emauzy Abbey.",
     "image": "assets/images/concerts/vanocni-2024.jpg",
@@ -56,6 +66,9 @@
     "time": "19:30–21:00",
     "price_cs": "200 Kč",
     "price_en": "200 CZK",
+    "tickets": {
+      "on_site": true
+    },
     "description_cs": "Komorní vystoupení v nádherném prostředí zahrad Valdštejnského paláce.",
     "description_en": "A chamber performance in the beautiful gardens of Wallenstein Palace.",
     "image": "assets/images/concerts/letni-2024.jpg",
@@ -72,6 +85,9 @@
     "time": "19:00–20:30",
     "price_cs": "150 Kč",
     "price_en": "150 CZK",
+    "tickets": {
+      "on_site": true
+    },
     "description_cs": "Podzimní programová premiéra s novými aranžmá a hostujícím sólistou.",
     "description_en": "Autumn programme premiere featuring new arrangements and a guest soloist.",
     "image": "assets/images/concerts/podzimni-2023.jpg",
@@ -86,8 +102,12 @@
     "title_en": "Na dvanácti strunách Festival",
     "venue": "Piaristické náměstí, České Budějovice",
     "time": "19:00–20:00",
-    "price_cs": "Předem přes CBsystem nebo na místě",
-    "price_en": "Available via CBsystem or at the door",
+    "price_cs": "dle pořadatele festivalu",
+    "price_en": "see festival organiser",
+    "tickets": {
+      "on_site": true,
+      "online_url": "https://www.cbsystem.cz"
+    },
     "description_cs": "Netradiční vystoupení v Českých Budějovicích v rámci prestižního kytarového festivalu Na dvanácti strunách.",
     "description_en": "A unique performance in České Budějovice as part of the prestigious Na dvanácti strunách guitar festival.",
     "image": "assets/images/concerts/festival-dvanact-strun.jpg",
@@ -102,8 +122,12 @@
     "title_en": "Na dvanácti strunách Festival",
     "venue": "Piaristické náměstí, České Budějovice",
     "time": "19:00–20:00",
-    "price_cs": "Předem přes CBsystem nebo na místě",
-    "price_en": "Available via CBsystem or at the door",
+    "price_cs": "dle pořadatele festivalu",
+    "price_en": "see festival organiser",
+    "tickets": {
+      "on_site": true,
+      "online_url": "https://www.cbsystem.cz"
+    },
     "description_cs": "Netradiční vystoupení v Českých Budějovicích v rámci prestižního kytarového festivalu Na dvanácti strunách.",
     "description_en": "A unique performance in České Budějovice as part of the prestigious Na dvanácti strunách guitar festival.",
     "image": "assets/images/concerts/festival-dvanact-strun.jpg",
@@ -118,8 +142,12 @@
     "title_en": "Na dvanácti strunách Festival",
     "venue": "Piaristické náměstí, České Budějovice",
     "time": "19:00–20:00",
-    "price_cs": "Předem přes CBsystem nebo na místě",
-    "price_en": "Available via CBsystem or at the door",
+    "price_cs": "dle pořadatele festivalu",
+    "price_en": "see festival organiser",
+    "tickets": {
+      "on_site": true,
+      "online_url": "https://www.cbsystem.cz"
+    },
     "description_cs": "Netradiční vystoupení v Českých Budějovicích v rámci prestižního kytarového festivalu Na dvanácti strunách.",
     "description_en": "A unique performance in České Budějovice as part of the prestigious Na dvanácti strunách guitar festival.",
     "image": "assets/images/concerts/festival-dvanact-strun.jpg",
@@ -134,8 +162,12 @@
     "title_en": "Naked festival",
     "venue": "Piaristické náměstí, České Budějovice",
     "time": "19:00–20:00",
-    "price_cs": "Předem přes CBsystem nebo na místě",
-    "price_en": "Available via CBsystem or at the door",
+    "price_cs": "dle pořadatele festivalu",
+    "price_en": "see festival organiser",
+    "tickets": {
+      "on_site": true,
+      "online_url": "https://www.cbsystem.cz"
+    },
     "description_cs": "Netradiční vystoupení v Českých Budějovicích v rámci prestižního kytarového festivalu Na dvanácti strunách.",
     "description_en": "A unique performance in České Budějovice as part of the prestigious Na dvanácti strunách guitar festival.",
     "image": "assets/images/concerts/festival-dvanact-strun.jpg",
@@ -150,8 +182,12 @@
     "title_en": "Naked festival",
     "venue": "Piaristické náměstí, České Budějovice",
     "time": "19:00–20:00",
-    "price_cs": "Předem přes CBsystem nebo na místě",
-    "price_en": "Available via CBsystem or at the door",
+    "price_cs": "dle pořadatele festivalu",
+    "price_en": "see festival organiser",
+    "tickets": {
+      "on_site": true,
+      "online_url": "https://www.cbsystem.cz"
+    },
     "description_cs": "Netradiční vystoupení v Českých Budějovicích v rámci prestižního kytarového festivalu Na dvanácti strunách.",
     "description_en": "A unique performance in České Budějovice as part of the prestigious Na dvanácti strunách guitar festival.",
     "image": "assets/images/concerts/festival-dvanact-strun.jpg",

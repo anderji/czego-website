@@ -192,6 +192,10 @@ function concertCardHTML(c) {
     ${c.time  ? `<div class="concert-card__meta">🕐 ${escHtml(c.time)}</div>` : ''}
     ${desc    ? `<p class="concert-card__desc">${escHtml(desc)}</p>` : ''}
     ${price   ? `<div><span class="concert-card__price">${escHtml(price)}</span></div>` : ''}
+    ${c.tickets ? `<div class="concert-card__tickets">
+      ${c.tickets.on_site ? `<span class="concert-card__tickets-label">${isCs ? 'Platba na místě' : 'Pay at the door'}</span>` : ''}
+      ${c.tickets.online_url ? `<a class="concert-card__tickets-link" href="${escHtml(c.tickets.online_url)}" target="_blank" rel="noopener noreferrer">${isCs ? 'Koupit online' : 'Buy online'}</a>` : ''}
+    </div>` : ''}
   </div>`;
 }
 

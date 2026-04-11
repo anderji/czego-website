@@ -114,12 +114,8 @@
         <h2 id="abroad-h2"></h2>
         <p class="lead" id="abroad-lead"></p>
       </div>
-      <div class="dest-list reveal">
-        <span class="dest-tag">🇪🇺 <span id="dest-eu"></span></span>
-        <span class="dest-tag">🇭🇰 Hongkong</span>
-        <span class="dest-tag">🇸🇬 Singapur</span>
-        <span class="dest-tag dest-tag--highlight">🇹🇭 Bangkok 2024</span>
-      </div>
+      <div class="abroad-tablist reveal" role="tablist" id="abroad-tablist" aria-label="Destinace"></div>
+      <div id="abroad-panels"></div>
     </div>
   </section>
 
@@ -202,13 +198,141 @@
     ? '— Návštěvnice Vánočního koncertu 2024'
     : '— Visitor at Christmas Concert 2024';
 
-  // Zahraničí
+  // Zahraničí – header
   document.getElementById('abroad-eyebrow').textContent = isCs ? 'Svět' : 'The World';
   document.getElementById('abroad-h2').textContent      = isCs ? 'Zahraničí' : 'International';
   document.getElementById('abroad-lead').textContent    = isCs
     ? 'Pravidelně reprezentujeme českou orchestrální tradici na festivalech po Evropě i za oceánem.'
     : 'We regularly represent Czech orchestral tradition at festivals across Europe and beyond.';
-  document.getElementById('dest-eu').textContent = isCs ? 'Evropa' : 'Europe';
+
+  // Zahraničí – taby
+  const destinations = [
+    {
+      id: 'bangkok',
+      flag: '🇹🇭',
+      label:    { cs: 'Bangkok 2024',               en: 'Bangkok 2024' },
+      title:    { cs: 'Bangkok, Thajsko',            en: 'Bangkok, Thailand' },
+      event:    { cs: 'Mezinárodní kytarový festival', en: 'International Guitar Festival' },
+      texts:    {
+        cs: [
+          'V létě 2024 jsme se vydali na naše dosud největší dobrodružství – mezinárodní kytarový festival v Bangkoku, Thajsku. Osmičlenná výprava reprezentovala Českou republiku spolu s orchestry z Asie, Evropy i zámoří.',
+          'Vystoupení v tropickém teple, setkání s muzikanty z celého světa a kulturní zážitky, které nám zůstanou navždy. Bangkok byl pro nás milníkem, na který nezapomeneme.',
+        ],
+        en: [
+          'In summer 2024 we embarked on our biggest adventure yet — an international guitar festival in Bangkok, Thailand. Our eight-person delegation represented the Czech Republic alongside orchestras from Asia, Europe, and beyond.',
+          'Performing in tropical heat, meeting musicians from around the world, and unforgettable cultural experiences. Bangkok was a milestone we will never forget.',
+        ],
+      },
+      facts: {
+        cs: ['🌏 Asie · Thajsko', '🗓 Léto 2024', '🎸 Mezinárodní festival', '👥 8 členů výpravy'],
+        en: ['🌏 Asia · Thailand', '🗓 Summer 2024', '🎸 International festival', '👥 8 delegates'],
+      },
+      image:    'assets/images/abroad/bangkok-placeholder.svg',
+      imageAlt: { cs: 'Chrám Wat Arun v Bangkoku při západu slunce', en: 'Wat Arun temple in Bangkok at sunset' },
+      highlight: true,
+    },
+    {
+      id: 'hongkong',
+      flag: '🇭🇰',
+      label:    { cs: 'Hongkong',                    en: 'Hong Kong' },
+      title:    { cs: 'Hongkong',                    en: 'Hong Kong' },
+      event:    { cs: 'Mezinárodní kytarová soutěž', en: 'International Guitar Competition' },
+      texts:    {
+        cs: ['Hongkong byl jednou z prvních zastávek za oceánem. Účast na mezinárodní kytarové soutěži přinesla cenné zkušenosti i nová přátelství mezi muzikanty z celého světa.'],
+        en: ['Hong Kong was one of the orchestra\'s first overseas stops. Participating in an international guitar competition brought invaluable experience and new friendships with musicians from around the globe.'],
+      },
+      facts: {
+        cs: ['🌏 Asie · Hongkong', '🏆 Soutěž', '🎸 Kytarový festival'],
+        en: ['🌏 Asia · Hong Kong', '🏆 Competition', '🎸 Guitar festival'],
+      },
+      image:    'assets/images/abroad/bangkok-placeholder.svg',
+      imageAlt: { cs: 'Chrám Wat Arun v Bangkoku při západu slunce', en: 'Wat Arun temple in Bangkok at sunset' },
+      highlight: true,
+    },
+    {
+      id: 'singapore',
+      flag: '🇸🇬',
+      label:    { cs: 'Singapur',          en: 'Singapore' },
+      title:    { cs: 'Singapur',          en: 'Singapore' },
+      event:    { cs: 'Festival & soutěž', en: 'Festival & Competition' },
+      texts:    {
+        cs: ['Singapur byl dalším vrcholem naší zahraniční kariéry. Moderní metropole plná kontrastů nám dala příležitost ukázat český kytarový orchestr světovému publiku na mezinárodní scéně.'],
+        en: ['Singapore was another highlight of our international journey. The modern metropolis full of contrasts gave us the opportunity to showcase Czech guitar playing to a world audience.'],
+      },
+      facts: {
+        cs: ['🌏 Asie · Singapur', '🏆 Soutěž', '🎸 Mezinárodní festival'],
+        en: ['🌏 Asia · Singapore', '🏆 Competition', '🎸 International festival'],
+      },
+    },
+    {
+      id: 'europe',
+      flag: '🇪🇺',
+      label:    { cs: 'Evropa',               en: 'Europe' },
+      title:    { cs: 'Evropské festivaly',   en: 'European Festivals' },
+      event:    { cs: 'Festivaly & soutěže',  en: 'Festivals & Competitions' },
+      texts:    {
+        cs: ['Krom zámořských expedic pravidelně závodíme a vystupujeme na festivalech po celé Evropě. Navštívili jsme festival v německém Trossingen, účastnili se mezinárodních soutěží v Německu i Itálii a budujeme síť kontaktů v evropské kytarové komunitě.'],
+        en: ['Alongside overseas expeditions we regularly compete and perform at festivals across Europe. We have visited the festival in Trossingen, Germany, participated in competitions in Germany and Italy, and continue building ties within the European guitar community.'],
+      },
+      facts: {
+        cs: ['🇩🇪 Německo · Trossingen', '🇮🇹 Itálie', '🏆 Soutěže', '🎸 Festivaly'],
+        en: ['🇩🇪 Germany · Trossingen', '🇮🇹 Italy', '🏆 Competitions', '🎸 Festivals'],
+      },
+    },
+  ];
+
+  function renderAbroadTabs(activeId) {
+    const tablist = document.getElementById('abroad-tablist');
+    tablist.innerHTML = destinations.map(d => `
+      <button
+        class="abroad-tab${d.id === activeId ? ' abroad-tab--active' : ''}${d.highlight ? ' abroad-tab--highlight' : ''}"
+        role="tab"
+        aria-selected="${d.id === activeId}"
+        aria-controls="panel-${d.id}"
+        data-tab="${d.id}">
+        ${d.flag} ${d.label[isCs ? 'cs' : 'en']}
+      </button>`).join('');
+
+    tablist.querySelectorAll('.abroad-tab').forEach(btn => {
+      btn.addEventListener('click', () => renderAbroadPanels(btn.dataset.tab));
+    });
+  }
+
+  function renderAbroadPanels(activeId) {
+    renderAbroadTabs(activeId);
+    const d = destinations.find(x => x.id === activeId);
+    const lang = isCs ? 'cs' : 'en';
+    const factsHtml = d.facts[lang].map(f =>
+      `<span class="abroad-fact">${escHtml(f)}</span>`).join('');
+    const textsHtml = d.texts[lang].map(t =>
+      `<p>${escHtml(t)}</p>`).join('');
+
+    document.getElementById('abroad-panels').innerHTML = `
+      <div class="abroad-panel" id="panel-${d.id}" role="tabpanel">
+        ${d.image ? `
+        <div class="two-col two-col--abroad">
+          <div class="abroad-photo-wrap">
+            <img src="${escHtml(d.image)}"
+                 alt="${escHtml(d.imageAlt ? d.imageAlt[lang] : d.title[lang])}"
+                 class="abroad-photo">
+          </div>
+          <div class="abroad-content">
+            <p class="abroad-event">${escHtml(d.event[lang])}</p>
+            <h3 class="abroad-title">${escHtml(d.title[lang])}</h3>
+            <div class="abroad-texts">${textsHtml}</div>
+            <div class="abroad-facts">${factsHtml}</div>
+          </div>
+        </div>` : `
+        <div class="abroad-content abroad-content--full">
+          <p class="abroad-event">${escHtml(d.event[lang])}</p>
+          <h3 class="abroad-title">${escHtml(d.title[lang])}</h3>
+          <div class="abroad-texts">${textsHtml}</div>
+          <div class="abroad-facts">${factsHtml}</div>
+        </div>`}
+      </div>`;
+  }
+
+  renderAbroadPanels('bangkok');
 
   // Benefice
   document.getElementById('charity-eyebrow').textContent = isCs ? 'Pomáháme' : 'We Help';
