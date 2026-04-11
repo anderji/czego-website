@@ -7,6 +7,7 @@
     "bio_cs": "Vladimír Novotný je zakládající dirigent orchestru a absolvent kytarové hry na AMU v Praze. S orchestrem působí od samého počátku a je hybnou silou jeho uměleckého směřování.",
     "bio_en": "Vladimír Novotný is the founding conductor of the orchestra and a graduate of guitar performance at the Academy of Performing Arts in Prague. He has been with the orchestra from its very beginning and is the driving force behind its artistic direction.",
     "photo": "assets/images/members/vladimir_novotny.jpg",
+    "photo_alt": "assets/images/members/jokes/vlada_vanocni.jpg",
     "social": { "instagram": "", "facebook": "" }
   },
   {
@@ -16,17 +17,17 @@
     "role_en": "Soprano Guitar",
     "bio_cs": "",
     "bio_en": "",
-    "photo": "assets/images/members/placeholder.svg",
+    "photo": "assets/images/members/alena_reznickova.jpg",
     "social": { "instagram": "", "facebook": "" }
   },
   {
     "id": 3,
-    "name": "Simona Mlezivová",
+    "name": "Simona Novotná",
     "role_cs": "Sopránová kytara",
     "role_en": "Soprano Guitar",
     "bio_cs": "",
     "bio_en": "",
-    "photo": "assets/images/members/placeholder.svg",
+    "photo": "assets/images/members/simona_novotna.jpg",
     "social": { "instagram": "", "facebook": "" }
   },
   {
@@ -46,7 +47,7 @@
     "role_en": "1st Guitar",
     "bio_cs": "",
     "bio_en": "",
-    "photo": "assets/images/members/adam_korcsog_800_600.jpg",
+    "photo": "assets/images/members/martin_ledl.jpg",
     "social": { "instagram": "", "facebook": "" }
   },
   {
@@ -56,7 +57,7 @@
     "role_en": "1st Guitar",
     "bio_cs": "",
     "bio_en": "",
-    "photo": "assets/images/members/placeholder.svg",
+    "photo": "assets/images/members/michal_moravec.jpg",
     "social": { "instagram": "", "facebook": "" }
   },
   {
@@ -66,7 +67,7 @@
     "role_en": "1st Guitar",
     "bio_cs": "",
     "bio_en": "",
-    "photo": "assets/images/members/placeholder.svg",
+    "photo": "assets/images/members/michal_sedlacek.jpg",
     "social": { "instagram": "", "facebook": "" }
   },
   {
@@ -76,7 +77,7 @@
     "role_en": "1st Guitar",
     "bio_cs": "",
     "bio_en": "",
-    "photo": "assets/images/members/placeholder.svg",
+    "photo": "assets/images/members/petr_brachaczek.jpg",
     "social": { "instagram": "", "facebook": "" }
   },
   {
@@ -86,17 +87,7 @@
     "role_en": "2nd Guitar",
     "bio_cs": "",
     "bio_en": "",
-    "photo": "assets/images/members/placeholder.svg",
-    "social": { "instagram": "", "facebook": "" }
-  },
-  {
-    "id": 10,
-    "name": "Tereza Blažková",
-    "role_cs": "2. kytara",
-    "role_en": "2nd Guitar",
-    "bio_cs": "",
-    "bio_en": "",
-    "photo": "assets/images/members/placeholder.svg",
+    "photo": "assets/images/members/jana_vitackova.jpg",
     "social": { "instagram": "", "facebook": "" }
   },
   {
@@ -106,7 +97,7 @@
     "role_en": "3rd Guitar",
     "bio_cs": "",
     "bio_en": "",
-    "photo": "assets/images/members/jan_kovar.png",
+    "photo": "assets/images/members/jan_kovar.jpg",
     "social": { "instagram": "", "facebook": "" }
   },
   {
@@ -116,17 +107,17 @@
     "role_en": "3rd Guitar",
     "bio_cs": "",
     "bio_en": "",
-    "photo": "assets/images/members/placeholder.svg",
+    "photo": "assets/images/members/jolana_hermanova.jpg",
     "social": { "instagram": "", "facebook": "" }
   },
   {
     "id": 13,
     "name": "Martin Kusák",
-    "role_cs": "3. kytara",
-    "role_en": "3rd Guitar",
+    "role_cs": "2. kytara",
+    "role_en": "2nd Guitar",
     "bio_cs": "",
     "bio_en": "",
-    "photo": "assets/images/members/placeholder.svg",
+    "photo": "assets/images/members/martin_kusak.jpg",
     "social": { "instagram": "", "facebook": "" }
   },
   {
@@ -136,7 +127,7 @@
     "role_en": "3rd Guitar",
     "bio_cs": "",
     "bio_en": "",
-    "photo": "assets/images/members/placeholder.svg",
+    "photo": "assets/images/members/mikulas_klenor.jpg",
     "social": { "instagram": "", "facebook": "" }
   },
   {
@@ -146,7 +137,7 @@
     "role_en": "3rd Guitar",
     "bio_cs": "",
     "bio_en": "",
-    "photo": "assets/images/members/placeholder.svg",
+    "photo": "assets/images/members/ondrej_marek.jpg",
     "social": { "instagram": "", "facebook": "" }
   },
   {
@@ -156,17 +147,17 @@
     "role_en": "3rd Guitar",
     "bio_cs": "",
     "bio_en": "",
-    "photo": "assets/images/members/placeholder.svg",
+    "photo": "assets/images/members/simona_rohlickova.jpg",
     "social": { "instagram": "", "facebook": "" }
   },
   {
     "id": 17,
     "name": "Sofie Kolevová",
-    "role_cs": "3. kytara",
-    "role_en": "3rd Guitar",
+    "role_cs": "2. kytara",
+    "role_en": "2nd Guitar",
     "bio_cs": "",
     "bio_en": "",
-    "photo": "assets/images/members/placeholder.svg",
+    "photo": "assets/images/members/sofie_kolevova.jpg",
     "social": { "instagram": "", "facebook": "" }
   },
   {
@@ -176,7 +167,7 @@
     "role_en": "3rd Guitar",
     "bio_cs": "",
     "bio_en": "",
-    "photo": "assets/images/members/placeholder.svg",
+    "photo": "assets/images/members/tana_klanska.jpg",
     "social": { "instagram": "", "facebook": "" }
   },
   {
@@ -186,17 +177,17 @@
     "role_en": "3rd Guitar",
     "bio_cs": "",
     "bio_en": "",
-    "photo": "assets/images/members/placeholder.svg",
+    "photo": "assets/images/members/tereza_filipska.jpg",
     "social": { "instagram": "", "facebook": "" }
   },
   {
     "id": 20,
     "name": "Anna Lepschy",
-    "role_cs": "3. kytara",
-    "role_en": "3rd Guitar",
+    "role_cs": "2. kytara",
+    "role_en": "2nd Guitar",
     "bio_cs": "",
     "bio_en": "",
-    "photo": "assets/images/members/placeholder.svg",
+    "photo": "assets/images/members/anna_lepschy.jpg",
     "social": { "instagram": "", "facebook": "" }
   },
   {
@@ -206,7 +197,7 @@
     "role_en": "4th Guitar",
     "bio_cs": "",
     "bio_en": "",
-    "photo": "assets/images/members/placeholder.svg",
+    "photo": "assets/images/members/greta_meitner.jpg",
     "social": { "instagram": "", "facebook": "" }
   },
   {
@@ -216,7 +207,7 @@
     "role_en": "4th Guitar",
     "bio_cs": "",
     "bio_en": "",
-    "photo": "assets/images/members/placeholder.svg",
+    "photo": "assets/images/members/marie_taborska.jpg",
     "social": { "instagram": "", "facebook": "" }
   },
   {
@@ -226,7 +217,7 @@
     "role_en": "4th Guitar",
     "bio_cs": "",
     "bio_en": "",
-    "photo": "assets/images/members/placeholder.svg",
+    "photo": "assets/images/members/tereza_noskova.jpg",
     "social": { "instagram": "", "facebook": "" }
   },
   {
@@ -236,7 +227,7 @@
     "role_en": "4th Guitar",
     "bio_cs": "",
     "bio_en": "",
-    "photo": "assets/images/members/placeholder.svg",
+    "photo": "assets/images/members/tomas_babec.jpg",
     "social": { "instagram": "", "facebook": "" }
   },
   {
@@ -246,7 +237,7 @@
     "role_en": "4th Guitar",
     "bio_cs": "",
     "bio_en": "",
-    "photo": "assets/images/members/placeholder.svg",
+    "photo": "assets/images/members/zuzana_kropacova.jpg",
     "social": { "instagram": "", "facebook": "" }
   },
   {
@@ -256,7 +247,7 @@
     "role_en": "4th Guitar",
     "bio_cs": "",
     "bio_en": "",
-    "photo": "assets/images/members/placeholder.svg",
+    "photo": "assets/images/members/zuzana_tomanova.jpg",
     "social": { "instagram": "", "facebook": "" }
   },
   {
@@ -266,7 +257,7 @@
     "role_en": "Bass Guitar",
     "bio_cs": "",
     "bio_en": "",
-    "photo": "assets/images/members/placeholder.svg",
+    "photo": "assets/images/members/adela_bacova.jpg",
     "social": { "instagram": "", "facebook": "" }
   },
   {
@@ -276,7 +267,7 @@
     "role_en": "Bass Guitar",
     "bio_cs": "",
     "bio_en": "",
-    "photo": "assets/images/members/placeholder.svg",
+    "photo": "assets/images/members/anezka_chvojkova.jpg",
     "social": { "instagram": "", "facebook": "" }
   },
   {
@@ -286,7 +277,7 @@
     "role_en": "Bass Guitar",
     "bio_cs": "",
     "bio_en": "",
-    "photo": "assets/images/members/placeholder.svg",
+    "photo": "assets/images/members/barbora_pavlu.jpg",
     "social": { "instagram": "", "facebook": "" }
   },
   {
@@ -296,7 +287,7 @@
     "role_en": "Bass Guitar",
     "bio_cs": "",
     "bio_en": "",
-    "photo": "assets/images/members/placeholder.svg",
+    "photo": "assets/images/members/karolina_klenorova.jpg",
     "social": { "instagram": "", "facebook": "" }
   },
   {
@@ -306,7 +297,7 @@
     "role_en": "Bass Guitar",
     "bio_cs": "",
     "bio_en": "",
-    "photo": "assets/images/members/placeholder.svg",
+    "photo": "assets/images/members/vojtech_link.jpg",
     "social": { "instagram": "", "facebook": "" }
   }
 ]

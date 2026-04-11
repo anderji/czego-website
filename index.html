@@ -94,6 +94,30 @@
     </div>
   </section>
 
+  <!-- VIDEA -->
+  <section class="section" aria-labelledby="videos-h2">
+    <div class="container">
+      <div class="section__header reveal">
+        <p class="eyebrow" id="videos-eyebrow"></p>
+        <h2 id="videos-h2"></h2>
+      </div>
+      <div class="videos-grid reveal">
+        <div class="video-wrap">
+          <iframe src="https://www.youtube-nocookie.com/embed/m8Xy8n09o4g"
+            title="CZEGO – video 1"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen loading="lazy"></iframe>
+        </div>
+        <div class="video-wrap">
+          <iframe src="https://www.youtube-nocookie.com/embed/F89nTax_1nA"
+            title="CZEGO – video 2"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen loading="lazy"></iframe>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- CITÁT -->
   <section class="section" aria-label="Citát">
     <div class="container container--narrow">
@@ -157,6 +181,10 @@
   document.getElementById('upcoming-h2').textContent      = isCs ? 'Nadcházející koncerty' : 'Upcoming Concerts';
   document.getElementById('upcoming-lead').textContent    = isCs ? 'Přijďte si vychutnat živou kytarovou hudbu – každý si přijde na své.' : 'Come and enjoy live guitar music – there is something for everyone.';
   document.getElementById('btn-all-concerts').textContent = isCs ? 'Zobrazit všechny koncerty' : 'All concerts';
+
+  // Videa
+  document.getElementById('videos-eyebrow').textContent = isCs ? 'Poslouchejte' : 'Listen';
+  document.getElementById('videos-h2').textContent      = isCs ? 'Ukázky z tvorby' : 'Featured Videos';
 
   // Citát
   document.getElementById('quote-text').textContent   = isCs ? 'Chtěla jsem poděkovat za nádherný koncert. Slyšely jsme ho poprvé a moc nás nadchl.' : 'I wanted to thank you for a wonderful concert. We heard you for the first time and were truly captivated.';

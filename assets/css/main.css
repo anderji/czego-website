@@ -523,7 +523,7 @@ p + p { margin-top: var(--sp-4); }
   display: inline-flex;
   align-items: center;
   padding: .3rem .85rem;
-  border: 1px solid var(--border);
+  border: 1px solid var(--border-mid);
   border-radius: var(--r-full);
   font-size: .78rem;
   font-weight: 500;
@@ -609,6 +609,44 @@ p + p { margin-top: var(--sp-4); }
   transition: transform var(--transition-slow);
 }
 .member-card:hover .member-card__photo img { transform: scale(1.04); }
+
+.member-card__photo--switchable {
+  cursor: pointer;
+}
+.member-card__photo-img {
+  position: absolute;
+  inset: 0;
+  transition: opacity 400ms ease, transform var(--transition-slow);
+}
+.member-card__photo-img--alt {
+  opacity: 0;
+}
+.member-card__photo--flipped .member-card__photo-img--primary {
+  opacity: 0;
+}
+.member-card__photo--flipped .member-card__photo-img--alt {
+  opacity: 1;
+}
+.member-card__photo-hint {
+  position: absolute;
+  bottom: var(--sp-2);
+  right: var(--sp-2);
+  font-size: .85rem;
+  background: rgba(255,255,255,.75);
+  border-radius: var(--r-full);
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity var(--transition);
+  pointer-events: none;
+}
+.member-card__photo--switchable:hover .member-card__photo-hint {
+  opacity: 1;
+}
+
 .member-card__photo-placeholder {
   width: 100%;
   height: 100%;
@@ -966,6 +1004,32 @@ p + p { margin-top: var(--sp-4); }
 }
 @media (max-width: 768px) {
   .two-col--abroad { grid-template-columns: 1fr; gap: var(--sp-8); }
+}
+
+/* ── Videos ── */
+.videos-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--sp-6);
+  margin-top: var(--sp-8);
+}
+.video-wrap {
+  position: relative;
+  aspect-ratio: 16 / 9;
+  border-radius: var(--r-lg);
+  overflow: hidden;
+  background: var(--ink);
+  box-shadow: var(--shadow-md);
+}
+.video-wrap iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+@media (max-width: 640px) {
+  .videos-grid { grid-template-columns: 1fr; }
 }
 
 /* ── Section Divider ── */
