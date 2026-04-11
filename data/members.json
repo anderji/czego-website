@@ -299,5 +299,16 @@
     "bio_en": "",
     "photo": "assets/images/members/vojtech_link.jpg",
     "social": { "instagram": "", "facebook": "" }
+  },
+  {
+    "id": 32,
+    "name": "Ryan Chan",
+    "role_cs": "Aranžér & skladatel",
+    "role_en": "Arranger & Composer",
+    "bio_cs": "Ryan Chan je mimořádně talentovaný aranžér a skladatel, který i přes vzdálenost zůstává neoddělitelnou součástí CZEGO. Jeho precizně zpracovaná aranžmá z filmové hudby, popu i klasiky jsou pilířem našeho repertoáru — každá jeho partitura nese rukopis hudebníka s výjimečným citem pro barvu zvuku kytarového orchestru. Ryan je jednoduše jeden z nejlepších, se kterými jsme kdy spolupracovali.",
+    "bio_en": "Ryan Chan is an extraordinarily talented arranger and composer who, despite the distance, remains an inseparable part of CZEGO. His meticulously crafted arrangements spanning film music, pop and classical repertoire are a cornerstone of what we play — each score bears the hallmark of a musician with an exceptional ear for the colour of the guitar orchestra's sound. Ryan is simply one of the best we have ever worked with.",
+    "photo": "assets/images/members/ryan_chan.jpg",
+    "guest": true,
+    "social": { "instagram": "", "facebook": "" }
   }
 ]

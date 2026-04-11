@@ -113,6 +113,7 @@
             <div class="member-card__name">${escHtml(m.name)}</div>
             <div class="member-card__role">${escHtml(isCs ? m.role_cs : m.role_en)}</div>
             <p class="member-card__bio">${escHtml(isCs ? m.bio_cs : m.bio_en)}</p>
+            ${(isCs ? m.bio_cs : m.bio_en) ? `<button class="member-card__bio-toggle" hidden>${isCs ? 'Číst více' : 'Read more'}</button>` : ''}
             ${hasSocial ? `
             <div class="member-card__social">
               ${m.social.instagram ? `<a href="${escHtml(m.social.instagram)}" target="_blank" rel="noopener noreferrer" aria-label="Instagram">IG</a>` : ''}
@@ -122,14 +123,18 @@
         </div>`;
       }
 
-      // Seskup podle role (zachová pořadí z ROLE_ORDER)
+      // Odděl hosty od stálých členů
+      const regular = sorted.filter(m => !m.guest);
+      const guests  = sorted.filter(m =>  m.guest);
+
+      // Seskup stálé členy podle role (zachová pořadí z ROLE_ORDER)
       const groupMap = new Map();
-      for (const m of sorted) {
+      for (const m of regular) {
         if (!groupMap.has(m.role_cs)) groupMap.set(m.role_cs, { role_cs: m.role_cs, role_en: m.role_en, members: [] });
         groupMap.get(m.role_cs).members.push(m);
       }
 
-      grid.innerHTML = [...groupMap.values()].map(g => `
+      const regularHTML = [...groupMap.values()].map(g => `
         <div class="members-group">
           <div class="members-group__header">
             <span class="members-group__label">${escHtml(isCs ? g.role_cs : g.role_en)}</span>
@@ -138,6 +143,34 @@
             ${g.members.map(memberCardHTML).join('')}
           </div>
         </div>`).join('');
+
+      const guestsHTML = guests.length === 0 ? '' : `
+        <div class="members-group members-group--guests">
+          <div class="members-group__header members-group__header--guests">
+            <span class="members-group__label">${isCs ? 'Občasní členové' : 'Guest Members'}</span>
+          </div>
+          <div class="members-grid${guests.length === 1 ? ' members-grid--solo' : ''}">
+            ${guests.map(memberCardHTML).join('')}
+          </div>
+        </div>`;
+
+      grid.innerHTML = regularHTML + guestsHTML;
+
+      // Rozbalovací bio
+      grid.querySelectorAll('.member-card__bio').forEach(bio => {
+        if (bio.scrollHeight > bio.clientHeight) {
+          const btn = bio.nextElementSibling;
+          if (btn && btn.classList.contains('member-card__bio-toggle')) {
+            btn.hidden = false;
+            btn.addEventListener('click', () => {
+              const expanded = bio.classList.toggle('member-card__bio--expanded');
+              btn.textContent = expanded
+                ? (isCs ? 'Méně' : 'Less')
+                : (isCs ? 'Číst více' : 'Read more');
+            });
+          }
+        }
+      });
 
       // Přepínání fotek
       grid.querySelectorAll('.member-card__photo--switchable').forEach(el => {
