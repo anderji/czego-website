@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Koncerty – CZEGO | Český kytarový orchestr</title>
+  <meta name="description" content="Přehled všech koncertů Českého kytarového orchestru CZEGO – nadcházející vystoupení i archiv proběhlých koncertů v Praze a po celé ČR.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://czego.cz/koncerty.html">
+  <link rel="alternate" hreflang="cs" href="https://czego.cz/koncerty.html">
+  <link rel="alternate" hreflang="en" href="https://czego.cz/koncerty.html">
+  <meta property="og:type"        content="website">
+  <meta property="og:url"         content="https://czego.cz/koncerty.html">
+  <meta property="og:title"       content="Koncerty – CZEGO | Český kytarový orchestr">
+  <meta property="og:description" content="Nadcházející koncerty i archiv – Český kytarový orchestr CZEGO.">
+  <meta property="og:image"       content="https://czego.cz/assets/images/og/og-default.jpg">
+  <meta property="og:site_name"   content="CZEGO">
+  <meta name="twitter:card"       content="summary_large_image">
+  <meta name="twitter:image"      content="https://czego.cz/assets/images/og/og-default.jpg">
+  <meta name="theme-color"        content="#B8251A">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap">
+  <link rel="stylesheet" href="assets/css/main.css">
+</head>
+<body>
+
+<a class="skip-nav" href="#main-content">Přeskočit na obsah</a>
+
+<header class="site-header" role="banner">
+  <div class="container">
+    <nav class="nav" aria-label="Hlavní navigace">
+      <a class="nav__logo" href="index.html">CZ<span>EGO</span></a>
+      <button class="nav__burger" id="nav-burger" aria-label="Otevřít menu" aria-expanded="false" aria-controls="nav-links">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav__links" id="nav-links" role="list"></ul>
+    </nav>
+  </div>
+</header>
+
+<main id="main-content" tabindex="-1">
+
+  <div class="page-header">
+    <div class="container">
+      <p class="eyebrow" id="ph-eyebrow"></p>
+      <h1 id="ph-h1"></h1>
+    </div>
+  </div>
+
+  <!-- NADCHÁZEJÍCÍ -->
+  <section class="section" aria-labelledby="upcoming-h2">
+    <div class="container">
+      <h2 id="upcoming-h2" style="margin-bottom:1.5rem"></h2>
+      <div id="upcoming-grid"></div>
+    </div>
+  </section>
+
+  <!-- ARCHIV -->
+  <section class="section section--alt" aria-labelledby="past-h2">
+    <div class="container">
+      <h2 id="past-h2" style="margin-bottom:1.5rem"></h2>
+      <div id="past-grid"></div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer" role="contentinfo">
+  <div class="container" id="site-footer-inner"></div>
+</footer>
+
+<script src="assets/js/utils.js"></script>
+<script>
+(function () {
+  const isCs = getLang() === 'cs';
+  renderNav('koncerty.html');
+  renderFooter();
+
+  document.documentElement.lang = getLang();
+  if (!isCs) {
+    document.title = 'Concerts – CZEGO | Czech Guitar Orchestra';
+    document.querySelector('meta[name="description"]').content = 'Overview of all Czech Guitar Orchestra CZEGO concerts – upcoming performances and archive of past concerts.';
+  }
+
+  document.getElementById('ph-eyebrow').textContent = isCs ? 'Přehled' : 'Overview';
+  document.getElementById('ph-h1').textContent      = isCs ? 'Koncerty' : 'Concerts';
+  document.getElementById('upcoming-h2').textContent = isCs ? 'Nadcházející' : 'Upcoming';
+  document.getElementById('past-h2').textContent    = isCs ? 'Archiv' : 'Archive';
+
+  showLoading('upcoming-grid');
+  showLoading('past-grid');
+
+  fetchJSON('data/concerts.json')
+    .then(concerts => {
+      const upcoming = sortByDate(concerts.filter(c =>  isUpcoming(c.date)), 'asc');
+      const past     = sortByDate(concerts.filter(c => !isUpcoming(c.date)), 'desc');
+
+      const upEl   = document.getElementById('upcoming-grid');
+      const pastEl = document.getElementById('past-grid');
+
+      upEl.innerHTML = upcoming.length === 0
+        ? `<p class="empty-state">${isCs ? 'Momentálně nejsou naplánované žádné koncerty.' : 'No concerts are currently scheduled.'}</p>`
+        : `<div class="concerts-grid">${upcoming.map(concertCardHTML).join('')}</div>`;
+
+      pastEl.innerHTML = past.length === 0
+        ? `<p class="empty-state">${isCs ? 'Zatím žádné proběhlé koncerty.' : 'No past concerts yet.'}</p>`
+        : `<div class="concerts-grid">${past.map(concertCardHTML).join('')}</div>`;
+
+      // Structured data pro budoucí koncerty
+      if (upcoming.length > 0) {
+        const events = upcoming.map(c => ({
+          '@context': 'https://schema.org',
+          '@type': 'Event',
+          'name': isCs ? c.title_cs : c.title_en,
+          'startDate': c.date + (c.time ? 'T' + c.time.split('–')[0].trim() : ''),
+          'location': { '@type': 'Place', 'name': c.venue },
+          'organizer': { '@type': 'MusicGroup', 'name': 'CZEGO' },
+          'description': isCs ? c.description_cs : c.description_en,
+        }));
+        const script = document.createElement('script');
+        script.type = 'application/ld+json';
+        script.textContent = JSON.stringify(events);
+        document.head.appendChild(script);
+      }
+    })
+    .catch(() => {
+      showError('upcoming-grid', isCs ? 'Nepodařilo se načíst koncerty.' : 'Failed to load concerts.');
+      showError('past-grid', '');
+    })
+    .finally(() => initReveal());
+})();
+</script>
+</body>
+</html>

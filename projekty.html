@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Projekty – CZEGO | Český kytarový orchestr</title>
+  <meta name="description" content="Benefiční a vzdělávací projekty Českého kytarového orchestru CZEGO – spolupráce s Člověkem v tísni, ZUŠ Jeseník, Nedoklubko a další.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://czego.cz/projekty.html">
+  <link rel="alternate" hreflang="cs" href="https://czego.cz/projekty.html">
+  <link rel="alternate" hreflang="en" href="https://czego.cz/projekty.html">
+  <meta property="og:type"        content="website">
+  <meta property="og:url"         content="https://czego.cz/projekty.html">
+  <meta property="og:title"       content="Projekty – CZEGO | Český kytarový orchestr">
+  <meta property="og:description" content="Benefiční a vzdělávací projekty Českého kytarového orchestru CZEGO.">
+  <meta property="og:image"       content="https://czego.cz/assets/images/og/og-default.jpg">
+  <meta property="og:site_name"   content="CZEGO">
+  <meta name="twitter:card"       content="summary_large_image">
+  <meta name="twitter:image"      content="https://czego.cz/assets/images/og/og-default.jpg">
+  <meta name="theme-color"        content="#B8251A">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap">
+  <link rel="stylesheet" href="assets/css/main.css">
+</head>
+<body>
+
+<a class="skip-nav" href="#main-content">Přeskočit na obsah</a>
+
+<header class="site-header" role="banner">
+  <div class="container">
+    <nav class="nav" aria-label="Hlavní navigace">
+      <a class="nav__logo" href="index.html">CZ<span>EGO</span></a>
+      <button class="nav__burger" id="nav-burger" aria-label="Otevřít menu" aria-expanded="false" aria-controls="nav-links">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav__links" id="nav-links" role="list"></ul>
+    </nav>
+  </div>
+</header>
+
+<main id="main-content" tabindex="-1">
+
+  <div class="page-header">
+    <div class="container">
+      <p class="eyebrow" id="ph-eyebrow"></p>
+      <h1 id="ph-h1"></h1>
+      <p class="lead" id="ph-lead" style="margin-top:1rem"></p>
+    </div>
+  </div>
+
+  <section class="section">
+    <div class="container">
+      <div id="projects-grid" class="projects-grid"></div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer" role="contentinfo">
+  <div class="container" id="site-footer-inner"></div>
+</footer>
+
+<script src="assets/js/utils.js"></script>
+<script>
+(function () {
+  const isCs = getLang() === 'cs';
+  renderNav('projekty.html');
+  renderFooter();
+
+  document.documentElement.lang = getLang();
+  if (!isCs) {
+    document.title = 'Projects – CZEGO | Czech Guitar Orchestra';
+    document.querySelector('meta[name="description"]').content = 'Charity and educational projects of the Czech Guitar Orchestra CZEGO.';
+  }
+
+  document.getElementById('ph-eyebrow').textContent = isCs ? 'Co děláme navíc' : 'Beyond the stage';
+  document.getElementById('ph-h1').textContent      = isCs ? 'Projekty & benefice' : 'Projects & Charity';
+  document.getElementById('ph-lead').textContent    = isCs
+    ? 'Mimo koncertování se rádi zapojujeme do projektů a pomáháme tam, kde je to potřeba.'
+    : 'Beyond performing, we love getting involved in projects and helping where it\'s needed.';
+
+  const grid = document.getElementById('projects-grid');
+  showLoading('projects-grid');
+
+  fetchJSON('data/projects.json')
+    .then(projects => {
+      grid.innerHTML = projects.map(p => `
+        <div class="project-card reveal">
+          <div class="project-card__image">
+            ${p.image
+              ? `<img src="${escHtml(p.image)}" alt="${escHtml(isCs ? p.title_cs : p.title_en)}" loading="lazy" width="640" height="360">`
+              : `<div class="project-card__image-placeholder">🎵</div>`}
+          </div>
+          <div class="project-card__body">
+            <div class="project-card__meta">
+              <span class="project-card__category">${escHtml(isCs ? p.category_cs : p.category_en)}</span>
+              <span class="project-card__year">${escHtml(p.year)}</span>
+            </div>
+            <h2 class="project-card__title">${escHtml(isCs ? p.title_cs : p.title_en)}</h2>
+            <p class="project-card__desc">${escHtml(isCs ? p.description_cs : p.description_en)}</p>
+            <div class="project-card__partner">
+              <strong>${isCs ? 'Partner' : 'Partner'}:</strong>
+              ${escHtml(isCs ? p.partner_cs : p.partner_en)}
+            </div>
+          </div>
+        </div>`).join('');
+    })
+    .catch(() => showError('projects-grid', isCs ? 'Nepodařilo se načíst projekty.' : 'Failed to load projects.'))
+    .finally(() => initReveal());
+})();
+</script>
+</body>
+</html>

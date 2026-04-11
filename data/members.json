@@ -1,0 +1,72 @@
+[
+  {
+    "id": 1,
+    "name": "Vladimír Novotný",
+    "role_cs": "Dirigent",
+    "role_en": "Conductor",
+    "bio_cs": "Vladimír Novotný je zakládající dirigent orchestru a absolvent kytarové hry na AMU v Praze. S orchestrem působí od samého počátku a je hybnou silou jeho uměleckého směřování.",
+    "bio_en": "Vladimír Novotný is the founding conductor of the orchestra and a graduate of guitar performance at the Academy of Performing Arts in Prague. He has been with the orchestra from its very beginning and is the driving force behind its artistic direction.",
+    "photo": "assets/images/members/placeholder.svg",
+    "social": {
+      "instagram": "",
+      "facebook": ""
+    },
+    "order": 1
+  },
+  {
+    "id": 2,
+    "name": "Jana Horáčková",
+    "role_cs": "1. kytara",
+    "role_en": "1st Guitar",
+    "bio_cs": "Jana se věnuje klasické kytaře od osmi let. Vystudovala konzervatoř v Praze a absolvovala masterclass u předních světových kytaristů. V orchestru hraje od roku 2012.",
+    "bio_en": "Jana has been playing classical guitar since the age of eight. She studied at the Prague Conservatory and attended masterclasses with leading international guitarists. She has been a member of the orchestra since 2012.",
+    "photo": "assets/images/members/placeholder.svg",
+    "social": {
+      "instagram": "https://instagram.com",
+      "facebook": ""
+    },
+    "order": 2
+  },
+  {
+    "id": 3,
+    "name": "Tomáš Krejčí",
+    "role_cs": "2. kytara",
+    "role_en": "2nd Guitar",
+    "bio_cs": "Tomáš je specialista na španělský a latinoamerický repertoár. Člen orchestru od roku 2015, pravidelně spolupracuje s dalšími komorními soubory.",
+    "bio_en": "Tomáš specialises in Spanish and Latin American repertoire. A member of the orchestra since 2015, he regularly collaborates with other chamber ensembles.",
+    "photo": "assets/images/members/placeholder.svg",
+    "social": {
+      "instagram": "",
+      "facebook": "https://facebook.com"
+    },
+    "order": 3
+  },
+  {
+    "id": 4,
+    "name": "Markéta Svobodová",
+    "role_cs": "Basová kytara",
+    "role_en": "Bass Guitar",
+    "bio_cs": "Markéta studovala na brněnské JAMU a přinesla do orchestru prvky jazzové harmonie. Do souboru nastoupila v roce 2018 a od té doby obohacuje náš zvuk o nové barvy.",
+    "bio_en": "Markéta studied at the Janáček Academy in Brno and brought elements of jazz harmony to the orchestra. She joined in 2018 and has since enriched the ensemble's sound with new colours.",
+    "photo": "assets/images/members/placeholder.svg",
+    "social": {
+      "instagram": "https://instagram.com",
+      "facebook": ""
+    },
+    "order": 4
+  },
+  {
+    "id": 5,
+    "name": "Petr Dvořák",
+    "role_cs": "Rytmická kytara",
+    "role_en": "Rhythm Guitar",
+    "bio_cs": "Petr je nejmladší člen orchestru, ale jeho cit pro rytmus a harmonie je mimořádný. Studuje na hudební fakultě v Praze a s orchestrem spolupracuje od roku 2021.",
+    "bio_en": "Petr is the youngest member of the orchestra, but his feel for rhythm and harmony is exceptional. He is studying at the music faculty in Prague and has been working with the orchestra since 2021.",
+    "photo": "assets/images/members/placeholder.svg",
+    "social": {
+      "instagram": "https://instagram.com",
+      "facebook": ""
+    },
+    "order": 5
+  }
+]

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+
+  <url>
+    <loc>https://czego.cz/</loc>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://czego.cz/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://czego.cz/"/>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+
+  <url>
+    <loc>https://czego.cz/o-nas.html</loc>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://czego.cz/o-nas.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://czego.cz/o-nas.html"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://czego.cz/koncerty.html</loc>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://czego.cz/koncerty.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://czego.cz/koncerty.html"/>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://czego.cz/projekty.html</loc>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://czego.cz/projekty.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://czego.cz/projekty.html"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://czego.cz/clenove.html</loc>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://czego.cz/clenove.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://czego.cz/clenove.html"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://czego.cz/kontakt.html</loc>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://czego.cz/kontakt.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://czego.cz/kontakt.html"/>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+</urlset>

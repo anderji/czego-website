@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CZEGO – Český kytarový orchestr</title>
+  <meta name="description" content="Český kytarový orchestr CZEGO – téměř 30 kytarových nadšenců v čele s dirigentem Vladimírem Novotným. Klasika, film, pop i swing – vše na strunách. Koncerty v Praze a po celé ČR.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://czego.cz/">
+  <link rel="alternate" hreflang="cs" href="https://czego.cz/">
+  <link rel="alternate" hreflang="en" href="https://czego.cz/">
+  <link rel="alternate" hreflang="x-default" href="https://czego.cz/">
+  <!-- Open Graph -->
+  <meta property="og:type"        content="website">
+  <meta property="og:url"         content="https://czego.cz/">
+  <meta property="og:title"       content="CZEGO – Český kytarový orchestr">
+  <meta property="og:description" content="Téměř 30 kytarových nadšenců. Klasika, film, pop i swing – vše na strunách.">
+  <meta property="og:image"       content="https://czego.cz/assets/images/og/og-default.jpg">
+  <meta property="og:locale"      content="cs_CZ">
+  <meta property="og:site_name"   content="CZEGO">
+  <meta name="twitter:card"       content="summary_large_image">
+  <meta name="twitter:image"      content="https://czego.cz/assets/images/og/og-default.jpg">
+  <meta name="theme-color"        content="#B8251A">
+  <!-- Structured data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "MusicGroup",
+    "name": "CZEGO – Český kytarový orchestr",
+    "alternateName": "Czech Guitar Orchestra",
+    "url": "https://czego.cz",
+    "description": "Český kytarový orchestr – téměř 30 kytarových nadšenců v čele s dirigentem Vladimírem Novotným.",
+    "email": "info@czego.cz",
+    "foundingLocation": { "@type": "City", "name": "Praha" },
+    "genre": ["Classical", "Film Music", "Pop", "Swing"],
+    "sameAs": [
+      "https://www.facebook.com/czegocz",
+      "https://open.spotify.com/artist/2Kd9Xiqasp6kTFfpBVBGKI",
+      "https://www.youtube.com/@CzechGuitarOrchestra"
+    ]
+  }
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap">
+  <link rel="stylesheet" href="assets/css/main.css">
+</head>
+<body>
+
+<a class="skip-nav" href="#main-content">Přeskočit na obsah</a>
+
+<header class="site-header" role="banner">
+  <div class="container">
+    <nav class="nav" aria-label="Hlavní navigace">
+      <a class="nav__logo" href="index.html">CZ<span>EGO</span></a>
+      <button class="nav__burger" id="nav-burger" aria-label="Otevřít menu" aria-expanded="false" aria-controls="nav-links">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav__links" id="nav-links" role="list"></ul>
+    </nav>
+  </div>
+</header>
+
+<main id="main-content" tabindex="-1">
+
+  <!-- HERO -->
+  <section class="hero" aria-label="Úvod">
+    <div class="container">
+      <div class="hero__content" id="hero-content">
+        <p class="eyebrow" id="hero-eyebrow"></p>
+        <h1 class="hero__h1" id="hero-h1"></h1>
+        <p class="hero__sub" id="hero-sub"></p>
+        <div class="btn-group">
+          <a class="btn btn--primary" href="koncerty.html" id="hero-btn-concerts"></a>
+          <a class="btn btn--outline" href="o-nas.html"    id="hero-btn-about"></a>
+        </div>
+      </div>
+    </div>
+    <div class="hero__deco" aria-hidden="true">♩</div>
+  </section>
+
+  <!-- NADCHÁZEJÍCÍ KONCERTY -->
+  <section class="section section--alt" aria-labelledby="upcoming-h2">
+    <div class="container">
+      <div class="section__header reveal">
+        <p class="eyebrow" id="upcoming-eyebrow"></p>
+        <h2 id="upcoming-h2"></h2>
+        <p class="lead" id="upcoming-lead"></p>
+      </div>
+      <div id="upcoming-grid" class="reveal"></div>
+      <div class="reveal" style="margin-top:2rem">
+        <a class="btn btn--outline" href="koncerty.html" id="btn-all-concerts"></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- CITÁT -->
+  <section class="section" aria-label="Citát">
+    <div class="container container--narrow">
+      <div class="quote-block reveal">
+        <p class="quote-block__text" id="quote-text"></p>
+        <cite class="quote-block__cite" id="quote-author"></cite>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJEKTY STRIP -->
+  <section class="section section--sand" aria-labelledby="charity-h2">
+    <div class="container">
+      <div class="two-col">
+        <div class="reveal">
+          <p class="eyebrow" id="charity-eyebrow"></p>
+          <h2 id="charity-h2"></h2>
+          <p class="lead" id="charity-lead"></p>
+          <div style="margin-top:2rem">
+            <a class="btn btn--primary" href="projekty.html" id="btn-projects"></a>
+          </div>
+        </div>
+        <div class="reveal reveal-delay-2" aria-hidden="true">
+          <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:.75rem">
+            <div style="aspect-ratio:1;background:var(--white);border-radius:var(--r-lg);display:flex;align-items:center;justify-content:center;font-size:2rem;box-shadow:var(--shadow-sm)">🎸</div>
+            <div style="aspect-ratio:1;background:var(--white);border-radius:var(--r-lg);display:flex;align-items:center;justify-content:center;font-size:2rem;box-shadow:var(--shadow-sm)">🏫</div>
+            <div style="aspect-ratio:1;background:var(--white);border-radius:var(--r-lg);display:flex;align-items:center;justify-content:center;font-size:2rem;box-shadow:var(--shadow-sm)">🌐</div>
+            <div style="aspect-ratio:1;background:var(--white);border-radius:var(--r-lg);display:flex;align-items:center;justify-content:center;font-size:2rem;box-shadow:var(--shadow-sm)">❤️</div>
+            <div style="aspect-ratio:1;background:var(--red);border-radius:var(--r-lg);display:flex;align-items:center;justify-content:center;font-size:2rem;box-shadow:var(--shadow-sm)">🌊</div>
+            <div style="aspect-ratio:1;background:var(--white);border-radius:var(--r-lg);display:flex;align-items:center;justify-content:center;font-size:2rem;box-shadow:var(--shadow-sm)">✈️</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer" role="contentinfo">
+  <div class="container" id="site-footer-inner"></div>
+</footer>
+
+<script src="assets/js/utils.js"></script>
+<script>
+(function () {
+  const isCs = getLang() === 'cs';
+
+  // Nav & footer
+  renderNav('index.html');
+  renderFooter();
+
+  // Hero texty
+  document.getElementById('hero-eyebrow').textContent    = isCs ? 'Český kytarový orchestr · Praha' : 'Czech Guitar Orchestra · Prague';
+  document.getElementById('hero-h1').innerHTML           = isCs ? 'Hrajeme,<br><em>protože nás</em><br>to baví.' : 'We play,<br><em>because we</em><br>love it.';
+  document.getElementById('hero-sub').textContent        = isCs ? 'Téměř 30 kytarových nadšenců v čele s dirigentem Vladimírem Novotným. Klasika, film, pop i swing – vše na strunách.' : 'Nearly 30 guitar enthusiasts led by conductor Vladimír Novotný. Classical, film, pop and swing – all on strings.';
+  document.getElementById('hero-btn-concerts').textContent = isCs ? 'Nadcházející koncerty' : 'Upcoming concerts';
+  document.getElementById('hero-btn-about').textContent    = isCs ? 'O orchestru' : 'About us';
+
+  // Sekce nadcházející
+  document.getElementById('upcoming-eyebrow').textContent = isCs ? 'Vystoupení' : 'Performances';
+  document.getElementById('upcoming-h2').textContent      = isCs ? 'Nadcházející koncerty' : 'Upcoming Concerts';
+  document.getElementById('upcoming-lead').textContent    = isCs ? 'Přijďte si vychutnat živou kytarovou hudbu – každý si přijde na své.' : 'Come and enjoy live guitar music – there is something for everyone.';
+  document.getElementById('btn-all-concerts').textContent = isCs ? 'Zobrazit všechny koncerty' : 'All concerts';
+
+  // Citát
+  document.getElementById('quote-text').textContent   = isCs ? 'Chtěla jsem poděkovat za nádherný koncert. Slyšely jsme ho poprvé a moc nás nadchl.' : 'I wanted to thank you for a wonderful concert. We heard you for the first time and were truly captivated.';
+  document.getElementById('quote-author').textContent = isCs ? '— Návštěvnice Vánočního koncertu 2024' : '— Visitor at Christmas Concert 2024';
+
+  // Projekty strip
+  document.getElementById('charity-eyebrow').textContent = isCs ? 'Benefice & projekty' : 'Charity & Projects';
+  document.getElementById('charity-h2').textContent      = isCs ? 'Hudba pomáhá' : 'Music Helps';
+  document.getElementById('charity-lead').textContent    = isCs ? 'Podpořili jsme Nedoklubko, Klub cystické fibrózy, ZUŠ Jeseník po povodních. Spolupracujeme s Člověkem v tísni i mezinárodními orchestry.' : 'We have supported Nedoklubko, the Cystic Fibrosis Club, and the Jeseník Art School after floods. We collaborate with People in Need and international orchestras.';
+  document.getElementById('btn-projects').textContent    = isCs ? 'Všechny projekty' : 'All projects';
+
+  // Načti nadcházející koncerty
+  const grid = document.getElementById('upcoming-grid');
+  showLoading('upcoming-grid');
+  fetchJSON('data/concerts.json')
+    .then(concerts => {
+      const upcoming = sortByDate(concerts.filter(c => isUpcoming(c.date)), 'asc');
+      if (upcoming.length === 0) {
+        grid.innerHTML = `<p class="empty-state">${isCs ? 'Momentálně nejsou naplánované žádné koncerty.' : 'No concerts are currently scheduled.'}</p>`;
+      } else {
+        grid.innerHTML = `<div class="concerts-grid">${upcoming.map(concertCardHTML).join('')}</div>`;
+      }
+    })
+    .catch(() => showError('upcoming-grid', isCs ? 'Nepodařilo se načíst koncerty.' : 'Failed to load concerts.'))
+    .finally(() => initReveal());
+
+  // Spusť reveal pro statické prvky
+  initReveal();
+})();
+</script>
+</body>
+</html>

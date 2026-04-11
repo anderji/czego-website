@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Členové – CZEGO | Český kytarový orchestr</title>
+  <meta name="description" content="Poznejte členy Českého kytarového orchestru CZEGO – dirigent Vladimír Novotný a téměř 30 kytarových nadšenců z celé České republiky.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://czego.cz/clenove.html">
+  <link rel="alternate" hreflang="cs" href="https://czego.cz/clenove.html">
+  <link rel="alternate" hreflang="en" href="https://czego.cz/clenove.html">
+  <meta property="og:type"        content="website">
+  <meta property="og:url"         content="https://czego.cz/clenove.html">
+  <meta property="og:title"       content="Členové – CZEGO | Český kytarový orchestr">
+  <meta property="og:description" content="Poznejte členy Českého kytarového orchestru CZEGO.">
+  <meta property="og:image"       content="https://czego.cz/assets/images/og/og-default.jpg">
+  <meta property="og:site_name"   content="CZEGO">
+  <meta name="twitter:card"       content="summary_large_image">
+  <meta name="twitter:image"      content="https://czego.cz/assets/images/og/og-default.jpg">
+  <meta name="theme-color"        content="#B8251A">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap">
+  <link rel="stylesheet" href="assets/css/main.css">
+</head>
+<body>
+
+<a class="skip-nav" href="#main-content">Přeskočit na obsah</a>
+
+<header class="site-header" role="banner">
+  <div class="container">
+    <nav class="nav" aria-label="Hlavní navigace">
+      <a class="nav__logo" href="index.html">CZ<span>EGO</span></a>
+      <button class="nav__burger" id="nav-burger" aria-label="Otevřít menu" aria-expanded="false" aria-controls="nav-links">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav__links" id="nav-links" role="list"></ul>
+    </nav>
+  </div>
+</header>
+
+<main id="main-content" tabindex="-1">
+
+  <div class="page-header">
+    <div class="container">
+      <p class="eyebrow" id="ph-eyebrow"></p>
+      <h1 id="ph-h1"></h1>
+      <p class="lead" id="ph-lead" style="margin-top:1rem"></p>
+    </div>
+  </div>
+
+  <section class="section">
+    <div class="container">
+      <div id="members-grid" class="members-grid"></div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer" role="contentinfo">
+  <div class="container" id="site-footer-inner"></div>
+</footer>
+
+<script src="assets/js/utils.js"></script>
+<script>
+(function () {
+  const isCs = getLang() === 'cs';
+  renderNav('clenove.html');
+  renderFooter();
+
+  document.documentElement.lang = getLang();
+  if (!isCs) {
+    document.title = 'Members – CZEGO | Czech Guitar Orchestra';
+    document.querySelector('meta[name="description"]').content = 'Meet the members of the Czech Guitar Orchestra CZEGO – conductor Vladimír Novotný and nearly 30 guitar enthusiasts.';
+  }
+
+  document.getElementById('ph-eyebrow').textContent = isCs ? 'Tým' : 'Team';
+  document.getElementById('ph-h1').textContent      = isCs ? 'Členové orchestru' : 'Orchestra Members';
+  document.getElementById('ph-lead').textContent    = isCs ? 'Lidé, kteří tvoří CZEGO.' : 'The people who make CZEGO.';
+
+  const grid = document.getElementById('members-grid');
+  showLoading('members-grid');
+
+  fetchJSON('data/members.json')
+    .then(members => {
+      const sorted = [...members].sort((a, b) => a.order - b.order);
+      grid.innerHTML = sorted.map(m => {
+        const hasSocial = m.social && (m.social.instagram || m.social.facebook);
+        return `
+        <div class="member-card reveal">
+          <div class="member-card__photo">
+            ${m.photo
+              ? `<img src="${escHtml(m.photo)}" alt="${escHtml(m.name)}" loading="lazy" width="400" height="300">`
+              : `<div class="member-card__photo-placeholder">${escHtml(initials(m.name))}</div>`}
+          </div>
+          <div class="member-card__body">
+            <div class="member-card__name">${escHtml(m.name)}</div>
+            <div class="member-card__role">${escHtml(isCs ? m.role_cs : m.role_en)}</div>
+            <p class="member-card__bio">${escHtml(isCs ? m.bio_cs : m.bio_en)}</p>
+            ${hasSocial ? `
+            <div class="member-card__social">
+              ${m.social.instagram ? `<a href="${escHtml(m.social.instagram)}" target="_blank" rel="noopener noreferrer" aria-label="Instagram">IG</a>` : ''}
+              ${m.social.facebook  ? `<a href="${escHtml(m.social.facebook)}"  target="_blank" rel="noopener noreferrer" aria-label="Facebook">FB</a>` : ''}
+            </div>` : ''}
+          </div>
+        </div>`;
+      }).join('');
+
+      // Structured data pro členy
+      const persons = sorted.map(m => ({
+        '@context': 'https://schema.org',
+        '@type': 'Person',
+        'name': m.name,
+        'jobTitle': isCs ? m.role_cs : m.role_en,
+        'description': isCs ? m.bio_cs : m.bio_en,
+        'image': m.photo ? 'https://czego.cz/' + m.photo : undefined,
+        'worksFor': { '@type': 'MusicGroup', 'name': 'CZEGO' },
+      }));
+      const script = document.createElement('script');
+      script.type = 'application/ld+json';
+      script.textContent = JSON.stringify(persons);
+      document.head.appendChild(script);
+    })
+    .catch(() => showError('members-grid', isCs ? 'Nepodařilo se načíst členy.' : 'Failed to load members.'))
+    .finally(() => initReveal());
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 500" width="400" height="500">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#f2ede6"/>
+      <stop offset="100%" stop-color="#e8e0d6"/>
+    </linearGradient>
+    <clipPath id="circle">
+      <circle cx="200" cy="190" r="115"/>
+    </clipPath>
+  </defs>
+
+  <!-- Background -->
+  <rect width="400" height="500" fill="url(#bg)"/>
+
+  <!-- Bottom accent -->
+  <rect x="0" y="464" width="400" height="36" fill="#B8251A"/>
+
+  <!-- Avatar circle -->
+  <circle cx="200" cy="190" r="115" fill="#c8bfb4"/>
+
+  <!-- Head -->
+  <circle cx="200" cy="152" r="46" fill="#faf8f5" opacity="0.9"/>
+  <!-- Body / shoulders -->
+  <ellipse cx="200" cy="278" rx="74" ry="58" fill="#faf8f5" opacity="0.9" clip-path="url(#circle)"/>
+
+  <!-- Divider line -->
+  <rect x="155" y="338" width="90" height="2" fill="#B8251A" rx="1"/>
+
+  <!-- Label -->
+  <text x="200" y="385" font-family="Georgia, serif" font-size="17" font-style="italic" fill="#8a7f74" text-anchor="middle">foto připravujeme</text>
+</svg>
