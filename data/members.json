@@ -301,6 +301,17 @@
     "social": { "instagram": "", "facebook": "" }
   },
   {
+    "id": 33,
+    "name": "Stili Dimi",
+    "role_cs": "Hostující zpěvačka",
+    "role_en": "Guest Vocalist",
+    "bio_cs": "Stili Dimi je talentovaná zpěvačka, která s CZEGO příležitostně vystupuje jako sólová vokalistka. Její hlas v kombinaci s kytarovým orchestrem vytváří nezapomenutelnou atmosféru — ať už zazpívá cokoliv, publikum si to odnáší domů. Jednou z oblíbených společných skladeb je Love of my Life od Queen.",
+    "bio_en": "Stili Dimi is a talented vocalist who occasionally joins CZEGO as a guest soloist. Her voice combined with the guitar orchestra creates an unforgettable atmosphere — whatever she sings, the audience takes it home with them. One of our favourite pieces together is Love of my Life by Queen.",
+    "photo": "assets/images/members/stili_dimi.jpg",
+    "guest": true,
+    "social": { "instagram": "", "facebook": "" }
+  },
+  {
     "id": 32,
     "name": "Ryan Chan",
     "role_cs": "Aranžér & skladatel",
