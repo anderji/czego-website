@@ -124,6 +124,7 @@
       <div class="quote-block reveal">
         <p class="quote-block__text" id="quote-text"></p>
         <cite class="quote-block__cite" id="quote-author"></cite>
+        <p class="quote-block__response" id="quote-response"></p>
       </div>
     </div>
   </section>
@@ -187,8 +188,11 @@
   document.getElementById('videos-h2').textContent      = isCs ? 'Ukázky z tvorby' : 'Featured Videos';
 
   // Citát
-  document.getElementById('quote-text').textContent   = isCs ? 'Chtěla jsem poděkovat za nádherný koncert. Slyšely jsme ho poprvé a moc nás nadchl.' : 'I wanted to thank you for a wonderful concert. We heard you for the first time and were truly captivated.';
-  document.getElementById('quote-author').textContent = isCs ? '— Návštěvnice Vánočního koncertu 2024' : '— Visitor at Christmas Concert 2024';
+  document.getElementById('quote-text').textContent   = isCs ? 'Kytara je malý orchestr. Je polyfonní. Každá struna je jiná barva, jiný hlas.' : 'The guitar is a small orchestra. It is polyphonic. Every string is a different colour, a different voice.';
+  document.getElementById('quote-author').textContent  = '— Andrés Segovia';
+  document.getElementById('quote-response').textContent = isCs
+    ? 'My jsme orchestr složený z třiceti takových orchestrů.'
+    : 'We are an orchestra made up of thirty such orchestras.';
 
   // Projekty strip
   document.getElementById('charity-eyebrow').textContent = isCs ? 'Benefice & projekty' : 'Charity & Projects';
