@@ -118,6 +118,41 @@
     "tags_en": ["annual", "Prague"]
   },
   {
+    "id": 9,
+    "date": "2026-06-25",
+    "title_cs": "Benefiční koncert pro Nedoklubko",
+    "title_en": "Charity Concert for Nedoklubko",
+    "venue": "Apolinář, Praha",
+    "time": "Bude upřesněno",
+    "tickets": {
+      "on_site": true
+    },
+    "description_cs": "Venkovní benefiční koncert na podporu organizace Nedoklubko s ozvučením a řadou hostů.",
+    "description_en": "Outdoor charity concert in support of Nedoklubko, with full sound and a lineup of special guests.",
+    "upcoming": true,
+    "tags_cs": ["benefice", "Praha", "Nedoklubko"],
+    "tags_en": ["charity", "Prague", "Nedoklubko"]
+  },
+  {
+    "id": 8,
+    "date": "2026-05-31",
+    "title_cs": "Setkávání s klasickou hudbou v Dolních Břežanech",
+    "title_en": "Encounters with Classical Music in Dolní Břežany",
+    "venue": "Aula ZŠ Dolní Břežany, Na Vršku 290, Dolní Břežany",
+    "time": "18:00",
+    "price_cs": "350 Kč / 200 Kč (senioři, studenti, děti)",
+    "price_en": "350 CZK / 200 CZK (seniors, students, children)",
+    "tickets": {
+      "on_site": true,
+      "online_url": "https://koncertyklasickehudby.cz/program-2026/zahajovaci-koncert-cesky-kytarovy-orchestr-31-5-2026/"
+    },
+    "description_cs": "Zahajovací koncert 9. ročníku festivalu Setkávání s klasickou hudbou v Dolních Břežanech.",
+    "description_en": "Opening concert of the 9th edition of the Encounters with Classical Music festival in Dolní Břežany.",
+    "upcoming": true,
+    "tags_cs": ["festival", "Dolní Břežany"],
+    "tags_en": ["festival", "Dolní Břežany"]
+  },
+  {
     "id": 7,
     "date": "2025-06-21",
     "title_cs": "Smetanova Litomyšl",

@@ -205,7 +205,7 @@
   showLoading('upcoming-grid');
   fetchJSON('data/concerts.json')
     .then(concerts => {
-      const upcoming = sortByDate(concerts.filter(c => isUpcoming(c.date)), 'asc');
+      const upcoming = sortByDate(concerts.filter(c => isUpcoming(c.date)), 'asc').slice(0, 3);
       if (upcoming.length === 0) {
         grid.innerHTML = `<p class="empty-state">${isCs ? 'Momentálně nejsou naplánované žádné koncerty.' : 'No concerts are currently scheduled.'}</p>`;
       } else {

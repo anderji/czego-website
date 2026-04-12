@@ -219,15 +219,12 @@ function concertRowHTML(c) {
     </div>
     <div class="concert-row__body">
       <div class="concert-row__top">
-        <span class="concert-row__badge concert-row__badge--${up ? 'upcoming' : 'past'}">
-          ${up ? (isCs ? 'Nadcházející' : 'Upcoming') : (isCs ? 'Proběhlý' : 'Past')}
-        </span>
+        <div class="concert-row__title">${escHtml(title)}</div>
         ${c.tickets?.online_url ? `<a class="concert-row__ticket-link" href="${escHtml(c.tickets.online_url)}" target="_blank" rel="noopener noreferrer">${isCs ? 'Koupit online' : 'Buy online'} ↗</a>` : ''}
       </div>
-      <div class="concert-row__title">${escHtml(title)}</div>
+      ${c.time ? `<div class="concert-row__time">🕐 ${escHtml(c.time)}</div>` : ''}
       <div class="concert-row__meta">
         <span>📍 ${escHtml(c.venue)}</span>
-        ${c.time ? `<span>🕐 ${escHtml(c.time)}</span>` : ''}
       </div>
       ${desc ? `<div class="concert-row__desc">${escHtml(desc)}</div>` : ''}
       <div class="concert-row__footer">
