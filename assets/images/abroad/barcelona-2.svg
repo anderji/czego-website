@@ -1,0 +1,81 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 400" width="640" height="400">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#e8f0f8"/>
+      <stop offset="100%" stop-color="#d0e4f4"/>
+    </linearGradient>
+    <linearGradient id="sea" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#4090c8"/>
+      <stop offset="100%" stop-color="#206090"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="640" height="400" fill="url(#bg)"/>
+
+  <!-- Mediterranean sea -->
+  <rect x="0" y="290" width="640" height="110" fill="url(#sea)"/>
+  <path d="M0 294 Q80 288 160 294 Q240 300 320 294 Q400 288 480 294 Q560 300 640 294 L640 292 L0 292Z" fill="#60b0e0" opacity=".5"/>
+
+  <!-- Barceloneta promenade / beach -->
+  <rect x="0" y="278" width="640" height="16" fill="#e8d090"/>
+  <rect x="0" y="276" width="640" height="4"  fill="#d4b870" opacity=".6"/>
+
+  <!-- Buildings on promenade -->
+  <rect x="50"  y="190" width="70" height="88" fill="#f0e8d8"/>
+  <rect x="50"  y="188" width="70" height="5"  fill="#c8a060"/>
+  <rect x="62"  y="200" width="18" height="20" rx="2" fill="#90b8d0" stroke="#8090a0" stroke-width="1"/>
+  <rect x="88"  y="200" width="18" height="20" rx="2" fill="#90b8d0" stroke="#8090a0" stroke-width="1"/>
+  <rect x="62"  y="230" width="18" height="20" rx="2" fill="#90b8d0" stroke="#8090a0" stroke-width="1"/>
+  <rect x="88"  y="230" width="18" height="20" rx="2" fill="#90b8d0" stroke="#8090a0" stroke-width="1"/>
+
+  <rect x="130" y="165" width="55" height="113" fill="#f4ece0"/>
+  <rect x="130" y="163" width="55" height="5" fill="#c8a060"/>
+  <rect x="140" y="178" width="14" height="18" rx="2" fill="#a0c0d8"/>
+  <rect x="160" y="178" width="14" height="18" rx="2" fill="#a0c0d8"/>
+  <rect x="140" y="205" width="14" height="18" rx="2" fill="#a0c0d8"/>
+  <rect x="160" y="205" width="14" height="18" rx="2" fill="#a0c0d8"/>
+  <rect x="140" y="232" width="14" height="18" rx="2" fill="#a0c0d8"/>
+  <rect x="160" y="232" width="14" height="18" rx="2" fill="#a0c0d8"/>
+
+  <!-- Gaudí-style mosaic bench (Park Güell reference) -->
+  <path d="M200 265 Q270 245 340 255 Q410 265 480 252 Q540 242 600 255 L600 278 L200 278Z" fill="#e8c870" opacity=".9"/>
+  <!-- Mosaic color patches -->
+  <rect x="210" y="260" width="15" height="12" rx="2" fill="#e84545" opacity=".7"/>
+  <rect x="230" y="256" width="12" height="14" rx="2" fill="#4a90d9" opacity=".7"/>
+  <rect x="248" y="260" width="14" height="12" rx="2" fill="#44bb44" opacity=".7"/>
+  <rect x="268" y="254" width="12" height="15" rx="2" fill="#f4c030" opacity=".7"/>
+  <rect x="286" y="258" width="14" height="13" rx="2" fill="#e84545" opacity=".7"/>
+  <rect x="305" y="260" width="13" height="12" rx="2" fill="#9b59b6" opacity=".7"/>
+  <rect x="324" y="255" width="14" height="15" rx="2" fill="#4a90d9" opacity=".7"/>
+  <rect x="344" y="258" width="12" height="13" rx="2" fill="#f4c030" opacity=".7"/>
+  <rect x="362" y="253" width="14" height="16" rx="2" fill="#44bb44" opacity=".7"/>
+  <rect x="382" y="257" width="13" height="14" rx="2" fill="#e84545" opacity=".7"/>
+  <rect x="400" y="254" width="15" height="16" rx="2" fill="#9b59b6" opacity=".7"/>
+  <rect x="420" y="257" width="12" height="14" rx="2" fill="#4a90d9" opacity=".7"/>
+  <rect x="438" y="252" width="14" height="17" rx="2" fill="#f4c030" opacity=".7"/>
+
+  <!-- Orchestra on promenade - small silhouettes -->
+  <ellipse cx="255" cy="272" rx="12" ry="16" fill="#3a3a3a"/>
+  <ellipse cx="280" cy="270" rx="11" ry="15" fill="#3a3a3a"/>
+  <ellipse cx="305" cy="272" rx="12" ry="16" fill="#3a3a3a"/>
+  <ellipse cx="330" cy="269" rx="11" ry="15" fill="#3a3a3a"/>
+  <ellipse cx="355" cy="272" rx="12" ry="16" fill="#3a3a3a"/>
+  <ellipse cx="380" cy="270" rx="11" ry="15" fill="#3a3a3a"/>
+  <!-- Instrument shapes -->
+  <ellipse cx="258" cy="282" rx="6" ry="8" fill="#a06030" opacity=".8"/>
+  <ellipse cx="333" cy="281" rx="6" ry="8" fill="#a06030" opacity=".8"/>
+
+  <!-- Seagulls -->
+  <path d="M150 120 Q158 114 165 120" fill="none" stroke="#606070" stroke-width="2" stroke-linecap="round"/>
+  <path d="M420 95  Q428 89  435 95"  fill="none" stroke="#606070" stroke-width="2" stroke-linecap="round"/>
+  <path d="M490 140 Q496 135 502 140" fill="none" stroke="#606070" stroke-width="1.5" stroke-linecap="round"/>
+
+  <!-- Boats on sea -->
+  <path d="M480 310 L460 322 L500 322Z" fill="white" opacity=".7"/>
+  <line x1="480" y1="310" x2="480" y2="295" stroke="#c0a060" stroke-width="1.5"/>
+  <path d="M560 305 L545 318 L578 318Z" fill="white" opacity=".65"/>
+
+  <!-- Label -->
+  <rect x="0" y="364" width="195" height="36" fill="#1a3060" opacity=".55"/>
+  <text x="14" y="387" font-family="'DM Sans',sans-serif" font-size="12" font-weight="600" fill="white" opacity=".85" letter-spacing="1.5">BARCELONA · PROMENÁDA</text>
+</svg>

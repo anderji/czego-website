@@ -1,0 +1,81 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 400" width="640" height="400">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#1a0505"/>
+      <stop offset="100%" stop-color="#3a0808"/>
+    </linearGradient>
+    <radialGradient id="spotlight" cx="50%" cy="30%" r="55%">
+      <stop offset="0%" stop-color="#ffd700" stop-opacity="0.22"/>
+      <stop offset="100%" stop-color="#ffd700" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <rect width="640" height="400" fill="url(#bg)"/>
+  <rect width="640" height="400" fill="url(#spotlight)"/>
+
+  <!-- Decorative Chinese-inspired border top -->
+  <rect x="0" y="0" width="640" height="8" fill="#c00000"/>
+  <rect x="0" y="8" width="640" height="3" fill="#ffd700" opacity=".8"/>
+
+  <!-- Concert hall interior feel -->
+  <!-- Curtains left/right -->
+  <path d="M0 0 Q50 100 30 400 L0 400Z" fill="#8b0000" opacity=".9"/>
+  <path d="M640 0 Q590 100 610 400 L640 400Z" fill="#8b0000" opacity=".9"/>
+  <!-- Curtain folds -->
+  <path d="M0 0 Q20 80 10 400" fill="none" stroke="#a00000" stroke-width="8" opacity=".5"/>
+  <path d="M640 0 Q620 80 630 400" fill="none" stroke="#a00000" stroke-width="8" opacity=".5"/>
+
+  <!-- Stage floor -->
+  <rect x="30" y="320" width="580" height="80" fill="#2a0808"/>
+  <rect x="30" y="318" width="580" height="4" fill="#ffd700" opacity=".3"/>
+
+  <!-- Orchestra silhouettes -->
+  <!-- Row of seated musicians -->
+  <ellipse cx="160" cy="340" rx="22" ry="26" fill="#1a0505"/>
+  <ellipse cx="210" cy="336" rx="20" ry="24" fill="#1a0505"/>
+  <ellipse cx="258" cy="340" rx="21" ry="25" fill="#1a0505"/>
+  <ellipse cx="305" cy="334" rx="23" ry="27" fill="#1a0505"/>
+  <ellipse cx="352" cy="340" rx="20" ry="24" fill="#1a0505"/>
+  <ellipse cx="398" cy="336" rx="22" ry="26" fill="#1a0505"/>
+  <ellipse cx="444" cy="340" rx="21" ry="25" fill="#1a0505"/>
+  <ellipse cx="490" cy="334" rx="20" ry="24" fill="#1a0505"/>
+
+  <!-- Music stands -->
+  <line x1="162" y1="320" x2="155" y2="340" stroke="#3a1010" stroke-width="2"/>
+  <rect x="148" y="316" width="18" height="10" rx="1" fill="#3a1010" opacity=".8"/>
+  <line x1="305" y1="318" x2="298" y2="338" stroke="#3a1010" stroke-width="2"/>
+  <rect x="291" y="314" width="18" height="10" rx="1" fill="#3a1010" opacity=".8"/>
+  <line x1="490" y1="318" x2="483" y2="338" stroke="#3a1010" stroke-width="2"/>
+  <rect x="476" y="314" width="18" height="10" rx="1" fill="#3a1010" opacity=".8"/>
+
+  <!-- Conductor podium -->
+  <rect x="290" y="288" width="60" height="32" rx="3" fill="#3a0808"/>
+  <rect x="288" y="284" width="64" height="6"  rx="2" fill="#ffd700" opacity=".25"/>
+  <ellipse cx="320" cy="276" rx="14" ry="16" fill="#2a0808"/>
+  <!-- Conductor baton -->
+  <line x1="328" y1="265" x2="360" y2="240" stroke="#f0d080" stroke-width="2" opacity=".7"/>
+
+  <!-- Spotlight beams from above -->
+  <path d="M200 0 L160 320 L240 320Z" fill="#ffd700" opacity=".04"/>
+  <path d="M320 0 L280 320 L360 320Z" fill="white"   opacity=".04"/>
+  <path d="M440 0 L400 320 L480 320Z" fill="#ffd700" opacity=".04"/>
+
+  <!-- Chinese lanterns hanging -->
+  <ellipse cx="120" cy="60"  rx="18" ry="24" fill="#cc0000" opacity=".85"/>
+  <line x1="120" y1="36"  x2="120" y2="20"  stroke="#8b0000" stroke-width="2"/>
+  <ellipse cx="120" cy="60" rx="18" ry="24" fill="none" stroke="#ff4444" stroke-width="1.5" opacity=".5"/>
+  <text x="120" y="65" font-family="serif" font-size="14" fill="#ffd700" text-anchor="middle" opacity=".7">福</text>
+
+  <ellipse cx="520" cy="55"  rx="16" ry="21" fill="#cc0000" opacity=".85"/>
+  <line x1="520" y1="34"  x2="520" y2="18"  stroke="#8b0000" stroke-width="2"/>
+  <text x="520" y="60" font-family="serif" font-size="13" fill="#ffd700" text-anchor="middle" opacity=".7">樂</text>
+
+  <!-- Trophy / award icon -->
+  <path d="M305 170 Q305 150 320 148 Q335 150 335 170 L330 190 Q320 196 310 190Z" fill="#ffd700" opacity=".65"/>
+  <rect x="315" y="190" width="10" height="15" fill="#ffd700" opacity=".5"/>
+  <rect x="308" y="205" width="24" height="5" rx="2" fill="#ffd700" opacity=".4"/>
+
+  <!-- Label -->
+  <rect x="0" y="364" width="210" height="36" fill="#1a0505" opacity=".75"/>
+  <text x="14" y="387" font-family="'DM Sans',sans-serif" font-size="12" font-weight="600" fill="white" opacity=".8" letter-spacing="1.5">HONGKONG · SOUTĚŽ</text>
+</svg>

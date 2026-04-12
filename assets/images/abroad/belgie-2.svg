@@ -1,0 +1,91 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 400" width="640" height="400">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#f5f0e8"/>
+      <stop offset="100%" stop-color="#ede5d0"/>
+    </linearGradient>
+    <radialGradient id="spotlight" cx="50%" cy="40%" r="55%">
+      <stop offset="0%" stop-color="#fff8c0" stop-opacity=".35"/>
+      <stop offset="100%" stop-color="#fff8c0" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <rect width="640" height="400" fill="url(#bg)"/>
+  <rect width="640" height="400" fill="url(#spotlight)"/>
+
+  <!-- Concert hall interior -->
+  <!-- Back wall arch -->
+  <path d="M0 0 Q320 80 640 0 L640 400 L0 400Z" fill="#f0e8d8" opacity=".5"/>
+  <!-- Decorative arch top -->
+  <path d="M80 0 Q320 100 560 0" fill="none" stroke="#d4c090" stroke-width="3" opacity=".4"/>
+  <path d="M120 0 Q320 88 520 0" fill="none" stroke="#d4c090" stroke-width="2" opacity=".3"/>
+
+  <!-- Side pilasters -->
+  <rect x="30"  y="0" width="28" height="400" fill="#e8dcc0" opacity=".7"/>
+  <rect x="32"  y="0" width="6"  height="400" fill="#d4c090" opacity=".5"/>
+  <rect x="582" y="0" width="28" height="400" fill="#e8dcc0" opacity=".7"/>
+  <rect x="602" y="0" width="6"  height="400" fill="#d4c090" opacity=".5"/>
+
+  <!-- Ornate ceiling rosette -->
+  <circle cx="320" cy="55"  r="50" fill="none" stroke="#d4c090" stroke-width="2" opacity=".4"/>
+  <circle cx="320" cy="55"  r="36" fill="none" stroke="#d4c090" stroke-width="1.5" opacity=".35"/>
+  <circle cx="320" cy="55"  r="22" fill="#f8f0d8" opacity=".6"/>
+  <circle cx="320" cy="55"  r="8"  fill="#ffd700" opacity=".4"/>
+  <!-- Rosette spokes -->
+  <line x1="270" y1="55" x2="370" y2="55" stroke="#d4c090" stroke-width="1" opacity=".3"/>
+  <line x1="320" y1="5"  x2="320" y2="105" stroke="#d4c090" stroke-width="1" opacity=".3"/>
+  <line x1="285" y1="20" x2="355" y2="90" stroke="#d4c090" stroke-width="1" opacity=".25"/>
+  <line x1="355" y1="20" x2="285" y2="90" stroke="#d4c090" stroke-width="1" opacity=".25"/>
+
+  <!-- Stage floor -->
+  <rect x="60" y="285" width="520" height="115" fill="#d4b870" opacity=".6"/>
+  <rect x="60" y="283" width="520" height="5" fill="#c8a850" opacity=".5"/>
+  <!-- Stage wood grain lines -->
+  <line x1="60" y1="298" x2="580" y2="298" stroke="#c0a048" stroke-width="1" opacity=".2"/>
+  <line x1="60" y1="312" x2="580" y2="312" stroke="#c0a048" stroke-width="1" opacity=".2"/>
+  <line x1="60" y1="326" x2="580" y2="326" stroke="#c0a048" stroke-width="1" opacity=".2"/>
+
+  <!-- Orchestra musicians (seated, silhouettes) -->
+  <!-- Row 1 -->
+  <ellipse cx="140" cy="295" rx="20" ry="24" fill="#2a2a2a"/>
+  <ellipse cx="185" cy="292" rx="19" ry="22" fill="#2a2a2a"/>
+  <ellipse cx="228" cy="295" rx="20" ry="24" fill="#2a2a2a"/>
+  <ellipse cx="272" cy="291" rx="19" ry="23" fill="#2a2a2a"/>
+  <ellipse cx="320" cy="288" rx="22" ry="26" fill="#2a2a2a"/>
+  <ellipse cx="368" cy="291" rx="19" ry="23" fill="#2a2a2a"/>
+  <ellipse cx="412" cy="295" rx="20" ry="24" fill="#2a2a2a"/>
+  <ellipse cx="455" cy="292" rx="19" ry="22" fill="#2a2a2a"/>
+  <ellipse cx="498" cy="295" rx="20" ry="24" fill="#2a2a2a"/>
+  <!-- Guitars in laps -->
+  <ellipse cx="143" cy="308" rx="9" ry="11" fill="#8b4820" opacity=".75"/>
+  <ellipse cx="275" cy="307" rx="9" ry="11" fill="#8b4820" opacity=".75"/>
+  <ellipse cx="412" cy="308" rx="9" ry="11" fill="#8b4820" opacity=".75"/>
+
+  <!-- Music stands -->
+  <line x1="142" y1="282" x2="136" y2="295" stroke="#5a4010" stroke-width="1.5"/>
+  <rect x="130" y="278" width="16" height="10" rx="1" fill="#5a4010" opacity=".7"/>
+  <line x1="320" y1="278" x2="314" y2="292" stroke="#5a4010" stroke-width="1.5"/>
+  <rect x="308" y="274" width="16" height="10" rx="1" fill="#5a4010" opacity=".7"/>
+  <line x1="498" y1="282" x2="492" y2="295" stroke="#5a4010" stroke-width="1.5"/>
+  <rect x="486" y="278" width="16" height="10" rx="1" fill="#5a4010" opacity=".7"/>
+
+  <!-- Conductor -->
+  <ellipse cx="320" cy="258" rx="16" ry="18" fill="#1a1a1a"/>
+  <line x1="328" y1="248" x2="355" y2="228" stroke="#c0a860" stroke-width="2.5" opacity=".8"/>
+
+  <!-- Belgian flag draped on side -->
+  <rect x="58" y="120" width="24" height="140" fill="#1a1a1a" opacity=".85"/>
+  <rect x="58" y="120" width="24" height="47"  fill="#1a1a1a"/>
+  <rect x="58" y="167" width="24" height="46"  fill="#f6d800"/>
+  <rect x="58" y="213" width="24" height="47"  fill="#ef3340"/>
+
+  <!-- Floating music notes -->
+  <text x="115" y="145" font-family="serif" font-size="28" fill="#c0a040" opacity=".3" transform="rotate(-12,115,145)">♪</text>
+  <text x="490" y="135" font-family="serif" font-size="22" fill="#c0a040" opacity=".28" transform="rotate(10,490,135)">♫</text>
+  <text x="200" y="200" font-family="serif" font-size="18" fill="#c0a040" opacity=".2">♩</text>
+  <text x="430" y="195" font-family="serif" font-size="24" fill="#c0a040" opacity=".22" transform="rotate(-8,430,195)">♬</text>
+
+  <!-- Label -->
+  <rect x="0" y="364" width="188" height="36" fill="#1a3060" opacity=".55"/>
+  <text x="14" y="387" font-family="'DM Sans',sans-serif" font-size="12" font-weight="600" fill="white" opacity=".85" letter-spacing="1.5">BELGIE · VYSTOUPENÍ</text>
+</svg>

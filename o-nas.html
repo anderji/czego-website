@@ -79,7 +79,7 @@
               <div class="stat__label" id="stat-members"></div>
             </div>
             <div class="stat">
-              <div class="stat__num">15+</div>
+              <div class="stat__num">25+</div>
               <div class="stat__label" id="stat-years"></div>
             </div>
             <div class="stat">
@@ -92,16 +92,6 @@
             </div>
           </div>
         </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- CITÁT -->
-  <section class="section section--alt">
-    <div class="container container--narrow">
-      <div class="quote-block reveal">
-        <p class="quote-block__text" id="quote-text"></p>
-        <cite class="quote-block__cite" id="quote-author"></cite>
       </div>
     </div>
   </section>
@@ -120,31 +110,26 @@
   </section>
 
   <!-- BENEFICE -->
-  <section class="section" aria-labelledby="charity-h2">
+  <section class="section section--alt" aria-labelledby="charity-h2">
     <div class="container">
-      <div class="two-col">
-        <div class="reveal">
-          <p class="eyebrow" id="charity-eyebrow"></p>
-          <h2 id="charity-h2"></h2>
-          <p id="charity-text" style="color:var(--text-secondary);line-height:1.8;font-size:.95rem"></p>
-        </div>
-        <div class="reveal reveal-delay-2">
-          <div style="display:flex;flex-direction:column;gap:.75rem">
-            <div style="display:flex;align-items:center;gap:1rem;padding:1rem;background:var(--cream);border-radius:var(--r-md);border:1px solid var(--border-light)">
-              <span style="font-size:1.5rem">❤️</span>
-              <span style="font-size:.9rem;color:var(--text-secondary)" id="org-nedoklubko"></span>
-            </div>
-            <div style="display:flex;align-items:center;gap:1rem;padding:1rem;background:var(--cream);border-radius:var(--r-md);border:1px solid var(--border-light)">
-              <span style="font-size:1.5rem">🎸</span>
-              <span style="font-size:.9rem;color:var(--text-secondary)" id="org-clotis"></span>
-            </div>
-            <div style="display:flex;align-items:center;gap:1rem;padding:1rem;background:var(--cream);border-radius:var(--r-md);border:1px solid var(--border-light)">
-              <span style="font-size:1.5rem">🌊</span>
-              <span style="font-size:.9rem;color:var(--text-secondary)" id="org-jesenik"></span>
-            </div>
-          </div>
-        </div>
+      <div class="section__header reveal">
+        <p class="eyebrow" id="charity-eyebrow"></p>
+        <h2 id="charity-h2"></h2>
+        <p class="lead" id="charity-text"></p>
       </div>
+      <div id="benefice-list"></div>
+    </div>
+  </section>
+
+  <!-- PROJEKTY -->
+  <section class="section section--alt" aria-labelledby="projects-strip-h2">
+    <div class="container">
+      <div class="section__header">
+        <p class="eyebrow" id="proj-eyebrow"></p>
+        <h2 id="projects-strip-h2"></h2>
+        <p class="lead" id="proj-lead"></p>
+      </div>
+      <div id="projects-media-grid" class="project-media-grid"></div>
     </div>
   </section>
 
@@ -190,14 +175,6 @@
   document.getElementById('stat-countries').textContent = isCs ? 'Zemí' : 'Countries';
   document.getElementById('stat-concerts').textContent  = isCs ? 'Koncertů ročně' : 'Concerts per year';
 
-  // Citát
-  document.getElementById('quote-text').textContent   = isCs
-    ? 'Chtěla jsem poděkovat za nádherný koncert. Slyšely jsme ho poprvé a moc nás nadchl.'
-    : 'I wanted to thank you for a wonderful concert. We heard you for the first time and were truly captivated.';
-  document.getElementById('quote-author').textContent = isCs
-    ? '— Návštěvnice Vánočního koncertu 2024'
-    : '— Visitor at Christmas Concert 2024';
-
   // Zahraničí – header
   document.getElementById('abroad-eyebrow').textContent = isCs ? 'Svět' : 'The World';
   document.getElementById('abroad-h2').textContent      = isCs ? 'Zahraničí' : 'International';
@@ -208,7 +185,35 @@
   // Zahraničí – taby
   const destinations = [
     {
+      id: 'belgie',
+      year: 2025,
+      flag: '🇧🇪',
+      label:    { cs: 'Belgie 2025',                 en: 'Belgium 2025' },
+      title:    { cs: 'Belgie',                      en: 'Belgium' },
+      event:    { cs: 'Mezinárodní kytarový festival', en: 'International Guitar Festival' },
+      texts:    {
+        cs: [
+          'V roce 2025 jsme se zúčastnili mezinárodního kytarového festivalu v Belgii. Vystoupení v srdci Evropy bylo dalším krokem na naší cestě za sdílením české kytarové kultury se světem.',
+          'Brusel a jeho okolí nás přivítaly jako hosty a my jsme mohli ukázat, co v sobě český kytarový orchestr nese – pečlivě budovanou souhru, dramaturgii a lásku ke kytaře.',
+        ],
+        en: [
+          'In 2025 we participated in an international guitar festival in Belgium. Performing in the heart of Europe was another step on our journey of sharing Czech guitar culture with the world.',
+          'Brussels and the surrounding region welcomed us as guests, giving us the opportunity to show what the Czech Guitar Orchestra is all about — carefully crafted ensemble playing, thoughtful programming, and a love for the guitar.',
+        ],
+      },
+      facts: {
+        cs: ['Brusel', '🗓 2025', '🎸 Mezinárodní festival', '🏛 Koncertní síň'],
+        en: ['Brussels', '🗓 2025', '🎸 International festival', '🏛 Concert hall'],
+      },
+      images: [
+        { src: 'assets/images/abroad/Belgie.jpg', alt: { cs: 'Grand Place, Brusel', en: 'Grand Place, Brussels' } },
+        { src: 'assets/images/abroad/Belgie1.jpg',           alt: { cs: 'Vystoupení v belgické koncertní síni', en: 'Performance in a Belgian concert hall' } },
+      ],
+      highlight: true,
+    },
+    {
       id: 'bangkok',
+      year: 2024,
       flag: '🇹🇭',
       label:    { cs: 'Bangkok 2024',               en: 'Bangkok 2024' },
       title:    { cs: 'Bangkok, Thajsko',            en: 'Bangkok, Thailand' },
@@ -224,48 +229,73 @@
         ],
       },
       facts: {
-        cs: ['🌏 Asie · Thajsko', '🗓 Léto 2024', '🎸 Mezinárodní festival', '👥 8 členů výpravy'],
-        en: ['🌏 Asia · Thailand', '🗓 Summer 2024', '🎸 International festival', '👥 8 delegates'],
+        cs: ['Thajsko', '🗓 Léto 2024', '🎸 Mezinárodní festival', '👥 8 členů výpravy'],
+        en: ['Thailand', '🗓 Summer 2024', '🎸 International festival', '👥 8 delegates'],
       },
-      image:    'assets/images/abroad/bangkok-placeholder.svg',
-      imageAlt: { cs: 'Chrám Wat Arun v Bangkoku při západu slunce', en: 'Wat Arun temple in Bangkok at sunset' },
+      images: [
+        { src: 'assets/images/abroad/Thajsko1.jpg', alt: { cs: 'Chrám Wat Arun při západu slunce', en: 'Wat Arun temple at sunset' } },
+        { src: 'assets/images/abroad/Thajsko2.jpeg',           alt: { cs: 'Noční vystoupení v Bangkoku',      en: 'Night performance in Bangkok' } },
+        { src: 'assets/images/abroad/Thajsko3.jpg',           alt: { cs: 'Kulturní zážitky v Bangkoku',      en: 'Cultural experiences in Bangkok' } },
+      ],
       highlight: true,
     },
     {
-      id: 'hongkong',
-      flag: '🇭🇰',
-      label:    { cs: 'Hongkong',                    en: 'Hong Kong' },
-      title:    { cs: 'Hongkong',                    en: 'Hong Kong' },
-      event:    { cs: 'Mezinárodní kytarová soutěž', en: 'International Guitar Competition' },
+      id: 'barcelona',
+      year: 2023,
+      flag: '🇪🇸',
+      label:    { cs: 'Barcelona 2023',             en: 'Barcelona 2023' },
+      title:    { cs: 'Barcelona, Španělsko',       en: 'Barcelona, Spain' },
+      event:    { cs: 'Mezinárodní kytarový festival', en: 'International Guitar Festival' },
       texts:    {
-        cs: ['Hongkong byl jednou z prvních zastávek za oceánem. Účast na mezinárodní kytarové soutěži přinesla cenné zkušenosti i nová přátelství mezi muzikanty z celého světa.'],
-        en: ['Hong Kong was one of the orchestra\'s first overseas stops. Participating in an international guitar competition brought invaluable experience and new friendships with musicians from around the globe.'],
+        cs: [
+          'Barcelona 2023 – slunce, moře a hudba na slavné promenádě. Zúčastnili jsme se mezinárodního kytarového festivalu ve městě Gaudího architektonických divů a živé kulturní scény.',
+          'Vystupovat v Barceloně bylo výjimečným zážitkem – město dýchá hudbou na každém rohu a místní publikum nás přijalo se srdečností, která nám zůstane v paměti.',
+        ],
+        en: [
+          'Barcelona 2023 — sun, sea, and music on the famous promenade. We took part in an international guitar festival in the city of Gaudí\'s architectural wonders and vibrant cultural scene.',
+          'Performing in Barcelona was an exceptional experience — the city breathes music on every corner, and the local audience welcomed us with warmth we will long remember.',
+        ],
       },
       facts: {
-        cs: ['🌏 Asie · Hongkong', '🏆 Soutěž', '🎸 Kytarový festival'],
-        en: ['🌏 Asia · Hong Kong', '🏆 Competition', '🎸 Guitar festival'],
+        cs: ['Španělsko', '🗓 2023', '🎸 Mezinárodní festival', '🏖 Barceloneta'],
+        en: ['Spain', '🗓 2023', '🎸 International festival', '🏖 Barceloneta'],
       },
-      image:    'assets/images/abroad/bangkok-placeholder.svg',
-      imageAlt: { cs: 'Chrám Wat Arun v Bangkoku při západu slunce', en: 'Wat Arun temple in Bangkok at sunset' },
+      images: [
+        { src: 'assets/images/abroad/Barcelona.jpg', alt: { cs: 'Sagrada Família při západu slunce', en: 'Sagrada Família at sunset' } },
+        { src: 'assets/images/abroad/Barcelona2.jpg',           alt: { cs: 'Vystoupení na barcelonské promenádě', en: 'Performance on the Barcelona promenade' } },
+      ],
       highlight: true,
     },
     {
-      id: 'singapore',
-      flag: '🇸🇬',
-      label:    { cs: 'Singapur',          en: 'Singapore' },
-      title:    { cs: 'Singapur',          en: 'Singapore' },
-      event:    { cs: 'Festival & soutěž', en: 'Festival & Competition' },
+      id: 'asie',
+      year: 2018,
+      flag: '🌏',
+      label:    { cs: 'Asie',                        en: 'Asia' },
+      title:    { cs: 'Hongkong & Singapur',         en: 'Hong Kong & Singapore' },
+      event:    { cs: 'Festivaly & soutěže',         en: 'Festivals & Competitions' },
       texts:    {
-        cs: ['Singapur byl dalším vrcholem naší zahraniční kariéry. Moderní metropole plná kontrastů nám dala příležitost ukázat český kytarový orchestr světovému publiku na mezinárodní scéně.'],
-        en: ['Singapore was another highlight of our international journey. The modern metropolis full of contrasts gave us the opportunity to showcase Czech guitar playing to a world audience.'],
+        cs: [
+          'Hongkong byl jednou z prvních zastávek za oceánem. Účast na mezinárodní kytarové soutěži přinesla cenné zkušenosti i nová přátelství mezi muzikanty z celého světa.',
+          'Singapur byl dalším vrcholem naší zahraniční kariéry. Moderní metropole plná kontrastů nám dala příležitost ukázat český kytarový orchestr světovému publiku na mezinárodní scéně.',
+        ],
+        en: [
+          'Hong Kong was one of the orchestra\'s first overseas stops. Participating in an international guitar competition brought invaluable experience and new friendships with musicians from around the globe.',
+          'Singapore was another highlight of our international journey. The modern metropolis full of contrasts gave us the opportunity to showcase Czech guitar playing to a world audience.',
+        ],
       },
       facts: {
-        cs: ['🌏 Asie · Singapur', '🏆 Soutěž', '🎸 Mezinárodní festival'],
-        en: ['🌏 Asia · Singapore', '🏆 Competition', '🎸 International festival'],
+        cs: ['Hongkong', 'Singapur', '🏆 Soutěže', '🎸 Festivaly'],
+        en: ['Hong Kong', 'Singapore', '🏆 Competitions', '🎸 Festivals'],
       },
+      images: [
+        { src: 'assets/images/abroad/hongkong-placeholder.svg', alt: { cs: 'Panorama Hongkongu v noci',    en: 'Hong Kong skyline at night' } },
+        { src: 'assets/images/abroad/hongkong-2.svg',           alt: { cs: 'Soutěžní vystoupení',          en: 'Competition performance' } },
+        { src: 'assets/images/abroad/singapore-placeholder.svg', alt: { cs: 'Marina Bay Sands v Singapuru', en: 'Marina Bay Sands Singapore' } },
+      ],
     },
     {
       id: 'europe',
+      year: 2019,
       flag: '🇪🇺',
       label:    { cs: 'Evropa',               en: 'Europe' },
       title:    { cs: 'Evropské festivaly',   en: 'European Festivals' },
@@ -275,9 +305,13 @@
         en: ['Alongside overseas expeditions we regularly compete and perform at festivals across Europe. We have visited the festival in Trossingen, Germany, participated in competitions in Germany and Italy, and continue building ties within the European guitar community.'],
       },
       facts: {
-        cs: ['🇩🇪 Německo · Trossingen', '🇮🇹 Itálie', '🏆 Soutěže', '🎸 Festivaly'],
-        en: ['🇩🇪 Germany · Trossingen', '🇮🇹 Italy', '🏆 Competitions', '🎸 Festivals'],
+        cs: ['Trossingen', 'Itálie', '🗓 2019', '🏆 Soutěže', '🎸 Festivaly'],
+        en: ['Trossingen', 'Italy', '🗓 2019', '🏆 Competitions', '🎸 Festivals'],
       },
+      images: [
+        { src: 'assets/images/abroad/europe-trossingen.svg', alt: { cs: 'Trossingen, Německo', en: 'Trossingen, Germany' } },
+        { src: 'assets/images/abroad/europe-italia.svg',     alt: { cs: 'Itálie',               en: 'Italy' } },
+      ],
     },
   ];
 
@@ -298,24 +332,63 @@
     });
   }
 
+  function carouselHTML(images, lang) {
+    if (!images || !images.length) return '';
+    const slides = images.map(img =>
+      `<img src="${escHtml(img.src)}" alt="${escHtml(img.alt[lang])}" loading="lazy">`
+    ).join('');
+    const dots = images.length > 1
+      ? `<div class="abroad-carousel__dots">
+           ${images.map((_, i) => `<button class="abroad-carousel__dot${i === 0 ? ' abroad-carousel__dot--active' : ''}" aria-label="Snímek ${i + 1}"></button>`).join('')}
+         </div>`
+      : '';
+    const btns = images.length > 1
+      ? `<button class="abroad-carousel__btn abroad-carousel__btn--prev" aria-label="Předchozí">&#8249;</button>
+         <button class="abroad-carousel__btn abroad-carousel__btn--next" aria-label="Další">&#8250;</button>`
+      : '';
+    return `<div class="abroad-carousel">
+      <div class="abroad-carousel__track">${slides}</div>
+      ${btns}${dots}
+    </div>`;
+  }
+
+  function initCarousels() {
+    document.querySelectorAll('.abroad-carousel').forEach(carousel => {
+      const track = carousel.querySelector('.abroad-carousel__track');
+      const dots  = Array.from(carousel.querySelectorAll('.abroad-carousel__dot'));
+      const total = track.children.length;
+      if (total < 2) return;
+      let cur = 0;
+
+      function goTo(idx) {
+        cur = (idx + total) % total;
+        track.style.transform = `translateX(-${cur * 100}%)`;
+        dots.forEach((d, i) => d.classList.toggle('abroad-carousel__dot--active', i === cur));
+      }
+
+      carousel.querySelector('.abroad-carousel__btn--prev')
+        .addEventListener('click', () => goTo(cur - 1));
+      carousel.querySelector('.abroad-carousel__btn--next')
+        .addEventListener('click', () => goTo(cur + 1));
+      dots.forEach((d, i) => d.addEventListener('click', () => goTo(i)));
+    });
+  }
+
   function renderAbroadPanels(activeId) {
     renderAbroadTabs(activeId);
-    const d = destinations.find(x => x.id === activeId);
+    const d    = destinations.find(x => x.id === activeId);
     const lang = isCs ? 'cs' : 'en';
     const factsHtml = d.facts[lang].map(f =>
       `<span class="abroad-fact">${escHtml(f)}</span>`).join('');
     const textsHtml = d.texts[lang].map(t =>
       `<p>${escHtml(t)}</p>`).join('');
+    const hasImages = d.images && d.images.length > 0;
 
     document.getElementById('abroad-panels').innerHTML = `
       <div class="abroad-panel" id="panel-${d.id}" role="tabpanel">
-        ${d.image ? `
+        ${hasImages ? `
         <div class="two-col two-col--abroad">
-          <div class="abroad-photo-wrap">
-            <img src="${escHtml(d.image)}"
-                 alt="${escHtml(d.imageAlt ? d.imageAlt[lang] : d.title[lang])}"
-                 class="abroad-photo">
-          </div>
+          <div>${carouselHTML(d.images, lang)}</div>
           <div class="abroad-content">
             <p class="abroad-event">${escHtml(d.event[lang])}</p>
             <h3 class="abroad-title">${escHtml(d.title[lang])}</h3>
@@ -330,19 +403,82 @@
           <div class="abroad-facts">${factsHtml}</div>
         </div>`}
       </div>`;
+
+    initCarousels();
   }
 
-  renderAbroadPanels('bangkok');
+  renderAbroadPanels('belgie');
 
   // Benefice
   document.getElementById('charity-eyebrow').textContent = isCs ? 'Pomáháme' : 'We Help';
   document.getElementById('charity-h2').textContent      = isCs ? 'Benefice' : 'Charity';
   document.getElementById('charity-text').textContent    = isCs
-    ? 'Hudbou rádi pomáháme tam, kde je to potřeba. Podpořili jsme neziskové organizace Nedoklubko a Klub cystické fibrózy, uspořádali jsme koncert jako Ježíškova vnoučata a věnovali výtěžek ZUŠ Jeseník po povodních.'
-    : 'We love using music to help where it is needed. We have supported Nedoklubko and the Cystic Fibrosis Club, performed as part of Santa\'s Grandchildren, and donated proceeds to Jeseník Art School after the floods.';
-  document.getElementById('org-nedoklubko').textContent = isCs ? 'Nedoklubko & Klub cystické fibrózy' : 'Nedoklubko & Cystic Fibrosis Club';
-  document.getElementById('org-clotis').textContent     = isCs ? 'Člověk v tísni – kytary do center' : 'People in Need – guitars for centres';
-  document.getElementById('org-jesenik').textContent    = isCs ? 'ZUŠ Jeseník po povodních' : 'Jeseník Art School after floods';
+    ? 'Hudbou rádi pomáháme tam, kde je to potřeba. Přinášíme radost tam, kde je nejvíce potřeba.'
+    : 'We love using music to help where it is needed most.';
+
+  // Projekty – headings
+  document.getElementById('proj-eyebrow').textContent = isCs ? 'Vzděláváme & spolupracujeme' : 'Education & Collaboration';
+  document.getElementById('projects-strip-h2').textContent = isCs ? 'Projekty' : 'Projects';
+  document.getElementById('proj-lead').textContent = isCs
+    ? 'Kromě benefic se zapojujeme i do vzdělávacích a mezinárodních projektů.'
+    : 'Alongside charity, we take part in educational and international projects.';
+
+  fetchJSON('data/projects.json').then(projects => {
+    // Benefice cards – stejný styl jako projekty.html
+    const benefice = projects
+      .filter(p => p.category_cs === 'Benefice')
+      .sort((a, b) => (a.sort_order ?? 999) - (b.sort_order ?? 999));
+    document.getElementById('benefice-list').innerHTML = `
+      <div class="projects-grid">
+        ${benefice.map(p => `
+          <div class="project-card reveal">
+            <div class="project-card__image">
+              ${p.video_id
+                ? `<iframe src="https://www.youtube-nocookie.com/embed/${escHtml(p.video_id)}?rel=0&modestbranding=1" title="${escHtml(isCs ? p.title_cs : p.title_en)}" frameborder="0" allowfullscreen loading="lazy" style="width:100%;height:100%;position:absolute;inset:0;"></iframe>`
+                : p.image
+                  ? `<img src="${escHtml(p.image)}" alt="${escHtml(isCs ? p.title_cs : p.title_en)}" loading="lazy" width="640" height="360" style="${p.image_fit ? `object-fit:${escHtml(p.image_fit)};` : ''}">`
+                  : `<div class="project-card__image-placeholder">🎵</div>`}
+            </div>
+            <div class="project-card__body">
+              <div class="project-card__meta">
+                <span class="project-card__year">${escHtml(p.year)}</span>
+              </div>
+              <h3 class="project-card__title">${escHtml(isCs ? p.title_cs : p.title_en)}</h3>
+              <p class="project-card__desc">${escHtml(isCs ? p.description_cs : p.description_en)}</p>
+              <div class="project-card__footer">
+                <div class="project-card__partner">
+                  <strong>${isCs ? 'Partner' : 'Partner'}:</strong>
+                  ${escHtml(isCs ? p.partner_cs : p.partner_en)}
+                </div>
+                ${p.logo ? [].concat(p.logo).map(src => `<img src="${escHtml(src)}" alt="${escHtml(isCs ? p.partner_cs : p.partner_en)}" class="project-card__logo" loading="lazy">`).join('') : ''}
+              </div>
+            </div>
+          </div>`).join('')}
+      </div>`;
+
+    // Projekty media cards
+    const projekty = projects.filter(p => p.category_cs === 'Projekt');
+    document.getElementById('projects-media-grid').innerHTML = projekty.map(p => {
+      const title = escHtml(isCs ? p.title_cs : p.title_en);
+      const mediaHtml = p.video_id
+        ? `<iframe src="https://www.youtube-nocookie.com/embed/${escHtml(p.video_id)}?rel=0&modestbranding=1"
+             title="${title}" allowfullscreen loading="lazy"></iframe>`
+        : p.image
+          ? `<img src="${escHtml(p.image)}" alt="${title}" loading="lazy">`
+          : '';
+      return `
+        <div class="project-media-card reveal">
+          <div class="project-media-card__media">${mediaHtml}</div>
+          <div class="project-media-card__body">
+            <div class="project-media-card__year">${escHtml(p.year)}</div>
+            <div class="project-media-card__title">${title}</div>
+            <p class="project-media-card__desc">${escHtml(isCs ? p.description_cs : p.description_en)}</p>
+            <span class="project-media-card__partner">${escHtml(isCs ? p.partner_cs : p.partner_en)}</span>
+          </div>
+        </div>`;
+    }).join('');
+    initReveal();
+  }).catch(() => {});
 
   initReveal();
 })();

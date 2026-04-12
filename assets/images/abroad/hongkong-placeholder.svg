@@ -1,0 +1,104 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 400" width="640" height="400">
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#050d1e"/>
+      <stop offset="55%" stop-color="#0d1e3a"/>
+      <stop offset="100%" stop-color="#1a2a50"/>
+    </linearGradient>
+    <linearGradient id="water" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#0d1e38"/>
+      <stop offset="100%" stop-color="#06101e"/>
+    </linearGradient>
+    <radialGradient id="glow1" cx="40%" cy="60%" r="35%">
+      <stop offset="0%" stop-color="#ff4444" stop-opacity=".2"/>
+      <stop offset="100%" stop-color="#ff4444" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="glow2" cx="65%" cy="60%" r="30%">
+      <stop offset="0%" stop-color="#44aaff" stop-opacity=".18"/>
+      <stop offset="100%" stop-color="#44aaff" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <rect width="640" height="400" fill="url(#sky)"/>
+  <rect width="640" height="400" fill="url(#glow1)"/>
+  <rect width="640" height="400" fill="url(#glow2)"/>
+
+  <!-- Stars -->
+  <circle cx="60"  cy="20" r="1"   fill="white" opacity=".6"/>
+  <circle cx="140" cy="35" r="1.3" fill="white" opacity=".5"/>
+  <circle cx="200" cy="15" r="0.9" fill="white" opacity=".65"/>
+  <circle cx="500" cy="25" r="1.1" fill="white" opacity=".55"/>
+  <circle cx="580" cy="18" r="1.4" fill="white" opacity=".6"/>
+
+  <!-- Skyline buildings -->
+  <!-- IFC-style tall tower -->
+  <rect x="290" y="60"  width="40" height="240" fill="#1a2e50"/>
+  <rect x="296" y="60"  width="28" height="240" fill="#1e3460"/>
+  <!-- Antenna -->
+  <line x1="310" y1="60" x2="310" y2="20" stroke="#2a4a80" stroke-width="3"/>
+  <circle cx="310" cy="20" r="4" fill="#ff4444" opacity=".9"/>
+
+  <!-- Buildings left cluster -->
+  <rect x="80"  y="150" width="55" height="150" fill="#152240"/>
+  <rect x="140" y="120" width="45" height="180" fill="#1a2a4e"/>
+  <rect x="190" y="140" width="38" height="160" fill="#162038"/>
+  <rect x="232" y="100" width="52" height="200" fill="#1c2e55"/>
+
+  <!-- Buildings right cluster -->
+  <rect x="342" y="90"  width="55" height="210" fill="#1a2a4e"/>
+  <rect x="400" y="130" width="48" height="170" fill="#152240"/>
+  <rect x="452" y="110" width="42" height="190" fill="#1c2e55"/>
+  <rect x="498" y="150" width="62" height="150" fill="#162038"/>
+
+  <!-- Building windows (dots of light) -->
+  <g fill="#ffd700" opacity=".6">
+    <rect x="84"  y="158" width="4" height="3" rx="1"/>
+    <rect x="92"  y="158" width="4" height="3" rx="1"/>
+    <rect x="84"  y="170" width="4" height="3" rx="1"/>
+    <rect x="100" y="162" width="4" height="3" rx="1"/>
+    <rect x="145" y="130" width="4" height="3" rx="1"/>
+    <rect x="153" y="130" width="4" height="3" rx="1"/>
+    <rect x="145" y="145" width="4" height="3" rx="1"/>
+    <rect x="161" y="140" width="4" height="3" rx="1"/>
+    <rect x="236" y="108" width="4" height="3" rx="1"/>
+    <rect x="248" y="108" width="4" height="3" rx="1"/>
+    <rect x="260" y="115" width="4" height="3" rx="1"/>
+    <rect x="236" y="125" width="4" height="3" rx="1"/>
+    <rect x="298" y="75"  width="4" height="3" rx="1"/>
+    <rect x="308" y="75"  width="4" height="3" rx="1"/>
+    <rect x="298" y="90"  width="4" height="3" rx="1"/>
+    <rect x="308" y="90"  width="4" height="3" rx="1"/>
+    <rect x="346" y="100" width="4" height="3" rx="1"/>
+    <rect x="358" y="100" width="4" height="3" rx="1"/>
+    <rect x="346" y="115" width="4" height="3" rx="1"/>
+    <rect x="370" y="108" width="4" height="3" rx="1"/>
+    <rect x="456" y="118" width="4" height="3" rx="1"/>
+    <rect x="466" y="125" width="4" height="3" rx="1"/>
+    <rect x="456" y="135" width="4" height="3" rx="1"/>
+    <rect x="504" y="158" width="4" height="3" rx="1"/>
+    <rect x="516" y="158" width="4" height="3" rx="1"/>
+  </g>
+  <!-- Red + blue accent lights on buildings -->
+  <circle cx="310" cy="80"  r="3" fill="#ff4444" opacity=".8"/>
+  <circle cx="380" cy="95"  r="2" fill="#44aaff" opacity=".7"/>
+  <circle cx="240" cy="108" r="2" fill="#ff4444" opacity=".65"/>
+
+  <!-- Victoria Harbour water -->
+  <rect x="0" y="300" width="640" height="100" fill="url(#water)"/>
+  <!-- Water reflections -->
+  <line x1="310" y1="302" x2="310" y2="340" stroke="#ffd700" stroke-width="2"  opacity=".18"/>
+  <line x1="310" y1="302" x2="305" y2="340" stroke="#ffd700" stroke-width="1"  opacity=".1"/>
+  <line x1="310" y1="302" x2="315" y2="340" stroke="#ffd700" stroke-width="1"  opacity=".1"/>
+  <line x1="380" y1="302" x2="380" y2="335" stroke="#44aaff" stroke-width="1.5" opacity=".14"/>
+  <line x1="240" y1="302" x2="240" y2="330" stroke="#ff4444" stroke-width="1.5" opacity=".14"/>
+  <!-- Water ripples -->
+  <path d="M80 318 Q160 312 240 318 Q320 324 400 318 Q480 312 560 318" fill="none" stroke="#1e3860" stroke-width="1.5" opacity=".5"/>
+  <path d="M0  332 Q80  326 160 332 Q240 338 320 332 Q400 326 480 332 Q560 338 640 332" fill="none" stroke="#1e3860" stroke-width="1" opacity=".4"/>
+
+  <!-- Horizon glow -->
+  <rect x="0" y="295" width="640" height="10" fill="#1a2a50" opacity=".9"/>
+
+  <!-- Label -->
+  <rect x="0" y="0" width="185" height="36" fill="#050d1e" opacity=".7"/>
+  <text x="14" y="23" font-family="'DM Sans',sans-serif" font-size="12" font-weight="600" fill="white" opacity=".8" letter-spacing="1.5">HONGKONG · SKYLINE</text>
+</svg>

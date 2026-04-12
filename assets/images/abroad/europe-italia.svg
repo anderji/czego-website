@@ -1,0 +1,87 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 400" width="640" height="400">
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#6ab0e8"/>
+      <stop offset="100%" stop-color="#a8d4f4"/>
+    </linearGradient>
+    <linearGradient id="ground" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#d4a870"/>
+      <stop offset="100%" stop-color="#b88840"/>
+    </linearGradient>
+    <radialGradient id="sun" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#fff8c0"/>
+      <stop offset="100%" stop-color="#ffcc00" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <rect width="640" height="400" fill="url(#sky)"/>
+
+  <!-- Sun -->
+  <circle cx="540" cy="65" r="45" fill="url(#sun)"/>
+  <circle cx="540" cy="65" r="32" fill="#fff8c0" opacity=".95"/>
+
+  <!-- Light clouds -->
+  <ellipse cx="150" cy="55"  rx="80" ry="28" fill="white" opacity=".65"/>
+  <ellipse cx="120" cy="62"  rx="55" ry="22" fill="white" opacity=".6"/>
+  <ellipse cx="340" cy="42"  rx="70" ry="25" fill="white" opacity=".55"/>
+
+  <!-- Background hills - Tuscany -->
+  <ellipse cx="80"  cy="310" rx="180" ry="80" fill="#78a840" opacity=".6"/>
+  <ellipse cx="560" cy="320" rx="200" ry="90" fill="#6a9830" opacity=".55"/>
+  <ellipse cx="320" cy="330" rx="250" ry="75" fill="#80b048" opacity=".5"/>
+
+  <!-- Colosseum-style arches (simplified) -->
+  <!-- Outer wall -->
+  <rect x="100" y="175" width="440" height="165" fill="#d4956a"/>
+  <rect x="100" y="173" width="440" height="6" fill="#b07840"/>
+  <!-- Upper tier -->
+  <rect x="120" y="155" width="400" height="25" fill="#c88050"/>
+  <rect x="120" y="153" width="400" height="5" fill="#b07040"/>
+  <!-- Arches bottom row -->
+  <path d="M118 340 L118 230 Q140 205 162 230 L162 340Z" fill="#c07848"/>
+  <path d="M170 340 L170 230 Q192 205 214 230 L214 340Z" fill="#c07848"/>
+  <path d="M222 340 L222 230 Q244 205 266 230 L266 340Z" fill="#c07848"/>
+  <path d="M274 340 L274 230 Q296 205 318 230 L318 340Z" fill="#c07848"/>
+  <path d="M326 340 L326 230 Q348 205 370 230 L370 340Z" fill="#c07848"/>
+  <path d="M378 340 L378 230 Q400 205 422 230 L422 340Z" fill="#c07848"/>
+  <path d="M430 340 L430 230 Q452 205 474 230 L474 340Z" fill="#c07848"/>
+  <path d="M482 340 L482 230 Q504 205 526 230 L526 340Z" fill="#c07848"/>
+  <!-- Arch shadows -->
+  <path d="M118 340 L118 235 Q140 212 162 235 L162 340Z" fill="#a06030" opacity=".35"/>
+  <path d="M274 340 L274 235 Q296 212 318 235 L318 340Z" fill="#a06030" opacity=".35"/>
+  <path d="M430 340 L430 235 Q452 212 474 235 L474 340Z" fill="#a06030" opacity=".35"/>
+  <!-- Upper arches (smaller) -->
+  <path d="M128 178 L128 165 Q140 158 152 165 L152 178Z" fill="#b87040" opacity=".8"/>
+  <path d="M160 178 L160 165 Q172 158 184 165 L184 178Z" fill="#b87040" opacity=".8"/>
+  <path d="M192 178 L192 165 Q204 158 216 165 L216 178Z" fill="#b87040" opacity=".8"/>
+  <path d="M224 178 L224 165 Q236 158 248 165 L248 178Z" fill="#b87040" opacity=".8"/>
+  <path d="M256 178 L256 165 Q268 158 280 165 L280 178Z" fill="#b87040" opacity=".8"/>
+  <path d="M288 178 L288 165 Q300 158 312 165 L312 178Z" fill="#b87040" opacity=".8"/>
+  <path d="M320 178 L320 165 Q332 158 344 165 L344 178Z" fill="#b87040" opacity=".8"/>
+  <path d="M352 178 L352 165 Q364 158 376 165 L376 178Z" fill="#b87040" opacity=".8"/>
+  <path d="M384 178 L384 165 Q396 158 408 165 L408 178Z" fill="#b87040" opacity=".8"/>
+  <path d="M416 178 L416 165 Q428 158 440 165 L440 178Z" fill="#b87040" opacity=".8"/>
+  <path d="M448 178 L448 165 Q460 158 472 165 L472 178Z" fill="#b87040" opacity=".8"/>
+  <path d="M480 178 L480 165 Q492 158 504 165 L504 178Z" fill="#b87040" opacity=".8"/>
+
+  <!-- Cypress trees -->
+  <ellipse cx="65" cy="235" rx="12" ry="55" fill="#3a6020"/>
+  <ellipse cx="65" cy="200" rx="9"  ry="35" fill="#486828"/>
+  <ellipse cx="575" cy="230" rx="12" ry="55" fill="#3a6020"/>
+  <ellipse cx="575" cy="195" rx="9"  ry="35" fill="#486828"/>
+
+  <!-- Italian flag -->
+  <rect x="560" y="20" width="60" height="42" rx="3" fill="white" stroke="#d0c0a0" stroke-width="1"/>
+  <rect x="560" y="20" width="20" height="42" rx="2" fill="#009246"/>
+  <rect x="600" y="20" width="20" height="42" rx="2" fill="#ce2b37"/>
+
+  <!-- Ground -->
+  <rect x="0" y="338" width="640" height="62" fill="url(#ground)"/>
+  <!-- Ground texture -->
+  <ellipse cx="200" cy="345" rx="60" ry="6" fill="#c08840" opacity=".2"/>
+  <ellipse cx="440" cy="347" rx="70" ry="7" fill="#c08840" opacity=".2"/>
+
+  <!-- Label -->
+  <rect x="0" y="364" width="185" height="36" fill="#6a3010" opacity=".55"/>
+  <text x="14" y="387" font-family="'DM Sans',sans-serif" font-size="12" font-weight="600" fill="white" opacity=".8" letter-spacing="1.5">ITÁLIE · SOUTĚŽ</text>
+</svg>

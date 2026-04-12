@@ -51,7 +51,7 @@
 
   <section class="section">
     <div class="container">
-      <div id="projects-grid" class="projects-grid"></div>
+      <div id="projects-grid"></div>
     </div>
   </section>
 
@@ -83,28 +83,47 @@
   const grid = document.getElementById('projects-grid');
   showLoading('projects-grid');
 
+  function projectCardHTML(p) {
+    return `
+      <div class="project-card reveal">
+        <div class="project-card__image">
+          ${p.image
+            ? `<img src="${escHtml(p.image)}" alt="${escHtml(isCs ? p.title_cs : p.title_en)}" loading="lazy" width="640" height="360" style="${p.image_fit ? `object-fit:${escHtml(p.image_fit)};` : ''}">`
+            : `<div class="project-card__image-placeholder">🎵</div>`}
+        </div>
+        <div class="project-card__body">
+          <div class="project-card__meta">
+            <span class="project-card__year">${escHtml(p.year)}</span>
+          </div>
+          <h3 class="project-card__title">${escHtml(isCs ? p.title_cs : p.title_en)}</h3>
+          <p class="project-card__desc">${escHtml(isCs ? p.description_cs : p.description_en)}</p>
+          <div class="project-card__partner">
+            <strong>${isCs ? 'Partner' : 'Partner'}:</strong>
+            ${escHtml(isCs ? p.partner_cs : p.partner_en)}
+          </div>
+        </div>
+      </div>`;
+  }
+
+  const CATEGORIES = [
+    { key_cs: 'Projekt',  key_en: 'Projects'  },
+    { key_cs: 'Benefice', key_en: 'Charity'   },
+  ];
+
   fetchJSON('data/projects.json')
     .then(projects => {
-      grid.innerHTML = projects.map(p => `
-        <div class="project-card reveal">
-          <div class="project-card__image">
-            ${p.image
-              ? `<img src="${escHtml(p.image)}" alt="${escHtml(isCs ? p.title_cs : p.title_en)}" loading="lazy" width="640" height="360">`
-              : `<div class="project-card__image-placeholder">🎵</div>`}
-          </div>
-          <div class="project-card__body">
-            <div class="project-card__meta">
-              <span class="project-card__category">${escHtml(isCs ? p.category_cs : p.category_en)}</span>
-              <span class="project-card__year">${escHtml(p.year)}</span>
-            </div>
-            <h2 class="project-card__title">${escHtml(isCs ? p.title_cs : p.title_en)}</h2>
-            <p class="project-card__desc">${escHtml(isCs ? p.description_cs : p.description_en)}</p>
-            <div class="project-card__partner">
-              <strong>${isCs ? 'Partner' : 'Partner'}:</strong>
-              ${escHtml(isCs ? p.partner_cs : p.partner_en)}
-            </div>
-          </div>
-        </div>`).join('');
+      grid.innerHTML = CATEGORIES
+        .map(cat => {
+          const items = projects.filter(p => p.category_cs === cat.key_cs);
+          if (!items.length) return '';
+          return `
+            <div class="projects-section">
+              <h2 class="projects-section__title">${escHtml(isCs ? cat.key_cs : cat.key_en)}</h2>
+              <div class="projects-grid">
+                ${items.map(projectCardHTML).join('')}
+              </div>
+            </div>`;
+        }).join('');
     })
     .catch(() => showError('projects-grid', isCs ? 'Nepodařilo se načíst projekty.' : 'Failed to load projects.'))
     .finally(() => initReveal());

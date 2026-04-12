@@ -1,0 +1,628 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kytarová hra – CZEGO</title>
+  <meta name="robots" content="noindex">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap">
+  <link rel="stylesheet" href="assets/css/main.css">
+  <style>
+    #game-wrap {
+      position: relative;
+      max-width: 820px;
+      margin: 0 auto;
+      user-select: none;
+    }
+    #game-canvas {
+      display: block;
+      width: 100%;
+      height: auto;
+      border-radius: var(--r-lg);
+      box-shadow: var(--shadow-lg);
+      cursor: pointer;
+    }
+    #game-overlay {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem;
+      background: rgba(13,4,8,.82);
+      border-radius: var(--r-lg);
+      backdrop-filter: blur(4px);
+    }
+    #game-overlay h2 {
+      font-family: var(--font-display);
+      font-size: clamp(1.4rem, 4vw, 2.2rem);
+      color: #e8c87a;
+      text-align: center;
+    }
+    #ov-score {
+      font-size: .95rem;
+      color: rgba(255,255,255,.6);
+      min-height: 1.2em;
+    }
+    #ov-hint {
+      font-size: .8rem;
+      color: rgba(255,255,255,.35);
+    }
+    #ov-btn {
+      margin-top: .5rem;
+      padding: .65rem 2.2rem;
+      background: var(--red);
+      color: #fff;
+      border: none;
+      border-radius: var(--r-full);
+      font-family: var(--font-body);
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background var(--transition);
+    }
+    #ov-btn:hover { background: var(--red-dark); }
+    #mobile-controls {
+      display: none;
+      justify-content: center;
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+    #mobile-controls button {
+      width: 64px; height: 64px;
+      border-radius: 50%;
+      border: 2px solid var(--border-mid);
+      background: var(--cream);
+      font-size: 1.4rem;
+      cursor: pointer;
+      transition: background var(--transition);
+    }
+    #mobile-controls button:active { background: var(--sand-dark); }
+    @media (hover: none) {
+      #mobile-controls { display: flex; }
+    }
+  </style>
+</head>
+<body>
+
+<a class="skip-nav" href="#main-content">Přeskočit na obsah</a>
+
+<header class="site-header" role="banner">
+  <div class="container">
+    <nav class="nav" aria-label="Hlavní navigace">
+      <a class="nav__logo" href="index.html">CZ<span>EGO</span></a>
+      <button class="nav__burger" id="nav-burger" aria-label="Otevřít menu" aria-expanded="false" aria-controls="nav-links">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav__links" id="nav-links" role="list"></ul>
+    </nav>
+  </div>
+</header>
+
+<main id="main-content" tabindex="-1">
+
+  <div class="page-header">
+    <div class="container">
+      <p class="eyebrow">Minigame</p>
+      <h1>Kytarová výprava</h1>
+      <p class="lead" style="margin-top:.75rem;font-size:.9rem;color:var(--text-muted)">
+        Sbírej houslové klíče · Mezerník nebo ↑ = skok · Dvojskok povolen
+      </p>
+    </div>
+  </div>
+
+  <section class="section section--alt">
+    <div class="container">
+      <div id="game-wrap">
+        <canvas id="game-canvas" width="800" height="380" aria-label="Kytarová hra"></canvas>
+        <div id="game-overlay">
+          <h2 id="ov-title">Sbírej houslové klíče!</h2>
+          <p id="ov-score"></p>
+          <button id="ov-btn">Hrát</button>
+          <p id="ov-hint">mezerník / klik / tap</p>
+        </div>
+      </div>
+      <div id="mobile-controls" aria-hidden="true">
+        <button id="btn-jump">↑</button>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer" role="contentinfo">
+  <div class="container" id="site-footer-inner"></div>
+</footer>
+
+<script src="assets/js/utils.js"></script>
+<script>
+renderNav('guitarGame.html');
+renderFooter();
+
+(function () {
+  'use strict';
+
+  const canvas  = document.getElementById('game-canvas');
+  const ctx     = canvas.getContext('2d');
+  const W = 800, H = 380;
+  canvas.width  = W;
+  canvas.height = H;
+
+  /* ── Colours ── */
+  const C = {
+    sky0:    '#0d0408',
+    sky1:    '#2a0d14',
+    ground:  '#3d1a08',
+    groundT: '#6B3220',
+    plank:   '#5a2810',
+    plankT:  '#7a3828',
+    wood:    '#A0522D',
+    woodD:   '#6B3226',
+    str:     '#D4AF70',
+    red:     '#B8251A',
+    clef:    '#e8c87a',
+    staff:   'rgba(255,255,255,0.06)',
+    white:   '#ffffff',
+  };
+
+  const GROUND_Y   = H - 55;
+  const GRAVITY    = 0.48;
+  const JUMP_F     = -16;
+
+  /* ── State ── */
+  let state, score, hiScore, distance, speed, tick, bgX, lastEnd;
+
+  hiScore = parseInt(localStorage.getItem('czego_hs') || '0');
+
+  /* ── Player ── */
+  const P = { x:130, y:0, w:36, h:72, vy:0, onGround:false, jumps:2, bob:0, angle:0, squish:1 };
+
+  /* ── World ── */
+  let platforms = [], clefs = [], spikes = [], particles = [];
+
+  /* ── Input ── */
+  const keys = {};
+  document.addEventListener('keydown', e => {
+    if (keys[e.code]) return;
+    keys[e.code] = true;
+    if (e.code === 'Space' || e.code === 'ArrowUp') {
+      e.preventDefault();
+      if (state === 'playing') jump();
+      else startGame();
+    }
+    if (e.code === 'Enter') {
+      if (state !== 'playing') startGame();
+    }
+  });
+  document.addEventListener('keyup', e => { keys[e.code] = false; });
+
+  canvas.addEventListener('click',     () => { if (state !== 'playing') startGame(); else jump(); });
+  canvas.addEventListener('touchstart', e => { e.preventDefault(); if (state !== 'playing') startGame(); else jump(); }, { passive: false });
+  document.getElementById('btn-jump').addEventListener('touchstart', e => { e.preventDefault(); if (state !== 'playing') startGame(); else jump(); }, { passive: false });
+
+  function jump() {
+    if (P.jumps > 0) {
+      P.vy = JUMP_F * (P.jumps === 2 ? 1 : 0.82);
+      P.jumps--;
+      P.onGround = false;
+      P.squish = 1.35;
+    }
+  }
+
+  /* ── Procedural generation ── */
+  function spawnAhead() {
+    while (lastEnd < P.x + W * 2.2) {
+      const gap  = 50 + Math.random() * Math.min(110, 50 + distance * 0.012);
+      const pw   = 110 + Math.random() * 160;
+      const sx   = lastEnd + gap;
+
+      platforms.push({ x: sx, y: GROUND_Y, w: pw, h: 55, ground: true });
+
+      // floating platform
+      if (Math.random() < 0.44) {
+        const fw = 65 + Math.random() * 80;
+        const fy = GROUND_Y - 88 - Math.random() * 55;
+        const fx = sx + Math.random() * Math.max(10, pw - fw);
+        platforms.push({ x: fx, y: fy, w: fw, h: 13, ground: false });
+        if (Math.random() < 0.72)
+          clefs.push(mkClef(fx + fw / 2, fy - 34));
+      }
+
+      // clef on ground
+      if (Math.random() < 0.48)
+        clefs.push(mkClef(sx + 20 + Math.random() * (pw - 40), GROUND_Y - 36));
+
+      // spike
+      if (Math.random() < 0.28 && pw > 90)
+        spikes.push({ x: sx + 28 + Math.random() * (pw - 56), y: GROUND_Y - 22, w: 22, h: 22 });
+
+      lastEnd = sx + pw;
+    }
+
+    // Cull behind
+    const cull = P.x - W * 0.6;
+    platforms = platforms.filter(p => p.x + p.w > cull);
+    clefs     = clefs.filter(c => c.x > cull);
+    spikes    = spikes.filter(s => s.x > cull);
+  }
+
+  function mkClef(x, y) {
+    return { x, y, done: false, bob: Math.random() * Math.PI * 2 };
+  }
+
+  /* ── Start ── */
+  function startGame() {
+    state    = 'playing';
+    score    = 0;
+    distance = 0;
+    speed    = 2.4;
+    P.x      = 130;
+    tick     = 0;
+    bgX      = 0;
+
+    P.y = GROUND_Y - P.h;
+    P.vy = 0; P.onGround = true; P.jumps = 2; P.angle = 0; P.squish = 1;
+
+    platforms = [{ x: -200, y: GROUND_Y, w: W * 1.6, h: 55, ground: true }];
+    clefs     = [];
+    spikes    = [];
+    particles = [];
+    lastEnd   = W * 1.4;
+    spawnAhead();
+
+    document.getElementById('game-overlay').style.display = 'none';
+  }
+
+  /* ── Update ── */
+  function update() {
+    if (state !== 'playing') return;
+
+    tick++;
+    distance += speed;
+    speed     = 2.4 + distance * 0.00015;
+    bgX      -= speed * 0.25;
+    P.x      += speed;
+
+    /* Physics */
+    P.vy     += GRAVITY;
+    P.y      += P.vy;
+    P.bob    += 0.14;
+    P.squish += (1 - P.squish) * 0.18;
+
+    if (!P.onGround) {
+      const tgt = P.vy > 0 ? 0.28 : -0.2;
+      P.angle  += (tgt - P.angle) * 0.12;
+    } else {
+      P.angle  *= 0.75;
+    }
+
+    /* Platform collision */
+    P.onGround = false;
+    for (const pl of platforms) {
+      const rx = P.x + 5, rw = P.w - 10;
+      if (rx + rw > pl.x && rx < pl.x + pl.w) {
+        const prevBot = P.y + P.h - P.vy;
+        if (prevBot <= pl.y + 4 && P.y + P.h >= pl.y) {
+          P.y = pl.y - P.h;
+          P.vy = 0;
+          P.onGround = true;
+          P.jumps = 2;
+        }
+      }
+    }
+
+    /* Collect clefs */
+    for (const cl of clefs) {
+      if (cl.done) continue;
+      if (Math.abs(P.x + P.w / 2 - cl.x) < 26 && Math.abs(P.y + P.h / 2 - cl.y) < 26) {
+        cl.done = true;
+        score += 10;
+        for (let i = 0; i < 9; i++) {
+          const a = (i / 9) * Math.PI * 2;
+          particles.push({ x: cl.x, y: cl.y, vx: Math.cos(a) * (1.5 + Math.random() * 2.5), vy: Math.sin(a) * (1.5 + Math.random() * 2.5) - 1.5, life: 1 });
+        }
+      }
+    }
+
+    /* Spike / fall */
+    for (const s of spikes) {
+      if (P.x + P.w - 7 > s.x && P.x + 7 < s.x + s.w && P.y + P.h > s.y + 4 && P.y < s.y + s.h)
+        return die();
+    }
+    if (P.y > H + 60) return die();
+
+    /* Particles */
+    for (const pt of particles) {
+      pt.x += pt.vx; pt.y += pt.vy;
+      pt.vy += 0.12; pt.life -= 0.045;
+    }
+    particles = particles.filter(p => p.life > 0);
+
+    spawnAhead();
+  }
+
+  function die() {
+    state = 'dead';
+    if (score > hiScore) {
+      hiScore = score;
+      localStorage.setItem('czego_hs', hiScore);
+    }
+    const ov = document.getElementById('game-overlay');
+    ov.style.display = 'flex';
+    document.getElementById('ov-title').textContent  = 'Konec hry!';
+    document.getElementById('ov-score').textContent  = `Skóre: ${score}   Rekord: ${hiScore}`;
+    document.getElementById('ov-btn').textContent    = 'Hrát znovu';
+    document.getElementById('ov-hint').textContent   = 'mezerník / klik / tap';
+  }
+
+  /* ── Draw helpers ── */
+  function screenX(worldX) { return worldX - P.x + 130; }
+
+  function drawBg() {
+    const g = ctx.createLinearGradient(0, 0, 0, GROUND_Y);
+    g.addColorStop(0, C.sky0);
+    g.addColorStop(1, C.sky1);
+    ctx.fillStyle = g;
+    ctx.fillRect(0, 0, W, H);
+
+    // Scrolling staff lines
+    ctx.strokeStyle = C.staff;
+    ctx.lineWidth = 1;
+    for (let group = 0; group < 3; group++) {
+      const base = 28 + group * 108;
+      for (let i = 0; i < 5; i++) {
+        const y = base + i * 17;
+        ctx.beginPath(); ctx.moveTo(0, y); ctx.lineTo(W, y); ctx.stroke();
+      }
+    }
+
+    // Background floating notes
+    ctx.fillStyle = 'rgba(255,255,255,0.045)';
+    ctx.font = '22px serif';
+    ctx.textBaseline = 'top';
+    const noteChars = ['♩','♪','♫','♬'];
+    for (let i = 0; i < 9; i++) {
+      const x = ((bgX * 0.6 + i * 95) % (W + 40) + W + 40) % (W + 40) - 20;
+      const y = 18 + (i % 4) * 75;
+      ctx.fillText(noteChars[i % 4], x, y);
+    }
+    ctx.textBaseline = 'alphabetic';
+  }
+
+  function drawPlatforms() {
+    for (const pl of platforms) {
+      const rx = screenX(pl.x);
+      if (rx + pl.w < -4 || rx > W + 4) continue;
+      if (pl.ground) {
+        ctx.fillStyle = C.ground;
+        ctx.fillRect(rx, pl.y, pl.w, pl.h);
+        ctx.fillStyle = C.groundT;
+        ctx.fillRect(rx, pl.y, pl.w, 8);
+        ctx.fillStyle = '#8B4228';
+        ctx.fillRect(rx, pl.y, pl.w, 3);
+      } else {
+        ctx.fillStyle = C.plank;
+        ctx.fillRect(rx, pl.y, pl.w, pl.h);
+        ctx.fillStyle = C.plankT;
+        ctx.fillRect(rx, pl.y, pl.w, 4);
+        ctx.strokeStyle = '#3a1808';
+        ctx.lineWidth = 1;
+        for (let wx = rx + 14; wx < rx + pl.w - 4; wx += 14) {
+          ctx.beginPath(); ctx.moveTo(wx, pl.y + 4); ctx.lineTo(wx, pl.y + pl.h); ctx.stroke();
+        }
+      }
+    }
+  }
+
+  function drawSpikes() {
+    for (const s of spikes) {
+      const rx = screenX(s.x);
+      if (rx < -4 || rx > W + 4) continue;
+      ctx.fillStyle = '#b0b8c8';
+      ctx.beginPath();
+      ctx.moveTo(rx, s.y + s.h);
+      ctx.lineTo(rx + s.w / 2, s.y);
+      ctx.lineTo(rx + s.w, s.y + s.h);
+      ctx.closePath();
+      ctx.fill();
+      ctx.fillStyle = '#d8e0e8';
+      ctx.beginPath();
+      ctx.moveTo(rx + 3, s.y + s.h);
+      ctx.lineTo(rx + s.w / 2, s.y + 4);
+      ctx.lineTo(rx + s.w / 2 + 2, s.y + s.h);
+      ctx.closePath();
+      ctx.fill();
+    }
+  }
+
+  function drawClefs() {
+    ctx.textAlign    = 'center';
+    ctx.textBaseline = 'middle';
+    for (const cl of clefs) {
+      if (cl.done) continue;
+      const rx = screenX(cl.x);
+      if (rx < -20 || rx > W + 20) continue;
+      const bobY = cl.y + Math.sin(tick * 0.065 + cl.bob) * 5;
+
+      // glow
+      const grd = ctx.createRadialGradient(rx, bobY, 2, rx, bobY, 24);
+      grd.addColorStop(0, 'rgba(232,200,122,0.32)');
+      grd.addColorStop(1, 'rgba(232,200,122,0)');
+      ctx.fillStyle = grd;
+      ctx.beginPath(); ctx.arc(rx, bobY, 24, 0, Math.PI * 2); ctx.fill();
+
+      ctx.font      = 'bold 34px serif';
+      ctx.fillStyle = C.clef;
+      ctx.fillText('𝄞', rx, bobY);
+    }
+    ctx.textAlign    = 'left';
+    ctx.textBaseline = 'alphabetic';
+  }
+
+  function drawGuitar() {
+    const bobY = P.onGround ? Math.sin(P.bob) * 2.5 : 0;
+    const cx   = 130;
+    const cy   = P.y + P.h / 2 + bobY;
+
+    ctx.save();
+    ctx.translate(cx, cy);
+    ctx.rotate(P.angle);
+    ctx.scale(1 / P.squish, P.squish);
+
+    const w = P.w, h = P.h;
+    const x = -w / 2, y = -h / 2;
+
+    // Shadow
+    if (P.onGround) {
+      ctx.fillStyle = 'rgba(0,0,0,0.28)';
+      ctx.beginPath();
+      ctx.ellipse(0, h / 2 + 6, w * 0.55, 5, 0, 0, Math.PI * 2);
+      ctx.fill();
+    }
+
+    // --- Lower bout ---
+    ctx.fillStyle = C.wood;
+    ctx.beginPath();
+    ctx.ellipse(0, y + h * 0.70, w * 0.47, h * 0.30, 0, 0, Math.PI * 2);
+    ctx.fill();
+
+    // --- Upper bout ---
+    ctx.beginPath();
+    ctx.ellipse(0, y + h * 0.40, w * 0.38, h * 0.25, 0, 0, Math.PI * 2);
+    ctx.fill();
+
+    // --- Waist fill ---
+    ctx.fillRect(x + w * 0.19, y + h * 0.34, w * 0.62, h * 0.39);
+
+    // --- Body shading ---
+    ctx.strokeStyle = C.woodD;
+    ctx.lineWidth = 1.5;
+    ctx.beginPath(); ctx.ellipse(0, y + h * 0.70, w * 0.47, h * 0.30, 0, 0, Math.PI * 2); ctx.stroke();
+    ctx.beginPath(); ctx.ellipse(0, y + h * 0.40, w * 0.38, h * 0.25, 0, 0, Math.PI * 2); ctx.stroke();
+
+    // --- Highlight on body ---
+    ctx.fillStyle = 'rgba(255,255,255,0.08)';
+    ctx.beginPath(); ctx.ellipse(-w * 0.1, y + h * 0.42, w * 0.12, h * 0.14, -0.4, 0, Math.PI * 2); ctx.fill();
+    ctx.beginPath(); ctx.ellipse(-w * 0.1, y + h * 0.70, w * 0.14, h * 0.15, -0.4, 0, Math.PI * 2); ctx.fill();
+
+    // --- Sound hole ---
+    ctx.fillStyle = '#1a0808';
+    ctx.beginPath(); ctx.arc(0, y + h * 0.57, w * 0.15, 0, Math.PI * 2); ctx.fill();
+    ctx.strokeStyle = C.woodD; ctx.lineWidth = 1;
+    ctx.stroke();
+    // Rosette ring
+    ctx.strokeStyle = C.str; ctx.lineWidth = 0.6;
+    ctx.beginPath(); ctx.arc(0, y + h * 0.57, w * 0.13, 0, Math.PI * 2); ctx.stroke();
+
+    // --- Neck ---
+    ctx.fillStyle = C.woodD;
+    ctx.fillRect(x + w * 0.38, y - h * 0.14, w * 0.24, h * 0.52);
+    ctx.fillStyle = '#7a4530';
+    ctx.fillRect(x + w * 0.41, y - h * 0.14, w * 0.08, h * 0.50);
+    // Fret lines
+    ctx.strokeStyle = 'rgba(255,255,255,0.18)'; ctx.lineWidth = 0.8;
+    for (let f = 0; f < 5; f++) {
+      const fy = y + h * 0.36 - f * h * 0.1;
+      ctx.beginPath(); ctx.moveTo(x + w * 0.38, fy); ctx.lineTo(x + w * 0.62, fy); ctx.stroke();
+    }
+
+    // --- Headstock ---
+    ctx.fillStyle = C.woodD;
+    ctx.fillRect(x + w * 0.31, y - h * 0.22, w * 0.38, h * 0.11);
+    ctx.fillStyle = '#5a2a1a';
+    ctx.fillRect(x + w * 0.31, y - h * 0.12, w * 0.38, h * 0.02);
+
+    // --- Tuning pegs ---
+    ctx.fillStyle = '#909090';
+    for (let i = 0; i < 3; i++) {
+      const px = x + w * 0.34 + i * w * 0.13;
+      ctx.beginPath(); ctx.arc(px, y - h * 0.24, 2.8, 0, Math.PI * 2); ctx.fill();
+      ctx.beginPath(); ctx.arc(px, y - h * 0.115, 2.8, 0, Math.PI * 2); ctx.fill();
+    }
+
+    // --- Strings ---
+    for (let i = 0; i < 6; i++) {
+      const sx = x + w * 0.362 + i * w * 0.052;
+      ctx.strokeStyle = i < 2 ? '#d4aa60' : i < 4 ? '#c09848' : '#a88038';
+      ctx.lineWidth = i < 2 ? 0.5 : i < 4 ? 0.8 : 1.1;
+      ctx.globalAlpha = 0.85;
+      ctx.beginPath(); ctx.moveTo(sx, y - h * 0.14); ctx.lineTo(sx, y + h * 0.86); ctx.stroke();
+    }
+    ctx.globalAlpha = 1;
+
+    // --- Bridge ---
+    ctx.fillStyle = '#1e0e06';
+    ctx.fillRect(x + w * 0.28, y + h * 0.80, w * 0.44, h * 0.05);
+
+    ctx.restore();
+  }
+
+  function drawParticles() {
+    ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
+    for (const pt of particles) {
+      ctx.globalAlpha = Math.max(0, pt.life);
+      ctx.fillStyle   = C.clef;
+      ctx.font        = '15px serif';
+      ctx.fillText('♪', screenX(pt.x), pt.y);
+    }
+    ctx.globalAlpha = 1;
+    ctx.textAlign = 'left'; ctx.textBaseline = 'alphabetic';
+  }
+
+  function drawHUD() {
+    // Score box
+    ctx.fillStyle = 'rgba(0,0,0,0.48)';
+    ctx.beginPath(); ctx.roundRect(W - 175, 10, 162, 42, 8); ctx.fill();
+    ctx.textAlign = 'right';
+    ctx.fillStyle = 'rgba(255,255,255,0.38)';
+    ctx.font      = '10px sans-serif';
+    ctx.fillText(`REKORD  ${hiScore}`, W - 16, 23);
+    ctx.fillStyle = C.clef;
+    ctx.font      = 'bold 18px sans-serif';
+    ctx.fillText(`𝄞  ${score}`, W - 16, 43);
+    ctx.textAlign = 'left';
+
+    // Speed bar
+    ctx.fillStyle = 'rgba(0,0,0,0.42)';
+    ctx.beginPath(); ctx.roundRect(12, 12, 98, 34, 6); ctx.fill();
+    ctx.fillStyle = 'rgba(255,255,255,0.3)';
+    ctx.font = '9px sans-serif';
+    ctx.fillText('RYCHLOST', 18, 23);
+    const bars = Math.min(8, Math.floor((speed - 3.8) / 0.45) + 1);
+    for (let i = 0; i < 8; i++) {
+      ctx.fillStyle = i < bars ? C.red : 'rgba(255,255,255,0.12)';
+      ctx.fillRect(18 + i * 11, 27, 8, 11);
+    }
+  }
+
+  /* ── Main loop ── */
+  function loop() {
+    update();
+    ctx.clearRect(0, 0, W, H);
+    drawBg();
+    drawPlatforms();
+    drawSpikes();
+    drawClefs();
+    drawGuitar();
+    drawParticles();
+    if (state === 'playing') drawHUD();
+    requestAnimationFrame(loop);
+  }
+
+  /* ── Responsive canvas ── */
+  function resize() {
+    const mw = Math.min(canvas.parentElement.clientWidth, W);
+    canvas.style.width  = mw + 'px';
+    canvas.style.height = (mw / W * H) + 'px';
+  }
+  window.addEventListener('resize', resize);
+  resize();
+
+  loop();
+})();
+</script>
+</body>
+</html>

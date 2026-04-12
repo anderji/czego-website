@@ -1,0 +1,76 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 400" width="640" height="400">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#f9e8c0"/>
+      <stop offset="100%" stop-color="#f0c878"/>
+    </linearGradient>
+    <linearGradient id="ground" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#c8a040"/>
+      <stop offset="100%" stop-color="#a07820"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="640" height="400" fill="url(#bg)"/>
+
+  <!-- Sky clouds / haze -->
+  <ellipse cx="160" cy="80"  rx="120" ry="40" fill="white" opacity=".3"/>
+  <ellipse cx="450" cy="60"  rx="100" ry="35" fill="white" opacity=".25"/>
+  <ellipse cx="560" cy="110" rx="80"  ry="28" fill="white" opacity=".2"/>
+
+  <!-- Ornate Thai wall / backdrop -->
+  <rect x="0" y="180" width="640" height="220" fill="#b88030"/>
+  <rect x="0" y="178" width="640" height="6" fill="#d4a040"/>
+  <!-- Wall pattern -->
+  <rect x="0"   y="195" width="640" height="3" fill="#c89030" opacity=".5"/>
+  <rect x="0"   y="215" width="640" height="3" fill="#c89030" opacity=".5"/>
+  <rect x="0"   y="235" width="640" height="3" fill="#c89030" opacity=".4"/>
+  <!-- Arch motifs on wall -->
+  <path d="M80 178 Q80 150 120 150 Q160 150 160 178" fill="none" stroke="#d4a040" stroke-width="3" opacity=".6"/>
+  <path d="M200 178 Q200 145 250 145 Q300 145 300 178" fill="none" stroke="#d4a040" stroke-width="3" opacity=".6"/>
+  <path d="M340 178 Q340 150 380 150 Q420 150 420 178" fill="none" stroke="#d4a040" stroke-width="3" opacity=".6"/>
+  <path d="M460 178 Q460 145 510 145 Q560 145 560 178" fill="none" stroke="#d4a040" stroke-width="3" opacity=".6"/>
+
+  <!-- Figures - Thai cultural costume style (simplified silhouettes) -->
+  <!-- Figure 1 -->
+  <ellipse cx="210" cy="158" rx="18" ry="20" fill="#c87830"/>
+  <!-- Crown/headdress -->
+  <polygon points="210,128 200,148 220,148" fill="#d4a030"/>
+  <line x1="210" y1="118" x2="210" y2="128" stroke="#d4a030" stroke-width="2"/>
+  <rect x="202" y="175" width="16" height="50" rx="5" fill="#8b4820"/>
+  <rect x="195" y="178" width="30" height="8" rx="4" fill="#d4a030" opacity=".7"/>
+
+  <!-- Figure 2 -->
+  <ellipse cx="320" cy="152" rx="20" ry="22" fill="#c87830"/>
+  <polygon points="320,118 308,142 332,142" fill="#d4a030"/>
+  <line x1="320" y1="106" x2="320" y2="118" stroke="#d4a030" stroke-width="2.5"/>
+  <line x1="310" y1="110" x2="320" y2="106" stroke="#d4a030" stroke-width="1.5"/>
+  <line x1="330" y1="110" x2="320" y2="106" stroke="#d4a030" stroke-width="1.5"/>
+  <rect x="310" y="172" width="20" height="55" rx="6" fill="#8b4820"/>
+  <rect x="300" y="175" width="40" height="9" rx="4" fill="#d4a030" opacity=".75"/>
+
+  <!-- Figure 3 -->
+  <ellipse cx="430" cy="158" rx="18" ry="20" fill="#c87830"/>
+  <polygon points="430,128 420,148 440,148" fill="#d4a030"/>
+  <line x1="430" y1="118" x2="430" y2="128" stroke="#d4a030" stroke-width="2"/>
+  <rect x="422" y="175" width="16" height="50" rx="5" fill="#8b4820"/>
+  <rect x="415" y="178" width="30" height="8" rx="4" fill="#d4a030" opacity=".7"/>
+
+  <!-- Lotus flowers -->
+  <ellipse cx="100" cy="310" rx="22" ry="10" fill="#f080a0" opacity=".75"/>
+  <ellipse cx="100" cy="305" rx="14" ry="18" fill="#f4a0c0" opacity=".8"/>
+  <ellipse cx="100" cy="295" rx="8"  ry="12" fill="#ffc8d8" opacity=".9"/>
+  <ellipse cx="540" cy="315" rx="20" ry="9"  fill="#f080a0" opacity=".7"/>
+  <ellipse cx="540" cy="310" rx="12" ry="16" fill="#f4a0c0" opacity=".75"/>
+
+  <!-- Warm ground -->
+  <rect x="0" y="370" width="640" height="30" fill="url(#ground)"/>
+
+  <!-- Sunlight rays from top -->
+  <line x1="320" y1="0" x2="200" y2="180" stroke="#fff8d0" stroke-width="30" opacity=".08"/>
+  <line x1="320" y1="0" x2="320" y2="180" stroke="#fff8d0" stroke-width="25" opacity=".07"/>
+  <line x1="320" y1="0" x2="440" y2="180" stroke="#fff8d0" stroke-width="30" opacity=".08"/>
+
+  <!-- Label -->
+  <rect x="0" y="0" width="200" height="36" fill="#5a3010" opacity=".55"/>
+  <text x="14" y="23" font-family="'DM Sans',sans-serif" font-size="12" font-weight="600" fill="white" opacity=".8" letter-spacing="1.5">BANGKOK · KULTURA</text>
+</svg>

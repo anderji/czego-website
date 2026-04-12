@@ -1,0 +1,111 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 400" width="640" height="400">
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#f07020"/>
+      <stop offset="40%" stop-color="#f8a040"/>
+      <stop offset="100%" stop-color="#ffd080"/>
+    </linearGradient>
+    <linearGradient id="ground" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#d4a870"/>
+      <stop offset="100%" stop-color="#b88840"/>
+    </linearGradient>
+    <radialGradient id="sunGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#fff0a0" stop-opacity=".6"/>
+      <stop offset="100%" stop-color="#fff0a0" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <!-- Sunset sky -->
+  <rect width="640" height="400" fill="url(#sky)"/>
+  <!-- Sun -->
+  <circle cx="80" cy="90" r="50" fill="url(#sunGlow)"/>
+  <circle cx="80" cy="90" r="36" fill="#ffe080" opacity=".9"/>
+
+  <!-- Light wispy clouds -->
+  <ellipse cx="300" cy="50"  rx="90" ry="22" fill="white" opacity=".35"/>
+  <ellipse cx="500" cy="65"  rx="70" ry="18" fill="white" opacity=".3"/>
+
+  <!-- Sagrada Família silhouette -->
+  <!-- Main nave / base -->
+  <rect x="205" y="220" width="230" height="140" fill="#8b4a18"/>
+  <rect x="205" y="218" width="230" height="5" fill="#a05a20"/>
+
+  <!-- Nave facade details - arched portals -->
+  <path d="M220 360 L220 280 Q240 255 260 280 L260 360Z" fill="#7a3e10"/>
+  <path d="M268 360 L268 280 Q288 255 308 280 L308 360Z" fill="#7a3e10"/>
+  <path d="M316 360 L316 280 Q336 255 356 280 L356 360Z" fill="#7a3e10"/>
+  <path d="M364 360 L364 285 Q381 262 398 285 L398 360Z" fill="#7a3e10"/>
+
+  <!-- Central towers - Nativity facade (right cluster, taller) -->
+  <!-- Tower 1 (tallest - center) -->
+  <rect x="292" y="60" width="30" height="162" fill="#9a5220"/>
+  <polygon points="292,62 307,15 322,62" fill="#b06030"/>
+  <line x1="307" y1="15" x2="307" y2="-5" stroke="#c07840" stroke-width="3"/>
+  <circle cx="307" cy="-5" r="5" fill="#ffd700" opacity=".9"/>
+  <!-- Spiral texture on tower -->
+  <line x1="293" y1="100" x2="321" y2="100" stroke="#7a3e10" stroke-width="1.5" opacity=".4"/>
+  <line x1="293" y1="120" x2="321" y2="120" stroke="#7a3e10" stroke-width="1.5" opacity=".4"/>
+  <line x1="293" y1="140" x2="321" y2="140" stroke="#7a3e10" stroke-width="1.5" opacity=".4"/>
+
+  <!-- Tower 2 (left of center) -->
+  <rect x="255" y="80" width="26" height="142" fill="#8b4a18"/>
+  <polygon points="255,82 268,40 281,82" fill="#a05828"/>
+  <line x1="268" y1="40" x2="268" y2="22" stroke="#b06838" stroke-width="2.5"/>
+  <circle cx="268" cy="22" r="4" fill="#ffd700" opacity=".85"/>
+
+  <!-- Tower 3 (right of center) -->
+  <rect x="330" y="75" width="26" height="147" fill="#8b4a18"/>
+  <polygon points="330,77 343,32 356,77" fill="#a05828"/>
+  <line x1="343" y1="32" x2="343" y2="12" stroke="#b06838" stroke-width="2.5"/>
+  <circle cx="343" cy="12" r="4" fill="#ffd700" opacity=".85"/>
+
+  <!-- Tower 4 (far left) -->
+  <rect x="218" y="100" width="22" height="122" fill="#804010"/>
+  <polygon points="218,102 229,65 240,102" fill="#905020"/>
+  <line x1="229" y1="65" x2="229" y2="48" stroke="#a06030" stroke-width="2"/>
+  <circle cx="229" cy="48" r="3.5" fill="#ffd700" opacity=".8"/>
+
+  <!-- Tower 5 (far right) -->
+  <rect x="372" y="95" width="22" height="127" fill="#804010"/>
+  <polygon points="372,97 383,58 394,97" fill="#905020"/>
+  <line x1="383" y1="58" x2="383" y2="40" stroke="#a06030" stroke-width="2"/>
+  <circle cx="383" cy="40" r="3.5" fill="#ffd700" opacity=".8"/>
+
+  <!-- Rose window -->
+  <circle cx="320" cy="240" r="22" fill="#c06828" opacity=".8"/>
+  <circle cx="320" cy="240" r="16" fill="#d4884a" opacity=".7"/>
+  <circle cx="320" cy="240" r="10" fill="#ffd080" opacity=".8"/>
+  <!-- Spokes -->
+  <line x1="298" y1="240" x2="342" y2="240" stroke="#c06828" stroke-width="1.5" opacity=".6"/>
+  <line x1="320" y1="218" x2="320" y2="262" stroke="#c06828" stroke-width="1.5" opacity=".6"/>
+  <line x1="305" y1="225" x2="335" y2="255" stroke="#c06828" stroke-width="1" opacity=".5"/>
+  <line x1="335" y1="225" x2="305" y2="255" stroke="#c06828" stroke-width="1" opacity=".5"/>
+
+  <!-- Palm trees -->
+  <line x1="120" y1="360" x2="120" y2="255" stroke="#5a3010" stroke-width="6"/>
+  <line x1="120" y1="258" x2="80"  y2="235" stroke="#3a7020" stroke-width="5"/>
+  <line x1="120" y1="258" x2="100" y2="225" stroke="#3a7020" stroke-width="5"/>
+  <line x1="120" y1="258" x2="120" y2="220" stroke="#3a7020" stroke-width="5"/>
+  <line x1="120" y1="258" x2="140" y2="228" stroke="#3a7020" stroke-width="5"/>
+  <line x1="120" y1="258" x2="158" y2="240" stroke="#3a7020" stroke-width="5"/>
+
+  <line x1="520" y1="360" x2="520" y2="265" stroke="#5a3010" stroke-width="5"/>
+  <line x1="520" y1="268" x2="485" y2="248" stroke="#3a7020" stroke-width="4"/>
+  <line x1="520" y1="268" x2="505" y2="238" stroke="#3a7020" stroke-width="4"/>
+  <line x1="520" y1="268" x2="520" y2="232" stroke="#3a7020" stroke-width="4"/>
+  <line x1="520" y1="268" x2="538" y2="242" stroke="#3a7020" stroke-width="4"/>
+  <line x1="520" y1="268" x2="552" y2="255" stroke="#3a7020" stroke-width="4"/>
+
+  <!-- Spanish flag -->
+  <rect x="565" y="18" width="62" height="44" rx="3" fill="#aa151b"/>
+  <rect x="565" y="29" width="62" height="22" fill="#f1bf00"/>
+  <!-- Coat of arms hint -->
+  <rect x="590" y="33" width="14" height="14" rx="1" fill="#aa151b" opacity=".5"/>
+
+  <!-- Ground -->
+  <rect x="0" y="350" width="640" height="50" fill="url(#ground)"/>
+
+  <!-- Label -->
+  <rect x="0" y="364" width="188" height="36" fill="#6a2c08" opacity=".6"/>
+  <text x="14" y="387" font-family="'DM Sans',sans-serif" font-size="12" font-weight="600" fill="white" opacity=".85" letter-spacing="1.5">BARCELONA · 2023</text>
+</svg>

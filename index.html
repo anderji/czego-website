@@ -209,7 +209,7 @@
       if (upcoming.length === 0) {
         grid.innerHTML = `<p class="empty-state">${isCs ? 'Momentálně nejsou naplánované žádné koncerty.' : 'No concerts are currently scheduled.'}</p>`;
       } else {
-        grid.innerHTML = `<div class="concerts-grid">${upcoming.map(concertCardHTML).join('')}</div>`;
+        grid.innerHTML = `<div class="concerts-list">${upcoming.map(concertRowHTML).join('')}</div>`;
       }
     })
     .catch(() => showError('upcoming-grid', isCs ? 'Nepodařilo se načíst koncerty.' : 'Failed to load concerts.'))

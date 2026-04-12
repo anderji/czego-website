@@ -196,6 +196,46 @@ function concertCardHTML(c) {
       ${c.tickets.on_site ? `<span class="concert-card__tickets-label">${isCs ? 'Platba na místě' : 'Pay at the door'}</span>` : ''}
       ${c.tickets.online_url ? `<a class="concert-card__tickets-link" href="${escHtml(c.tickets.online_url)}" target="_blank" rel="noopener noreferrer">${isCs ? 'Koupit online' : 'Buy online'}</a>` : ''}
     </div>` : ''}
+    ${c.partner_logo ? `<div class="concert-card__partner"><img src="${escHtml(c.partner_logo)}" alt="${isCs ? 'Logo partnera' : 'Partner logo'}" class="concert-card__partner-logo"></div>` : ''}
+  </div>`;
+}
+
+/* ── Concert row HTML (koncerty + index) ── */
+function concertRowHTML(c) {
+  const lang    = getLang();
+  const isCs    = lang === 'cs';
+  const up      = isUpcoming(c.date);
+  const title   = isCs ? c.title_cs : c.title_en;
+  const desc    = isCs ? c.description_cs : c.description_en;
+  const price   = isCs ? c.price_cs : c.price_en;
+  const dateObj   = new Date(c.date + 'T12:00:00');
+  const day       = dateObj.getDate();
+  const monthYear = dateObj.toLocaleDateString(isCs ? 'cs-CZ' : 'en-GB', { month: 'short', year: 'numeric' });
+  return `
+  <div class="concert-row${up ? '' : ' concert-row--past'} reveal">
+    <div class="concert-row__date">
+      <div class="concert-row__day">${day}</div>
+      <div class="concert-row__mon">${escHtml(monthYear)}</div>
+    </div>
+    <div class="concert-row__body">
+      <div class="concert-row__top">
+        <span class="concert-row__badge concert-row__badge--${up ? 'upcoming' : 'past'}">
+          ${up ? (isCs ? 'Nadcházející' : 'Upcoming') : (isCs ? 'Proběhlý' : 'Past')}
+        </span>
+        ${c.tickets?.online_url ? `<a class="concert-row__ticket-link" href="${escHtml(c.tickets.online_url)}" target="_blank" rel="noopener noreferrer">${isCs ? 'Koupit online' : 'Buy online'} ↗</a>` : ''}
+      </div>
+      <div class="concert-row__title">${escHtml(title)}</div>
+      <div class="concert-row__meta">
+        <span>📍 ${escHtml(c.venue)}</span>
+        ${c.time ? `<span>🕐 ${escHtml(c.time)}</span>` : ''}
+      </div>
+      ${desc ? `<div class="concert-row__desc">${escHtml(desc)}</div>` : ''}
+      <div class="concert-row__footer">
+        ${price ? `<span class="concert-row__price">${escHtml(price)}</span>` : ''}
+        ${c.tickets?.on_site ? `<span class="concert-row__ticket-label">${isCs ? 'Platba na místě' : 'Pay at the door'}</span>` : ''}
+        ${c.partner_logo ? `<img src="${escHtml(c.partner_logo)}" alt="${isCs ? 'Logo partnera' : 'Partner logo'}" class="concert-row__logo">` : ''}
+      </div>
+    </div>
   </div>`;
 }
 

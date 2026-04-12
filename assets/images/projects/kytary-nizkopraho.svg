@@ -1,0 +1,101 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 360" width="640" height="360">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#fff7ed"/>
+      <stop offset="100%" stop-color="#fde8cc"/>
+    </linearGradient>
+    <linearGradient id="heartgrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#e84545"/>
+      <stop offset="100%" stop-color="#B8251A"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="640" height="360" fill="url(#bg)"/>
+
+  <!-- Decorative arcs -->
+  <circle cx="320" cy="180" r="200" fill="none" stroke="#f4c08a" stroke-width="1" opacity="0.5"/>
+  <circle cx="320" cy="180" r="155" fill="none" stroke="#f4c08a" stroke-width="1" opacity="0.4"/>
+  <circle cx="320" cy="180" r="108" fill="none" stroke="#f4c08a" stroke-width="1" opacity="0.3"/>
+
+  <!-- Big heart background -->
+  <path d="M320 255 C200 195 160 130 200 95 C225 65 270 70 320 110 C370 70 415 65 440 95 C480 130 440 195 320 255Z" fill="url(#heartgrad)" opacity="0.12"/>
+
+  <!-- Guitar 1 – left, tilted -->
+  <g transform="rotate(-25, 195, 175) translate(155, 80)">
+    <!-- Neck -->
+    <rect x="17" y="-55" width="11" height="80" rx="4" fill="#7a4210"/>
+    <!-- Headstock -->
+    <rect x="14" y="-80" width="17" height="28" rx="4" fill="#5c3010"/>
+    <circle cx="16" cy="-70" r="3" fill="#c0843a"/>
+    <circle cx="29" cy="-70" r="3" fill="#c0843a"/>
+    <circle cx="16" cy="-60" r="3" fill="#c0843a"/>
+    <circle cx="29" cy="-60" r="3" fill="#c0843a"/>
+    <!-- Body lower bout -->
+    <ellipse cx="22" cy="48" rx="30" ry="36" fill="#c87830"/>
+    <!-- Body upper bout -->
+    <ellipse cx="22" cy="18" rx="22" ry="27" fill="#c87830"/>
+    <!-- Waist -->
+    <rect x="3" y="27" width="38" height="14" fill="#c87830"/>
+    <!-- Outline -->
+    <ellipse cx="22" cy="48" rx="30" ry="36" fill="none" stroke="#7a3c10" stroke-width="1.5"/>
+    <ellipse cx="22" cy="18" rx="22" ry="27" fill="none" stroke="#7a3c10" stroke-width="1.5"/>
+    <!-- Sound hole -->
+    <circle cx="22" cy="38" r="9" fill="#6b2c08"/>
+    <!-- Strings -->
+    <line x1="22" y1="-55" x2="22" y2="78" stroke="#e0d090" stroke-width="0.8" opacity="0.7"/>
+    <line x1="19" y1="-55" x2="19" y2="78" stroke="#e0d090" stroke-width="0.8" opacity="0.6"/>
+    <line x1="25" y1="-55" x2="25" y2="78" stroke="#e0d090" stroke-width="0.8" opacity="0.6"/>
+  </g>
+
+  <!-- Guitar 2 – center upright -->
+  <g transform="translate(285, 55)">
+    <rect x="22" y="-10" width="11" height="90" rx="4" fill="#8b4a18"/>
+    <rect x="19" y="-38" width="17" height="30" rx="4" fill="#6b3412"/>
+    <circle cx="21" cy="-28" r="3" fill="#c0843a"/>
+    <circle cx="34" cy="-28" r="3" fill="#c0843a"/>
+    <circle cx="21" cy="-18" r="3" fill="#c0843a"/>
+    <circle cx="34" cy="-18" r="3" fill="#c0843a"/>
+    <ellipse cx="27" cy="118" rx="32" ry="38" fill="#d4884a"/>
+    <ellipse cx="27" cy="85" rx="23" ry="28" fill="#d4884a"/>
+    <rect x="5" y="95" width="44" height="14" fill="#d4884a"/>
+    <ellipse cx="27" cy="118" rx="32" ry="38" fill="none" stroke="#8b4410" stroke-width="1.5"/>
+    <ellipse cx="27" cy="85" rx="23" ry="28" fill="none" stroke="#8b4410" stroke-width="1.5"/>
+    <circle cx="27" cy="106" r="10" fill="#6b2c08"/>
+    <line x1="27" y1="-10" x2="27" y2="153" stroke="#e0d090" stroke-width="0.9" opacity="0.7"/>
+    <line x1="24" y1="-10" x2="24" y2="153" stroke="#e0d090" stroke-width="0.9" opacity="0.6"/>
+    <line x1="30" y1="-10" x2="30" y2="153" stroke="#e0d090" stroke-width="0.9" opacity="0.6"/>
+  </g>
+
+  <!-- Guitar 3 – right, tilted other way -->
+  <g transform="rotate(22, 430, 175) translate(390, 80)">
+    <rect x="17" y="-55" width="11" height="80" rx="4" fill="#7a4210"/>
+    <rect x="14" y="-80" width="17" height="28" rx="4" fill="#5c3010"/>
+    <circle cx="16" cy="-70" r="3" fill="#c0843a"/>
+    <circle cx="29" cy="-70" r="3" fill="#c0843a"/>
+    <circle cx="16" cy="-60" r="3" fill="#c0843a"/>
+    <circle cx="29" cy="-60" r="3" fill="#c0843a"/>
+    <ellipse cx="22" cy="48" rx="30" ry="36" fill="#c07030"/>
+    <ellipse cx="22" cy="18" rx="22" ry="27" fill="#c07030"/>
+    <rect x="3" y="27" width="38" height="14" fill="#c07030"/>
+    <ellipse cx="22" cy="48" rx="30" ry="36" fill="none" stroke="#7a3c10" stroke-width="1.5"/>
+    <ellipse cx="22" cy="18" rx="22" ry="27" fill="none" stroke="#7a3c10" stroke-width="1.5"/>
+    <circle cx="22" cy="38" r="9" fill="#6b2c08"/>
+    <line x1="22" y1="-55" x2="22" y2="78" stroke="#e0d090" stroke-width="0.8" opacity="0.7"/>
+    <line x1="19" y1="-55" x2="19" y2="78" stroke="#e0d090" stroke-width="0.8" opacity="0.6"/>
+    <line x1="25" y1="-55" x2="25" y2="78" stroke="#e0d090" stroke-width="0.8" opacity="0.6"/>
+  </g>
+
+  <!-- Central heart -->
+  <path d="M320 218 C282 196 262 168 278 148 C289 133 308 136 320 150 C332 136 351 133 362 148 C378 168 358 196 320 218Z" fill="url(#heartgrad)" opacity="0.9"/>
+
+  <!-- Music notes floating -->
+  <text x="118" y="78" font-family="serif" font-size="22" fill="#B8251A" opacity="0.3" transform="rotate(-12,118,78)">♪</text>
+  <text x="490" y="68" font-family="serif" font-size="26" fill="#B8251A" opacity="0.28" transform="rotate(10,490,68)">♫</text>
+  <text x="555" y="160" font-family="serif" font-size="18" fill="#B8251A" opacity="0.22" transform="rotate(-8,555,160)">♩</text>
+  <text x="75" y="210" font-family="serif" font-size="20" fill="#B8251A" opacity="0.2">♬</text>
+
+  <!-- Label -->
+  <rect x="0" y="316" width="640" height="44" fill="#B8251A" opacity="0.07"/>
+  <text x="320" y="344" font-family="'Playfair Display', Georgia, serif" font-size="16" font-weight="700" fill="#B8251A" opacity="0.5" text-anchor="middle" letter-spacing="2">KYTARY DO NÍZKOPRAHOVÝCH CENTER</text>
+</svg>
