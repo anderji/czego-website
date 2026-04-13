@@ -87,9 +87,11 @@
     return `
       <div class="project-card reveal">
         <div class="project-card__image">
-          ${p.image
-            ? `<img src="${escHtml(p.image)}" alt="${escHtml(isCs ? p.title_cs : p.title_en)}" loading="lazy" width="640" height="360" style="${p.image_fit ? `object-fit:${escHtml(p.image_fit)};` : ''}">`
-            : `<div class="project-card__image-placeholder">🎵</div>`}
+          ${p.video_id
+            ? `<iframe src="https://www.youtube-nocookie.com/embed/${escHtml(p.video_id)}?rel=0&modestbranding=1" title="${escHtml(isCs ? p.title_cs : p.title_en)}" frameborder="0" allowfullscreen loading="lazy" style="width:100%;height:100%;position:absolute;inset:0;"></iframe>`
+            : p.image
+              ? `<img src="${escHtml(p.image)}" alt="${escHtml(isCs ? p.title_cs : p.title_en)}" loading="lazy" width="640" height="360" style="${p.image_fit ? `object-fit:${escHtml(p.image_fit)};` : ''}">`
+              : `<div class="project-card__image-placeholder">🎵</div>`}
         </div>
         <div class="project-card__body">
           <div class="project-card__meta">
@@ -97,28 +99,33 @@
           </div>
           <h3 class="project-card__title">${escHtml(isCs ? p.title_cs : p.title_en)}</h3>
           <p class="project-card__desc">${escHtml(isCs ? p.description_cs : p.description_en)}</p>
-          <div class="project-card__partner">
-            <strong>${isCs ? 'Partner' : 'Partner'}:</strong>
-            ${escHtml(isCs ? p.partner_cs : p.partner_en)}
+          <div class="project-card__footer">
+            <div class="project-card__partner">
+              <strong>${isCs ? 'Partner' : 'Partner'}:</strong>
+              ${escHtml(isCs ? p.partner_cs : p.partner_en)}
+            </div>
+            ${p.logo ? [].concat(p.logo).map(src => `<img src="${escHtml(src)}" alt="${escHtml(isCs ? p.partner_cs : p.partner_en)}" class="project-card__logo" loading="lazy">`).join('') : ''}
           </div>
         </div>
       </div>`;
   }
 
   const CATEGORIES = [
-    { key_cs: 'Projekt',  key_en: 'Projects'  },
-    { key_cs: 'Benefice', key_en: 'Charity'   },
+    { key_cs: 'Benefice', label_cs: 'Benefice', key_en: 'Charity',  label_en: 'Charity'  },
+    { key_cs: 'Projekt',  label_cs: 'Projekty', key_en: 'Projects', label_en: 'Projects' },
   ];
 
   fetchJSON('data/projects.json')
     .then(projects => {
       grid.innerHTML = CATEGORIES
         .map(cat => {
-          const items = projects.filter(p => p.category_cs === cat.key_cs);
+          const items = projects
+            .filter(p => p.category_cs === cat.key_cs)
+            .sort((a, b) => b.year - a.year);
           if (!items.length) return '';
           return `
             <div class="projects-section">
-              <h2 class="projects-section__title">${escHtml(isCs ? cat.key_cs : cat.key_en)}</h2>
+              <h2 class="projects-section__title">${escHtml(isCs ? cat.label_cs : cat.label_en)}</h2>
               <div class="projects-grid">
                 ${items.map(projectCardHTML).join('')}
               </div>

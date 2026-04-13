@@ -228,7 +228,7 @@ function concertRowHTML(c) {
       </div>
       ${desc ? `<div class="concert-row__desc">${escHtml(desc)}</div>` : ''}
       <div class="concert-row__footer">
-        ${price ? `<span class="concert-row__price">${escHtml(price)}</span>` : ''}
+        ${price ? `<span class="concert-row__price">🎟 ${escHtml(price)}</span>` : ''}
         ${c.tickets?.on_site ? `<span class="concert-row__ticket-label">${isCs ? 'Platba na místě' : 'Pay at the door'}</span>` : ''}
         ${c.partner_logo ? `<img src="${escHtml(c.partner_logo)}" alt="${isCs ? 'Logo partnera' : 'Partner logo'}" class="concert-row__logo">` : ''}
       </div>
