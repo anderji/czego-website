@@ -814,6 +814,25 @@ p + p { margin-top: var(--sp-4); }
   .concert-row__ticket-link--desktop-only { display: none; }
 }
 
+/* ── Partner Logos Strip ── */
+.partner-logos-strip {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  justify-items: center;
+  gap: 2rem;
+}
+.partner-logo {
+  height: 56px;
+  width: 100%;
+  max-width: 160px;
+  object-fit: contain;
+  filter: grayscale(20%);
+  opacity: .85;
+  transition: opacity var(--transition), filter var(--transition);
+}
+.partner-logo:hover { opacity: 1; filter: none; }
+
 /* ── Member Groups ── */
 .members-group + .members-group {
   margin-top: var(--sp-12);

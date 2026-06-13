@@ -109,27 +109,20 @@
     </div>
   </section>
 
-  <!-- BENEFICE -->
-  <section class="section section--alt" aria-labelledby="charity-h2">
+  <!-- PROJEKTY & BENEFICE -->
+  <section class="section section--alt" aria-labelledby="projects-h2">
     <div class="container">
-      <div class="section__header reveal">
-        <p class="eyebrow" id="charity-eyebrow"></p>
-        <h2 id="charity-h2"></h2>
-        <p class="lead" id="charity-text"></p>
+      <div class="two-col reveal">
+        <div>
+          <p class="eyebrow" id="projects-eyebrow"></p>
+          <h2 id="projects-h2" style="margin-top:.5rem"></h2>
+          <p class="lead" id="projects-lead" style="margin-top:1rem"></p>
+          <div style="margin-top:2rem">
+            <a class="btn btn--primary" href="projekty.html" id="btn-projects"></a>
+          </div>
+        </div>
+        <div class="partner-logos-strip" id="partner-logos"></div>
       </div>
-      <div id="benefice-list"></div>
-    </div>
-  </section>
-
-  <!-- PROJEKTY -->
-  <section class="section section--alt" aria-labelledby="projects-strip-h2">
-    <div class="container">
-      <div class="section__header">
-        <p class="eyebrow" id="proj-eyebrow"></p>
-        <h2 id="projects-strip-h2"></h2>
-        <p class="lead" id="proj-lead"></p>
-      </div>
-      <div id="projects-media-grid" class="project-media-grid"></div>
     </div>
   </section>
 
@@ -412,76 +405,24 @@
 
   renderAbroadPanels('belgie');
 
-  // Benefice
-  document.getElementById('charity-eyebrow').textContent = isCs ? 'Pomáháme' : 'We Help';
-  document.getElementById('charity-h2').textContent      = isCs ? 'Benefice' : 'Charity';
-  document.getElementById('charity-text').textContent    = isCs
-    ? 'Hudbou rádi pomáháme tam, kde je to potřeba. Přinášíme radost tam, kde je nejvíce potřeba.'
-    : 'We love using music to help where it is needed most.';
+  // Projekty & Benefice
+  document.getElementById('projects-eyebrow').textContent = isCs ? 'Pomáháme & spolupracujeme' : 'Helping & Collaborating';
+  document.getElementById('projects-h2').textContent      = isCs ? 'Projekty & Benefice' : 'Projects & Charity';
+  document.getElementById('projects-lead').textContent    = isCs
+    ? 'Hudbou rádi pomáháme tam, kde je to potřeba. Zároveň se zapojujeme do vzdělávacích a mezinárodních projektů, které přibližují klasickou hudbu širokému publiku.'
+    : 'We love using music to help where it is needed. We also take part in educational and international projects that bring classical music to a wide audience.';
 
-  // Projekty – headings
-  document.getElementById('proj-eyebrow').textContent = isCs ? 'Vzděláváme & spolupracujeme' : 'Education & Collaboration';
-  document.getElementById('projects-strip-h2').textContent = isCs ? 'Projekty' : 'Projects';
-  document.getElementById('proj-lead').textContent = isCs
-    ? 'Kromě benefic se zapojujeme i do vzdělávacích a mezinárodních projektů.'
-    : 'Alongside charity, we take part in educational and international projects.';
+  const partnerLogos = [
+    { src: 'assets/images/projects/clovek_v_tisni_logo.jpg',      alt: isCs ? 'Člověk v tísni'       : 'People in Need'        },
+    { src: 'assets/images/projects/jeziskova_vnoucata_logo.jpg',   alt: isCs ? 'Ježíškova vnoučata'   : "Santa's Grandchildren"  },
+    { src: 'assets/images/projects/KCF_logo.png',                  alt: isCs ? 'Klub CF'              : 'CF Club'               },
+    { src: 'assets/images/projects/logo_nedoklubko.png',           alt: 'Nedoklubko'                                            },
+  ];
+  document.getElementById('partner-logos').innerHTML = partnerLogos
+    .map(l => `<img src="${escHtml(l.src)}" alt="${escHtml(l.alt)}" class="partner-logo" loading="lazy">`)
+    .join('');
 
-  fetchJSON('data/projects.json').then(projects => {
-    // Benefice cards – stejný styl jako projekty.html
-    const benefice = projects
-      .filter(p => p.category_cs === 'Benefice')
-      .sort((a, b) => (a.sort_order ?? 999) - (b.sort_order ?? 999));
-    document.getElementById('benefice-list').innerHTML = `
-      <div class="projects-grid">
-        ${benefice.map(p => `
-          <div class="project-card reveal">
-            <div class="project-card__image">
-              ${p.video_id
-                ? `<iframe src="https://www.youtube-nocookie.com/embed/${escHtml(p.video_id)}?rel=0&modestbranding=1" title="${escHtml(isCs ? p.title_cs : p.title_en)}" frameborder="0" allowfullscreen loading="lazy" style="width:100%;height:100%;position:absolute;inset:0;"></iframe>`
-                : p.image
-                  ? `<img src="${escHtml(p.image)}" alt="${escHtml(isCs ? p.title_cs : p.title_en)}" loading="lazy" width="640" height="360" style="${p.image_fit ? `object-fit:${escHtml(p.image_fit)};` : ''}">`
-                  : `<div class="project-card__image-placeholder">🎵</div>`}
-            </div>
-            <div class="project-card__body">
-              <div class="project-card__meta">
-                <span class="project-card__year">${escHtml(p.year)}</span>
-              </div>
-              <h3 class="project-card__title">${escHtml(isCs ? p.title_cs : p.title_en)}</h3>
-              <p class="project-card__desc">${escHtml(isCs ? p.description_cs : p.description_en)}</p>
-              <div class="project-card__footer">
-                <div class="project-card__partner">
-                  <strong>${isCs ? 'Partner' : 'Partner'}:</strong>
-                  ${escHtml(isCs ? p.partner_cs : p.partner_en)}
-                </div>
-                ${p.logo ? [].concat(p.logo).map(src => `<img src="${escHtml(src)}" alt="${escHtml(isCs ? p.partner_cs : p.partner_en)}" class="project-card__logo" loading="lazy">`).join('') : ''}
-              </div>
-            </div>
-          </div>`).join('')}
-      </div>`;
-
-    // Projekty media cards
-    const projekty = projects.filter(p => p.category_cs === 'Projekt');
-    document.getElementById('projects-media-grid').innerHTML = projekty.map(p => {
-      const title = escHtml(isCs ? p.title_cs : p.title_en);
-      const mediaHtml = p.video_id
-        ? `<iframe src="https://www.youtube-nocookie.com/embed/${escHtml(p.video_id)}?rel=0&modestbranding=1"
-             title="${title}" allowfullscreen loading="lazy"></iframe>`
-        : p.image
-          ? `<img src="${escHtml(p.image)}" alt="${title}" loading="lazy">`
-          : '';
-      return `
-        <div class="project-media-card reveal">
-          <div class="project-media-card__media">${mediaHtml}</div>
-          <div class="project-media-card__body">
-            <div class="project-media-card__year">${escHtml(p.year)}</div>
-            <div class="project-media-card__title">${title}</div>
-            <p class="project-media-card__desc">${escHtml(isCs ? p.description_cs : p.description_en)}</p>
-            <span class="project-media-card__partner">${escHtml(isCs ? p.partner_cs : p.partner_en)}</span>
-          </div>
-        </div>`;
-    }).join('');
-    initReveal();
-  }).catch(() => {});
+  document.getElementById('btn-projects').textContent = isCs ? 'Všechny projekty' : 'All projects';
 
   initReveal();
 })();

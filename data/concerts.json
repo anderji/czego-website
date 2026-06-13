@@ -21,18 +21,17 @@
   {
     "id": 2,
     "date": "2026-06-21",
-    "title_cs": "Festival Na dvanácti strunách",
-    "title_en": "Na dvanácti strunách Festival",
+    "title_cs": "Festival Na dvanácti strunách - ZRUŠENO",
+    "title_en": "Na dvanácti strunách Festival - CANCELED",
     "venue": "Piaristické náměstí, České Budějovice",
     "time": "19:00–20:00",
     "price_cs": "dle pořadatele festivalu",
     "price_en": "see festival organiser",
     "tickets": {
-      "on_site": true,
-      "online_url": "https://www.nadvanactistrunach.cz/"
+      "on_site": true
     },
-    "description_cs": "Netradiční vystoupení v Českých Budějovicích v rámci programu kytarového festivalu v Českých Budějovicích.",
-    "description_en": "A non-traditional performance in České Budějovice as part of the local guitar festival program.",
+    "description_cs": "Vystoupení bylo z technických důvodů bohužel zrušeno.",
+    "description_en": "The performance was unfortunately canceled due to technical reasons.",
     "image": "assets/images/concerts/festival-dvanact-strun.jpg",
     "upcoming": true,
     "tags_cs": ["festival", "České Budějovice"],
@@ -64,11 +63,10 @@
     "title_en": "Orchestra Concert in Stuttgart",
     "venue": "Stuttgart, Německo",
     "time": "Bude upřesněno",
-    "price_cs": "300 Kč",
+    "price_cs": "na místě",
     "price_en": "at the door",
     "tickets": {
-      "on_site": true,
-      "online_url": "https://www.stuttgarter-gitarrenorchester.de/konzert-2026/"
+      "on_site": true
     },
     "description_cs": "Společný koncert kytarových orchestrů z Německa, Maďarska a ČR u spřáteleného orchestru ve Stuttgartu.",
     "description_en": "A joint concert of guitar orchestras from Germany, Hungary, and the Czech Republic hosted by our partner orchestra in Stuttgart.",
@@ -123,12 +121,13 @@
     "date": "2026-06-25",
     "title_cs": "Benefiční koncert pro Nedoklubko",
     "title_en": "Charity Concert for Nedoklubko",
-    "venue": "Apolinář, Praha",
-    "time": "Bude upřesněno",
+    "venue": "¨Porodnice u Apolináře, Apolinářská 441/18, Praha 2",
+    "time": "19:00",
+    "price_cs": "Dobrovolné",
     "tickets": {
       "on_site": true
     },
-    "description_cs": "Venkovní benefiční koncert na podporu organizace Nedoklubko s ozvučením a řadou hostů.",
+    "description_cs": "Venkovní benefiční koncert na podporu Apolinářských miminek do dlaně s řadou hostů.",
     "description_en": "Outdoor charity concert in support of Nedoklubko, with full sound and a lineup of special guests.",
     "upcoming": true,
     "tags_cs": ["benefice", "Praha", "Nedoklubko"],
@@ -139,7 +138,7 @@
     "date": "2026-05-31",
     "title_cs": "Setkávání s klasickou hudbou v Dolních Břežanech",
     "title_en": "Encounters with Classical Music in Dolní Břežany",
-    "venue": "Atrium laserového centra, Za Radnicí 835, Dolní Břežany",
+    "venue": "Aula ZŠ Dolní Břežany, Na Vršku 290, Dolní Břežany",
     "time": "18:00",
     "price_cs": "350 Kč / 200 Kč (senioři, studenti, děti)",
     "price_en": "350 CZK / 200 CZK (seniors, students, children)",
