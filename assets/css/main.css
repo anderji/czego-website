@@ -1522,6 +1522,43 @@ p + p { margin-top: var(--sp-4); }
   color: var(--red);
   background: var(--red-tint);
 }
+.abroad-subtablist {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--sp-2);
+  margin-top: calc(var(--sp-8) * -1 + var(--sp-4));
+  margin-bottom: var(--sp-8);
+  min-height: 0;
+}
+.abroad-subtablist:empty { margin: 0; }
+.abroad-dest-tab {
+  display: inline-flex;
+  align-items: center;
+  padding: .28rem .85rem;
+  border: 1px solid var(--border-light);
+  border-radius: var(--r-full);
+  background: transparent;
+  font-size: .78rem;
+  font-weight: 400;
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: all var(--transition);
+  font-family: var(--font-body);
+}
+.abroad-dest-tab:hover {
+  border-color: var(--text-primary);
+  color: var(--text-primary);
+}
+.abroad-dest-tab--active {
+  border-color: var(--ink);
+  background: var(--ink);
+  color: var(--white);
+}
+.abroad-dest-tab--active:hover {
+  border-color: var(--ink);
+  background: var(--ink);
+  color: var(--white);
+}
 .abroad-panel {
   animation: fadeSlideUp 280ms ease both;
 }
@@ -1575,6 +1612,14 @@ p + p { margin-top: var(--sp-4); }
   margin: 0;
 }
 .abroad-texts p + p { margin-top: var(--sp-3); }
+.abroad-texts ul {
+  font-size: .95rem;
+  color: var(--text-secondary);
+  line-height: 1.75;
+  margin: var(--sp-3) 0 0 1.25rem;
+  padding: 0;
+}
+.abroad-texts ul li { margin-bottom: .25rem; }
 .abroad-facts {
   display: flex;
   flex-wrap: wrap;
@@ -1591,6 +1636,23 @@ p + p { margin-top: var(--sp-4); }
   color: var(--text-muted);
   background: var(--white);
 }
+.abroad-link {
+  display: inline-flex;
+  align-self: flex-start;
+  align-items: center;
+  gap: .35rem;
+  margin-top: var(--sp-4);
+  font-size: .74rem;
+  font-weight: 500;
+  padding: .25rem .7rem;
+  border-radius: var(--r-full);
+  border: 1px solid var(--red);
+  color: var(--red);
+  background: transparent;
+  text-decoration: none;
+  transition: background var(--transition), color var(--transition);
+}
+.abroad-link:hover { background: var(--red); color: #fff; }
 @media (max-width: 768px) {
   .two-col--abroad { grid-template-columns: 1fr; gap: var(--sp-8); }
 }

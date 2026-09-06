@@ -75,20 +75,28 @@
         <div class="reveal reveal-delay-2">
           <div class="stats-row">
             <div class="stat">
-              <div class="stat__num">~30</div>
+              <div class="stat__num">30</div>
               <div class="stat__label" id="stat-members"></div>
             </div>
             <div class="stat">
-              <div class="stat__num">25+</div>
+              <div class="stat__num" id="stat-years-num"></div>
               <div class="stat__label" id="stat-years"></div>
             </div>
             <div class="stat">
-              <div class="stat__num">8</div>
+              <div class="stat__num">140+</div>
+              <div class="stat__label" id="stat-concerts"></div>
+            </div>
+            <div class="stat">
+              <div class="stat__num">10</div>
               <div class="stat__label" id="stat-countries"></div>
             </div>
             <div class="stat">
-              <div class="stat__num">10+</div>
-              <div class="stat__label" id="stat-concerts"></div>
+              <div class="stat__num">1</div>
+              <div class="stat__label" id="stat-abroad"></div>
+            </div>
+            <div class="stat">
+              <div class="stat__num">25</div>
+              <div class="stat__label" id="stat-repertoire"></div>
             </div>
           </div>
         </div>
@@ -104,7 +112,8 @@
         <h2 id="abroad-h2"></h2>
         <p class="lead" id="abroad-lead"></p>
       </div>
-      <div class="abroad-tablist reveal" role="tablist" id="abroad-tablist" aria-label="Destinace"></div>
+      <div class="abroad-tablist reveal" role="tablist" id="abroad-tablist" aria-label="Rok"></div>
+      <div class="abroad-subtablist" id="abroad-subtablist"></div>
       <div id="abroad-panels"></div>
     </div>
   </section>
@@ -163,10 +172,13 @@
   document.getElementById('btn-members').textContent = isCs ? 'Poznat členy' : 'Meet the members';
 
   // Stats
+  document.getElementById('stat-years-num').textContent = new Date().getFullYear() - 2000;
   document.getElementById('stat-members').textContent  = isCs ? 'Členů' : 'Members';
   document.getElementById('stat-years').textContent    = isCs ? 'Let' : 'Years';
   document.getElementById('stat-countries').textContent = isCs ? 'Zemí' : 'Countries';
-  document.getElementById('stat-concerts').textContent  = isCs ? 'Koncertů ročně' : 'Concerts per year';
+  document.getElementById('stat-concerts').textContent  = isCs ? 'Koncertů celkem' : 'Concerts total';
+  document.getElementById('stat-abroad').textContent      = isCs ? 'Mezinárodní festival ročně' : 'International festival per year';
+  document.getElementById('stat-repertoire').textContent  = isCs ? 'Skladeb v repertoáru' : 'Pieces in repertoire';
 
   // Zahraničí – header
   document.getElementById('abroad-eyebrow').textContent = isCs ? 'Svět' : 'The World';
@@ -178,29 +190,62 @@
   // Zahraničí – taby
   const destinations = [
     {
-      id: 'belgie',
-      year: 2025,
-      flag: '🇧🇪',
-      label:    { cs: 'Belgie 2025',                 en: 'Belgium 2025' },
-      title:    { cs: 'Belgie',                      en: 'Belgium' },
-      event:    { cs: 'Mezinárodní kytarový festival', en: 'International Guitar Festival' },
-      texts:    {
+      id: 'stuttgart',
+      year: 2026,
+      flag: '🇩🇪',
+      label: { cs: 'Stuttgart 2026', en: 'Stuttgart 2026' },
+      title: { cs: 'Stuttgart, Německo', en: 'Stuttgart, Germany' },
+      event: { cs: 'Mezinárodní kytarový projekt', en: 'International Guitar Project' },
+      texts: {
         cs: [
-          'V roce 2025 jsme se zúčastnili mezinárodního kytarového festivalu v Belgii. Vystoupení v srdci Evropy bylo dalším krokem na naší cestě za sdílením české kytarové kultury se světem.',
-          'Brusel a jeho okolí nás přivítaly jako hosty a my jsme mohli ukázat, co v sobě český kytarový orchestr nese – pečlivě budovanou souhru, dramaturgii a lásku ke kytaře.',
+          'Ve dnech 8.–10. května 2026 jsme se zúčastnili mezinárodního kytarového projektu „Im Vierklang der Gitarren" v německém Stuttgartu. Hlavní náplní víkendu bylo intenzivní společné zkoušení i propojování repertoáru zúčastněných orchestrů z Maďarska, Francie a Německa.',
+          'Vyvrcholením celého zájezdu se stal sobotní společný koncert v sále Silchersaal prestižní Liederhalle, kde vystoupili všichni účastníci na jednom pódiu. V podání spojených orchestrů zde zazněly i skladby napsané přímo pro tuto příležitost – Echoes of Unity od Sebastiana Bartmanna a Fantasia Joropera od Alfonsa Montese.',
         ],
         en: [
-          'In 2025 we participated in an international guitar festival in Belgium. Performing in the heart of Europe was another step on our journey of sharing Czech guitar culture with the world.',
-          'Brussels and the surrounding region welcomed us as guests, giving us the opportunity to show what the Czech Guitar Orchestra is all about — carefully crafted ensemble playing, thoughtful programming, and a love for the guitar.',
+          'From 8 to 10 May 2026 we took part in the international guitar project "Im Vierklang der Gitarren" in Stuttgart, Germany. The centrepiece of the weekend was intensive joint rehearsing and blending the repertoires of the participating orchestras from Hungary, France, and Germany.',
+          'The highlight of the trip was the Saturday joint concert in the Silchersaal of the prestigious Liederhalle, where all participants performed on one stage. The combined orchestras also played pieces written especially for the occasion — Echoes of Unity by Sebastian Bartmann and Fantasia Joropera by Alfonso Montes.',
         ],
       },
       facts: {
-        cs: ['Brusel', '🗓 2025', '🎸 Mezinárodní festival', '🏛 Koncertní síň'],
-        en: ['Brussels', '🗓 2025', '🎸 International festival', '🏛 Concert hall'],
+        cs: ['Evropa', '2026'],
+        en: ['Europe', '2026'],
+      },
+      link: {
+        url: 'https://youtu.be/LR7mAAvTZb4?is=lZ9NoeibVM7yVWzl',
       },
       images: [
-        { src: 'assets/images/abroad/Belgie.jpg', alt: { cs: 'Grand Place, Brusel', en: 'Grand Place, Brussels' } },
-        { src: 'assets/images/abroad/Belgie1.jpg',           alt: { cs: 'Vystoupení v belgické koncertní síni', en: 'Performance in a Belgian concert hall' } },
+        { src: 'assets/images/abroad/stuttgart-1.jpg', alt: { cs: 'Stuttgart – společný koncert v Liederhalle', en: 'Stuttgart – joint concert at the Liederhalle' } },
+        { src: 'assets/images/abroad/stuttgart-2.jpg', alt: { cs: 'Stuttgart – projekt Im Vierklang der Gitarren', en: 'Stuttgart – Im Vierklang der Gitarren project' } },
+        { src: 'assets/images/abroad/stuttgart-3.jpg', alt: { cs: 'Stuttgart 2026', en: 'Stuttgart 2026' } },
+        { src: 'assets/images/abroad/stuttgart-4.jpg', alt: { cs: 'Stuttgart 2026', en: 'Stuttgart 2026' } },
+      ],
+      highlight: true,
+    },
+    {
+      id: 'belgie',
+      year: 2025,
+      flag: '🇧🇪',
+      label:    { cs: 'Gent 2025',     en: 'Ghent 2025' },
+      title:    { cs: 'Gent, Belgie', en: 'Ghent, Belgium' },
+      event:    { cs: 'Mezinárodní kytarový festival', en: 'International Guitar Festival' },
+      texts:    {
+        cs: [
+          'Do Belgie jezdíme pravidelně na pozvání našich spřátelených orchestrů – OrchestraTaar z Gentu a orchestru z Deinze, kteří pořádají pravidelné festivaly pro kytarové a mandolinové orchestry.',
+          'V dubnu 2025 jsme se zúčastnili festivalu konaného 19.–20. 4. v Gentu, který OrchestraTaar pořádal u příležitosti svého 10. výročí. Kromě nás a belgických hostitelů dorazily na festival také dva orchestry z Francie. Kromě vystoupení jednotlivých orchestrů nás čekalo i společné vystoupení několika orchestrů na jednom podiu.',
+        ],
+        en: [
+          'We make regular visits to Belgium at the invitation of our partner orchestras — OrchestraTaar from Ghent and an orchestra from Deinze — who organise recurring festivals for guitar and mandolin orchestras.',
+          'In April 2025 we took part in the festival held on 19–20 April in Ghent, organised by OrchestraTaar to celebrate their 10th anniversary. Alongside us and the Belgian hosts, two orchestras from France also attended. In addition to performances by individual orchestras, we also experienced a joint performance of several orchestras together on one stage.',
+        ],
+      },
+      facts: {
+        cs: ['Evropa', '2025'],
+        en: ['Europe', '2025'],
+      },
+      images: [
+        { src: 'assets/images/abroad/Belgie.jpg',  alt: { cs: 'Gent, Belgie', en: 'Ghent, Belgium' } },
+        { src: 'assets/images/abroad/Belgie1.jpg', alt: { cs: 'Festival v Gentu', en: 'Festival in Ghent' } },
+        { src: 'assets/images/abroad/belgie-3.jpg', alt: { cs: 'Festival v Gentu 2025', en: 'Festival in Ghent 2025' } },
       ],
       highlight: true,
     },
@@ -213,17 +258,17 @@
       event:    { cs: 'Mezinárodní kytarový festival', en: 'International Guitar Festival' },
       texts:    {
         cs: [
-          'V létě 2024 jsme se vydali na naše dosud největší dobrodružství – mezinárodní kytarový festival v Bangkoku, Thajsku. Osmičlenná výprava reprezentovala Českou republiku spolu s orchestry z Asie, Evropy i zámoří.',
-          'Vystoupení v tropickém teple, setkání s muzikanty z celého světa a kulturní zážitky, které nám zůstanou navždy. Bangkok byl pro nás milníkem, na který nezapomeneme.',
+          'V červenci 2024 jsme navštívili Bangkok, kde jsme měli příležitost hrát na College of Music, Mahidol University. Společně s kytaristy až ze severního Thajska či Barmy jsme uspořádali kytarové workshopy Side by Side a na závěr společný koncert, kde jsme zahráli slavnou Humoresku, Novosvětskou symfonii, nechyběly ani populární Bugatti step nebo Moorea.',
+          'Na závěr jsme ve více než 50 kytaristech zahráli Mozartovu Malou noční hudbu i Vivaldiho Andante. Kromě hraní jsme stihli i objevit krásy Bangkoku nebo ochutnávat místní speciality.',
         ],
         en: [
-          'In summer 2024 we embarked on our biggest adventure yet — an international guitar festival in Bangkok, Thailand. Our eight-person delegation represented the Czech Republic alongside orchestras from Asia, Europe, and beyond.',
-          'Performing in tropical heat, meeting musicians from around the world, and unforgettable cultural experiences. Bangkok was a milestone we will never forget.',
+          'In July 2024 we visited Bangkok, where we had the opportunity to perform at the College of Music, Mahidol University. Together with guitarists from as far as northern Thailand and Burma, we held Side by Side guitar workshops followed by a joint concert featuring Humoresque, the New World Symphony, as well as the popular Bugatti Step and Moorea.',
+          'To close, over 50 guitarists performed Mozart\'s Eine kleine Nachtmusik and Vivaldi\'s Andante together. Beyond music, we also found time to explore the beauty of Bangkok and sample local specialities.',
         ],
       },
       facts: {
-        cs: ['Thajsko', '🗓 Léto 2024', '🎸 Mezinárodní festival', '👥 8 členů výpravy'],
-        en: ['Thailand', '🗓 Summer 2024', '🎸 International festival', '👥 8 delegates'],
+        cs: ['Asie', '2024'],
+        en: ['Asia', '2024'],
       },
       images: [
         { src: 'assets/images/abroad/Thajsko1.jpg', alt: { cs: 'Chrám Wat Arun při západu slunce', en: 'Wat Arun temple at sunset' } },
@@ -234,53 +279,188 @@
     },
     {
       id: 'barcelona',
-      year: 2023,
+      year: 2022,
       flag: '🇪🇸',
-      label:    { cs: 'Barcelona 2023',             en: 'Barcelona 2023' },
-      title:    { cs: 'Barcelona, Španělsko',       en: 'Barcelona, Spain' },
-      event:    { cs: 'Mezinárodní kytarový festival', en: 'International Guitar Festival' },
+      label:    { cs: 'Barcelona 2022',          en: 'Barcelona 2022' },
+      title:    { cs: 'Barcelona, Španělsko',    en: 'Barcelona, Spain' },
+      event:    { cs: 'Grand concert',           en: 'Grand Concert' },
       texts:    {
         cs: [
-          'Barcelona 2023 – slunce, moře a hudba na slavné promenádě. Zúčastnili jsme se mezinárodního kytarového festivalu ve městě Gaudího architektonických divů a živé kulturní scény.',
-          'Vystupovat v Barceloně bylo výjimečným zážitkem – město dýchá hudbou na každém rohu a místní publikum nás přijalo se srdečností, která nám zůstane v paměti.',
+          'Grand concert v Barceloně (7.–11. 7. 2022). Na několik dní se náš orchestr přetransformoval na OCGP (Orquestra de Cambra de Guitarres de Praga – španělsky Pražský komorní kytarový orchestr) a vyrazil na nezapomenutelný hudební výlet do slunné Barcelony.',
+          'Dne 10. července jsme odehráli společný koncert s místním tělesem Orquestra de Guitarres de Barcelona. Divákům jsme nabídli jak náš samostatný program, tak i velkolepé společné skladby, které jsme odehráli na jednom pódiu pod vedením dirigenta barcelonského orchestru. Kromě toho jsme stihli navštívit i krásné památky Barcelony včetně ikonického chrámu Sagrada Familia.',
         ],
         en: [
-          'Barcelona 2023 — sun, sea, and music on the famous promenade. We took part in an international guitar festival in the city of Gaudí\'s architectural wonders and vibrant cultural scene.',
-          'Performing in Barcelona was an exceptional experience — the city breathes music on every corner, and the local audience welcomed us with warmth we will long remember.',
+          'Grand Concert in Barcelona (7–11 Jul 2022). For a few days our orchestra transformed into OCGP (Orquestra de Cambra de Guitarres de Praga – Prague Chamber Guitar Orchestra in Spanish) and set off on an unforgettable musical trip to sunny Barcelona.',
+          'On 10 July we performed a joint concert with the local ensemble Orquestra de Guitarres de Barcelona. We offered the audience both our own programme and grand joint pieces performed on one stage under the baton of the Barcelona orchestra\'s conductor. We also found time to visit Barcelona\'s beautiful landmarks, including the iconic Sagrada Família.',
         ],
       },
       facts: {
-        cs: ['Španělsko', '🗓 2023', '🎸 Mezinárodní festival', '🏖 Barceloneta'],
-        en: ['Spain', '🗓 2023', '🎸 International festival', '🏖 Barceloneta'],
+        cs: ['Evropa', '2022'],
+        en: ['Europe', '2022'],
       },
       images: [
-        { src: 'assets/images/abroad/Barcelona.jpg', alt: { cs: 'Sagrada Família při západu slunce', en: 'Sagrada Família at sunset' } },
-        { src: 'assets/images/abroad/Barcelona2.jpg',           alt: { cs: 'Vystoupení na barcelonské promenádě', en: 'Performance on the Barcelona promenade' } },
-        { src: 'assets/images/abroad/Barcelona3.jpg',           alt: { cs: 'Vystoupení na barcelonské promenádě', en: 'Performance on the Barcelona promenade' } },
-
+        { src: 'assets/images/abroad/barcelona-1.jpg', alt: { cs: 'Barcelona 2022', en: 'Barcelona 2022' } },
+        { src: 'assets/images/abroad/barcelona-2.jpg', alt: { cs: 'Společný koncert v Barceloně', en: 'Joint concert in Barcelona' } },
+        { src: 'assets/images/abroad/barcelona-3.jpg', alt: { cs: 'Sagrada Família', en: 'Sagrada Família' } },
       ],
       highlight: true,
     },
     {
-      id: 'asie',
-      year: 2018,
-      flag: '🌏',
-      label:    { cs: 'Asie',                        en: 'Asia' },
-      title:    { cs: 'Hongkong & Singapur',         en: 'Hong Kong & Singapore' },
-      event:    { cs: 'Festivaly & soutěže',         en: 'Festivals & Competitions' },
-      texts:    {
+      id: 'deinze',
+      year: 2022,
+      label: { cs: 'Deinze 2022', en: 'Deinze 2022' },
+      title: { cs: 'Deinze, Belgie', en: 'Deinze, Belgium' },
+      event: { cs: 'Mezinárodní kytarový festival', en: 'International Guitar Festival' },
+      texts: {
         cs: [
-          'Hongkong byl jednou z prvních zastávek za oceánem. Účast na mezinárodní kytarové soutěži přinesla cenné zkušenosti i nová přátelství mezi muzikanty z celého světa.',
-          'Singapur byl dalším vrcholem naší zahraniční kariéry. Moderní metropole plná kontrastů nám dala příležitost ukázat český kytarový orchestr světovému publiku na mezinárodní scéně.',
+          'Mezinárodní kytarový festival v belgickém Deinze (11.–13. 11. 2022). Náš orchestr se zúčastnil kytarového festivalu v belgickém Deinze, kde jsme spolu s orchestry z Belgie a Francie odehráli dva skvělé koncerty.',
+          'Mimořádným zážitkem bylo společné vystoupení 70 kytaristů pod vedením belgického dirigenta Yanna Gysselse. Na jednom pódiu se spojily orchestry Gitaar Orkest Deinze, Gitaarensemble Alegria, OrchestraTaar VZW, Orchestre de Guitares de Provence a Orchestre de Guitares de l\'Yonne a Český kytarový orchestr (tehdy ještě pod názvem Pražský kytarový komorní orchestr).',
         ],
         en: [
-          'Hong Kong was one of the orchestra\'s first overseas stops. Participating in an international guitar competition brought invaluable experience and new friendships with musicians from around the globe.',
-          'Singapore was another highlight of our international journey. The modern metropolis full of contrasts gave us the opportunity to showcase Czech guitar playing to a world audience.',
+          'International Guitar Festival in Deinze, Belgium (11–13 Nov 2022). Our orchestra took part in the guitar festival in Deinze, where we performed two wonderful concerts alongside orchestras from Belgium and France.',
+          'A highlight of the trip was a joint performance by 70 guitarists under the direction of Belgian conductor Yann Gyssels. On one stage came together Gitaar Orkest Deinze, Gitaarensemble Alegria, OrchestraTaar VZW, Orchestre de Guitares de Provence, Orchestre de Guitares de l\'Yonne, and the Czech Guitar Orchestra (at the time still performing under its former name, the Prague Chamber Guitar Orchestra).',
         ],
       },
       facts: {
-        cs: ['Hongkong', 'Singapur', '🏆 Soutěže', '🎸 Festivaly'],
-        en: ['Hong Kong', 'Singapore', '🏆 Competitions', '🎸 Festivals'],
+        cs: ['Evropa', '2022'],
+        en: ['Europe', '2022'],
+      },
+      images: [
+        { src: 'assets/images/abroad/deinze-1.jpg', alt: { cs: 'Deinze – festival 2022', en: 'Deinze – festival 2022' } },
+        { src: 'assets/images/abroad/deinze-2.jpg', alt: { cs: 'Deinze – společný koncert', en: 'Deinze – joint concert' } },
+        { src: 'assets/images/abroad/deinze-3.jpg', alt: { cs: 'Deinze – 70 kytaristů na jednom pódiu', en: 'Deinze – 70 guitarists on one stage' } },
+      ],
+      highlight: true,
+    },
+    {
+      id: 'godollo',
+      year: 2019,
+      label: { cs: 'Gödöllő 2019', en: 'Gödöllő 2019' },
+      title: { cs: 'Gödöllő, Maďarsko', en: 'Gödöllő, Hungary' },
+      event: { cs: 'Mezinárodní kytarový festival', en: 'International Guitar Festival' },
+      texts: {
+        cs: [
+          'V květnu 2019 (16.–19. 5.) jsme se zúčastnili 7. ročníku mezinárodního festivalu kytarových orchestrů v maďarském Gödöllő. Odehráli jsme dva koncerty a na místě jsme potkali vynikající orchestry z Maďarska, Německa a Nizozemska, které pro nás byly velkou inspirací.',
+          'Vedle koncertování jsme si užili i kulturní program – navštívili jsme krásný královský palác v Gödöllő, oblíbenou rezidenci císařovny Sisi, a někteří z nás si výlet prodloužili o prohlídku nedaleké Budapešti.',
+        ],
+        en: [
+          'In May 2019 (16–19 May) we took part in the 7th International Guitar Orchestra Festival in Gödöllő, Hungary. We performed two concerts and had the pleasure of meeting excellent orchestras from Hungary, Germany, and the Netherlands — a great source of inspiration.',
+          'Alongside the music, we enjoyed a cultural programme that included a visit to the beautiful royal palace in Gödöllő, a favourite residence of Empress Sisi, and some of us extended the trip with a short tour of nearby Budapest.',
+        ],
+      },
+      facts: {
+        cs: ['Evropa', '2019'],
+        en: ['Europe', '2019'],
+      },
+      images: [
+        { src: 'assets/images/abroad/godollo-1.jpg', alt: { cs: 'Gödöllő – festival kytarových orchestrů 2019', en: 'Gödöllő – guitar orchestra festival 2019' } },
+        { src: 'assets/images/abroad/godollo-2.jpg', alt: { cs: 'Gödöllő – koncert', en: 'Gödöllő – concert' } },
+        { src: 'assets/images/abroad/godollo-3.jpg', alt: { cs: 'Gödöllő – královský palác', en: 'Gödöllő – royal palace' } },
+      ],
+      highlight: true,
+    },
+    {
+      id: 'avignon',
+      year: 2019,
+      label: { cs: 'Avignon 2019', en: 'Avignon 2019' },
+      title: { cs: 'Avignon, Francie', en: 'Avignon, France' },
+      event: { cs: 'Mezinárodní kytarový festival', en: 'International Guitar Festival' },
+      texts: {
+        cs: [
+          'Kytarový festival ve francouzském Avignonu (18.–23. 4. 2019). V dubnu 2019 se náš orchestr vydal do Francie, kde se zúčastnil kytarového festivalu v historickém Avignonu. Čekal nás program plný hudby – během několika dní jsme odehráli tři koncerty, včetně společných vystoupení s tělesy Orchestre de Guitares de Provence, Orchestre de Guitares de l\'Yonne a OrchestraTaar VZW.',
+          'Vedle intenzivního koncertování jsme měli možnost prozkoumat krásy Avignonu i nedalekého města Nîmes, nasát místní atmosféru a ochutnat vyhlášená francouzská vína. Z Francie jsme si odvezli skvělé zážitky a nová mezinárodní přátelství.',
+        ],
+        en: [
+          'Guitar Festival in Avignon, France (18–23 Apr 2019). In April 2019 our orchestra travelled to France to take part in a guitar festival in historic Avignon. We had a programme packed with music — over the course of several days we performed three concerts, including joint performances with Orchestre de Guitares de Provence, Orchestre de Guitares de l\'Yonne, and OrchestraTaar VZW.',
+          'Alongside the intensive concert schedule, we had the chance to explore the beauty of Avignon and nearby Nîmes, soak up the local atmosphere, and sample the celebrated French wines. We came home from France with wonderful memories and new international friendships.',
+        ],
+      },
+      facts: {
+        cs: ['Evropa', '2019'],
+        en: ['Europe', '2019'],
+      },
+      images: [
+        { src: 'assets/images/abroad/avignon-1.jpg', alt: { cs: 'Avignon – kytarový festival 2019', en: 'Avignon – guitar festival 2019' } },
+        { src: 'assets/images/abroad/avignon-2.jpg', alt: { cs: 'Avignon – společný koncert', en: 'Avignon – joint concert' } },
+        { src: 'assets/images/abroad/avignon-3.jpg', alt: { cs: 'Avignon – historické centrum', en: 'Avignon – historic centre' } },
+      ],
+      highlight: true,
+    },
+    {
+      id: 'echternach',
+      year: 2018,
+      label: { cs: 'Echternach 2018', en: 'Echternach 2018' },
+      title: { cs: 'Echternach, Lucembursko', en: 'Echternach, Luxembourg' },
+      event: { cs: 'Mezinárodní festival mandolín a kytar', en: 'International Festival for Mandolin and Guitar' },
+      texts: {
+        cs: [
+          'V srpnu 2018 (24.–29. 8.) se Prague Chamber Guitar Orchestra představil na International Festival for Mandolin and Guitar v lucemburském Echternachu, pořádaném kytarovým orchestrem Music Ensemble DIVERTIMENTO.',
+          'Během festivalu jsme vystoupili nejen jako celý orchestr, ale představili jsme se i ve společných skladbách s místním orchestrem a někteří z našich členů navíc odehráli i vlastní sólová vystoupení. Po skončení oficiálního programu si část výpravy pobyt ještě prodloužila a strávila několik dní objevováním krás hlavního města Lucemburku.',
+        ],
+        en: [
+          'In August 2018 (24–29 Aug) the Prague Chamber Guitar Orchestra performed at the International Festival for Mandolin and Guitar in Echternach, Luxembourg, organised by the guitar orchestra Music Ensemble DIVERTIMENTO.',
+          'During the festival we appeared not only as a full orchestra but also in joint pieces with the host ensemble, and several of our members gave their own solo performances. After the official programme, part of the group extended their stay and spent a few days exploring the sights of Luxembourg City.',
+        ],
+      },
+      facts: {
+        cs: ['Evropa', '2018'],
+        en: ['Europe', '2018'],
+      },
+      images: [
+        { src: 'assets/images/abroad/echternach-1.jpg', alt: { cs: 'Echternach – festival 2018', en: 'Echternach – festival 2018' } },
+        { src: 'assets/images/abroad/echternach-2.jpg', alt: { cs: 'Echternach – koncert', en: 'Echternach – concert' } },
+        { src: 'assets/images/abroad/echternach-3.jpg', alt: { cs: 'Echternach, Lucembursko', en: 'Echternach, Luxembourg' } },
+      ],
+      highlight: true,
+    },
+    {
+      id: 'solarino',
+      year: 2017,
+      label: { cs: 'Solarino 2017', en: 'Solarino 2017' },
+      title: { cs: 'Solarino, Sicílie', en: 'Solarino, Sicily' },
+      event: { cs: '4° Solarino International Guitar Festival', en: '4° Solarino International Guitar Festival' },
+      texts: {
+        cs: [
+          'V červenci (4.–13. 7. 2017) jsme strávili týden na Sicílii, kde jsme se zúčastnili mezinárodního kytarového festivalu v městečku Solarino. Mimořádným zážitkem pro nás bylo provedení skladby „Canzone per Barbara", kterou pro svou ženu složil místní kytarista Fabio Barbagallo.',
+          'Po koncertním programu a závěrečné festivalové party jsme stihli prozkoumat historické Syrakusy. Část výpravy si navíc pobyt prodloužila o návštěvu Catanie a výšlap na ikonickou sopku Etnu.',
+        ],
+        en: [
+          'In July (4–13 Jul 2017) we spent a week in Sicily taking part in the international guitar festival in the town of Solarino. A memorable highlight was the performance of "Canzone per Barbara", composed by local guitarist Fabio Barbagallo for his wife.',
+          'After the concert programme and the closing festival party, we explored the historic city of Syracuse. Some of the group extended their stay with a visit to Catania and a hike up the iconic volcano Etna.',
+        ],
+      },
+      facts: {
+        cs: ['Evropa', '2017'],
+        en: ['Europe', '2017'],
+      },
+      images: [
+        { src: 'assets/images/abroad/solarino-1.jpg', alt: { cs: 'Solarino – festival 2019', en: 'Solarino – festival 2019' } },
+        { src: 'assets/images/abroad/solarino-2.jpg', alt: { cs: 'Solarino – koncert na Sicílii', en: 'Solarino – concert in Sicily' } },
+        { src: 'assets/images/abroad/solarino-3.jpg', alt: { cs: 'Sicílie – Etna a Syrakusy', en: 'Sicily – Etna and Syracuse' } },
+      ],
+      link: { url: 'https://www.youtube.com/watch?v=peLo8ih1T-c' },
+      highlight: true,
+    },
+    {
+      id: 'asie',
+      year: 2016,
+      flag: '🌏',
+      label:    { cs: 'HK a Singapur 2016',          en: 'HK & Singapore 2016' },
+      title:    { cs: 'Hongkong & Singapur',          en: 'Hong Kong & Singapore' },
+      event:    { cs: 'Zahraniční turné',             en: 'International Tour' },
+      texts:    {
+        cs: [
+          'Ve dnech 21. 9. – 4. 10. 2016 jsme podnikli naše první velké asijské turné. V Hongkongu jsme vystoupili společně s místním orchestrem The Hong Kong Guitar Ensemble a publiku jsme představili výběr z repertoáru včetně děl českých autorů – Slovanského tance Antonína Dvořáka nebo Bugattistep Jaroslava Ježka. Mezi zkouškami a koncerty jsme stihli prozkoumat Hongkong a ochutnat místní speciality.',
+          'Poté jsme se přesunuli do Singapuru, kde jsme odehráli samostatný koncert. Někteří členové si pobyt prodloužili a využili čas k poznávání místních krás – pláže i džungle.',
+        ],
+        en: [
+          'From 21 September to 4 October 2016 we embarked on our first major Asian tour. In Hong Kong we performed alongside the local ensemble The Hong Kong Guitar Ensemble, presenting a selection from our repertoire including works by Czech composers — Dvořák\'s Slavonic Dance and Jaroslav Ježek\'s Bugatti Step. Between rehearsals and concerts we found time to explore Hong Kong and sample the local cuisine.',
+          'We then travelled to Singapore, where we gave a standalone concert. Several members extended their stay and made the most of the extra time to enjoy the local scenery — beaches and jungle alike.',
+        ],
+      },
+      facts: {
+        cs: ['Asie', '2016'],
+        en: ['Asia', '2016'],
       },
       images: [
         { src: 'assets/images/abroad/HongKong1.jpg', alt: { cs: 'Hongkong', en: 'Hong Kong' } },
@@ -289,43 +469,50 @@
         { src: 'assets/images/abroad/Singapur2.jpg', alt: { cs: 'Singapur', en: 'Singapore' } },
       ],
     },
-    {
-      id: 'europe',
-      year: 2019,
-      flag: '🇪🇺',
-      label:    { cs: 'Evropa',               en: 'Europe' },
-      title:    { cs: 'Evropské festivaly',   en: 'European Festivals' },
-      event:    { cs: 'Festivaly & soutěže',  en: 'Festivals & Competitions' },
-      texts:    {
-        cs: ['Krom zámořských expedic pravidelně závodíme a vystupujeme na festivalech po celé Evropě. Navštívili jsme festival v německém Trossingen, účastnili se mezinárodních soutěží v Německu i Itálii a budujeme síť kontaktů v evropské kytarové komunitě.'],
-        en: ['Alongside overseas expeditions we regularly compete and perform at festivals across Europe. We have visited the festival in Trossingen, Germany, participated in competitions in Germany and Italy, and continue building ties within the European guitar community.'],
-      },
-      facts: {
-        cs: ['Trossingen', 'Itálie', '🗓 2019', '🏆 Soutěže', '🎸 Festivaly'],
-        en: ['Trossingen', 'Italy', '🗓 2019', '🏆 Competitions', '🎸 Festivals'],
-      },
-      images: [
-        { src: 'assets/images/abroad/europe-trossingen.svg', alt: { cs: 'Trossingen, Německo', en: 'Trossingen, Germany' } },
-        { src: 'assets/images/abroad/europe-italia.svg',     alt: { cs: 'Itálie',               en: 'Italy' } },
-      ],
-    },
   ];
 
-  function renderAbroadTabs(activeId) {
-    const tablist = document.getElementById('abroad-tablist');
-    tablist.innerHTML = destinations.map(d => `
-      <button
-        class="abroad-tab${d.id === activeId ? ' abroad-tab--active' : ''}${d.highlight ? ' abroad-tab--highlight' : ''}"
-        role="tab"
-        aria-selected="${d.id === activeId}"
-        aria-controls="panel-${d.id}"
-        data-tab="${d.id}">
-        ${d.flag} ${d.label[isCs ? 'cs' : 'en']}
-      </button>`).join('');
+  // Group destinations by year, sorted descending
+  const byYear = {};
+  destinations.forEach(d => {
+    if (!byYear[d.year]) byYear[d.year] = [];
+    byYear[d.year].push(d);
+  });
+  const years = Object.keys(byYear).map(Number).sort((a, b) => b - a);
 
-    tablist.querySelectorAll('.abroad-tab').forEach(btn => {
-      btn.addEventListener('click', () => renderAbroadPanels(btn.dataset.tab));
+  function renderYearTabs(activeYear) {
+    document.getElementById('abroad-tablist').innerHTML = years.map(y => `
+      <button class="abroad-tab${y === activeYear ? ' abroad-tab--active' : ''}"
+        role="tab" aria-selected="${y === activeYear}" data-year="${y}">${y}</button>
+    `).join('');
+    document.querySelectorAll('#abroad-tablist .abroad-tab').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const year = Number(btn.dataset.year);
+        const firstId = byYear[year][0].id;
+        renderYearTabs(year);
+        renderDestTabs(year, firstId);
+        renderAbroadPanel(firstId);
+      });
     });
+  }
+
+  function renderDestTabs(activeYear, activeId) {
+    const subtablist = document.getElementById('abroad-subtablist');
+    const dests = byYear[activeYear];
+    if (dests.length > 1) {
+      subtablist.innerHTML = dests.map(d => `
+        <button class="abroad-dest-tab${d.id === activeId ? ' abroad-dest-tab--active' : ''}"
+          data-tab="${d.id}" data-year="${activeYear}">
+          ${d.label[isCs ? 'cs' : 'en']}
+        </button>`).join('');
+      subtablist.querySelectorAll('.abroad-dest-tab').forEach(btn => {
+        btn.addEventListener('click', () => {
+          renderDestTabs(Number(btn.dataset.year), btn.dataset.tab);
+          renderAbroadPanel(btn.dataset.tab);
+        });
+      });
+    } else {
+      subtablist.innerHTML = '';
+    }
   }
 
   function carouselHTML(images, lang) {
@@ -370,14 +557,18 @@
     });
   }
 
-  function renderAbroadPanels(activeId) {
-    renderAbroadTabs(activeId);
+  function renderAbroadPanel(activeId) {
     const d    = destinations.find(x => x.id === activeId);
     const lang = isCs ? 'cs' : 'en';
-    const factsHtml = d.facts[lang].map(f =>
-      `<span class="abroad-fact">${escHtml(f)}</span>`).join('');
     const textsHtml = d.texts[lang].map(t =>
       `<p>${escHtml(t)}</p>`).join('');
+    const listData  = d.list && d.list[lang];
+    const listHtml  = listData
+      ? `<p><strong>${escHtml(listData.title)}</strong></p><ul>${listData.items.map(i => `<li>${escHtml(i)}</li>`).join('')}</ul>`
+      : '';
+    const linkHtml  = d.link
+      ? `<a class="abroad-link" href="${escHtml(d.link.url)}" target="_blank" rel="noopener noreferrer"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 0 0 .5 6.2C0 8.1 0 12 0 12s0 3.9.5 5.8a3 3 0 0 0 2.1 2.1c1.9.6 9.4.6 9.4.6s7.5 0 9.4-.6a3 3 0 0 0 2.1-2.1C24 15.9 24 12 24 12s0-3.9-.5-5.8zM9.75 15.5V8.5l6.25 3.5-6.25 3.5z"/></svg>${isCs ? 'Záznam z koncertu' : 'Concert recording'}</a>`
+      : '';
     const hasImages = d.images && d.images.length > 0;
 
     document.getElementById('abroad-panels').innerHTML = `
@@ -388,22 +579,24 @@
           <div class="abroad-content">
             <p class="abroad-event">${escHtml(d.event[lang])}</p>
             <h3 class="abroad-title">${escHtml(d.title[lang])}</h3>
-            <div class="abroad-texts">${textsHtml}</div>
-            <div class="abroad-facts">${factsHtml}</div>
+            <div class="abroad-texts">${textsHtml}${listHtml}</div>
+            ${linkHtml}
           </div>
         </div>` : `
         <div class="abroad-content abroad-content--full">
           <p class="abroad-event">${escHtml(d.event[lang])}</p>
           <h3 class="abroad-title">${escHtml(d.title[lang])}</h3>
-          <div class="abroad-texts">${textsHtml}</div>
-          <div class="abroad-facts">${factsHtml}</div>
+          <div class="abroad-texts">${textsHtml}${listHtml}</div>
+          ${linkHtml}
         </div>`}
       </div>`;
 
     initCarousels();
   }
 
-  renderAbroadPanels('belgie');
+  renderYearTabs(2026);
+  renderDestTabs(2026, 'stuttgart');
+  renderAbroadPanel('stuttgart');
 
   // Projekty & Benefice
   document.getElementById('projects-eyebrow').textContent = isCs ? 'Pomáháme & spolupracujeme' : 'Helping & Collaborating';
