@@ -170,5 +170,71 @@
     "upcoming": false,
     "tags_cs": ["festival", "Litomyšl"],
     "tags_en": ["festival", "Litomyšl"]
+  },
+  {
+    "id": 8,
+    "date": "2026-10-31",
+    "title_cs": "Mezinárodní setkání kytarových orchestrů v Praze",
+    "title_en": "International guitar orchestra gathering in Prague",
+    "venue": "Novoměstská radnice, Karlovo náměstí, Praha",
+    "time": "19:00",
+    "price_cs": "250 Kč / snížené 150 Kč",
+    "price_en": "250 Kč / snížené 150 Kč",
+    "tickets": {
+      "on_site": true
+    },
+     "event_url": "https://www.nrpraha.cz/program/1575/mezinarodni-setkani-kytarovych-orchestru",
+    "description_cs": "Mezinárodní setkání kytarových a mandolinových orchestrů, kde uslyšíte kromě nás také naše partnerské orchestry z Belgie a Francie, ke kterým se přidají i dva pražské orchestry. Celý večer vyvrcholí společným vystoupením téměř 100 kytaristů na jednom podiu.",
+    "description_en": "International gathering of guitar and mandoline orchestras, where you can listen to orchestras from Francie, Belgium and Czech republic. The peak of the concert will be common piece played by more then 100 guitarists on one stage.",
+    "upcoming": true,
+    "tags_cs": ["festival", "Praha"],
+    "tags_en": ["festival", "Prague"]
+  }, 
+  {
+    "id": 9,
+    "date": "2026-12-10",
+    "title_cs": "Adventní koncert v Praze",
+    "title_en": "Advent concert in Prague",
+    "venue": "Novoměstská radnice, Karlovo náměstí, Praha",
+    "time": "19:00",
+    "price_cs": "300 Kč / snížené 200 Kč",
+    "price_en": "300 Kč / snížené 200 Kč",
+    "tickets": {
+      "on_site": true
+    },
+    "event_url": "https://www.nrpraha.cz/program/1576/adventni-koncert-ceskeho-kytaroveho-orchestru/",
+    "description_cs": "Přijďte si zpříjemnit předvánoční čas koncertem našeho orchestru. Uslyšíte novinky v repertoáru i naše klasiky, nebude chybět ani vánoční atmosféra.",
+    "description_en": "Come make the holiday season extra special with a concert by our orchestra. You’ll hear new additions to our repertoire alongside our timeless classics, all wrapped up in a wonderful Christmas atmosphere.",
+    "upcoming": true,
+    "tags_cs": ["advent", "Praha"],
+    "tags_en": ["advent", "Prague"]
+   },
+  {
+    "id": 10,
+    "date": "2027-05-13",
+    "title_cs": "Dvořákův festival: Vystoupení CZEGO",
+    "title_en": "The Dvořák Festival: CZEGO concert",
+    "venue": "Bude upřesněno",
+    "time": "Bude upřesněno",
+    "event_url": "https://www.dvorakuvfestival.cz/",
+    "event_url_en": "https://www.dvorakuvfestival.cz/en/", 
+    "description_cs": "V roce 2027 máme tu čest vystoupit na Dvořákově festivalu - největší hudební slavnosti, která dlouhodobě propojuje krásu hudby s českou krajinou a kulturním dědictvím.",
+    "description_en": "In 2027, we have the honor of performing at the Dvořák Festival—the largest music celebration bridging the beauty of music with the Czech landscape and cultural heritage.",
+    "upcoming": true,
+    "tags_cs": ["festival"],
+    "tags_en": ["festival"]
+  },
+  {
+    "id": 11,
+    "date": "2027-06-24",
+    "title_cs": "Závěrečný koncert sezony",
+    "title_en": "Season Finale Concert",
+    "venue": "Kostel sv. Martina ve zdi, Praha",
+    "time": "19:00",
+    "description_cs": "Přijďte s námi zakončit sezonu 2026/2027! Uslyšíte novinky, které jsme si pro vás připravili, i oblíbené kousky z našeho repertoáru. Vstupné a další podrobnosti budou upřesněny.",
+    "description_en": "Join us to close the 2026/2027 season! You'll hear new pieces we've prepared as well as beloved favourites from our repertoire. Admission and further details to be announced.",
+    "upcoming": true,
+    "tags_cs": ["Praha"],
+    "tags_en": ["Prague"]
   }
 ]

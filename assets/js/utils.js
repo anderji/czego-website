@@ -210,17 +210,19 @@ function concertRowHTML(c) {
   const price   = isCs ? c.price_cs : c.price_en;
   const dateObj   = new Date(c.date + 'T12:00:00');
   const day       = dateObj.getDate();
-  const monthYear = dateObj.toLocaleDateString(isCs ? 'cs-CZ' : 'en-GB', { month: 'short', year: 'numeric' });
+  const month     = dateObj.toLocaleDateString(isCs ? 'cs-CZ' : 'en-GB', { month: 'long' });
+  const year      = dateObj.getFullYear();
+  const eventUrl  = isCs ? c.event_url : (c.event_url_en || c.event_url);
   return `
   <div class="concert-row${up ? '' : ' concert-row--past'}${c.partner_logo ? ' concert-row--has-logo' : ''} reveal">
     <div class="concert-row__date">
       <div class="concert-row__day">${day}</div>
-      <div class="concert-row__mon">${escHtml(monthYear)}</div>
+      <div class="concert-row__mon"><span>${escHtml(month)}</span><span>${year}</span></div>
     </div>
     <div class="concert-row__body">
       <div class="concert-row__top">
         <div class="concert-row__title">${escHtml(title)}</div>
-        ${c.tickets?.online_url ? `<a class="concert-row__ticket-link${c.partner_logo ? ' concert-row__ticket-link--mobile-only' : ''}" href="${escHtml(c.tickets.online_url)}" target="_blank" rel="noopener noreferrer">${isCs ? 'Koupit online' : 'Buy online'} ↗</a>` : ''}
+        ${eventUrl ? `<a class="concert-row__ticket-link${c.partner_logo ? ' concert-row__ticket-link--mobile-only' : ''}" href="${escHtml(eventUrl)}" target="_blank" rel="noopener noreferrer">${isCs ? 'Web akce' : 'Event page'} ↗</a>` : ''}
       </div>
       ${c.time ? `<div class="concert-row__time">🕐 ${escHtml(c.time)}</div>` : ''}
       <div class="concert-row__meta">
@@ -230,10 +232,11 @@ function concertRowHTML(c) {
       <div class="concert-row__footer">
         ${price ? `<span class="concert-row__price">🎟 ${escHtml(price)}</span>` : ''}
         ${c.tickets?.on_site ? `<span class="concert-row__ticket-label">${isCs ? 'Platba na místě' : 'Pay at the door'}</span>` : ''}
+        ${c.tickets?.online_url ? `<a class="concert-row__ticket-link" href="${escHtml(c.tickets.online_url)}" target="_blank" rel="noopener noreferrer">${isCs ? 'Koupit online' : 'Buy online'} ↗</a>` : ''}
       </div>
     </div>
     ${c.partner_logo ? `<div class="concert-row__logo-wrap">
-      ${c.tickets?.online_url ? `<a class="concert-row__ticket-link concert-row__ticket-link--desktop-only" href="${escHtml(c.tickets.online_url)}" target="_blank" rel="noopener noreferrer">${isCs ? 'Koupit online' : 'Buy online'} ↗</a>` : ''}
+      ${eventUrl ? `<a class="concert-row__ticket-link concert-row__ticket-link--desktop-only" href="${escHtml(eventUrl)}" target="_blank" rel="noopener noreferrer">${isCs ? 'Web akce' : 'Event page'} ↗</a>` : ''}
       <img src="${escHtml(c.partner_logo)}" alt="${isCs ? 'Logo partnera' : 'Partner logo'}" class="concert-row__logo">
     </div>` : ''}
   </div>`;
