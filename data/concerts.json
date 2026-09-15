@@ -181,7 +181,8 @@
     "price_cs": "250 Kč / snížené 150 Kč",
     "price_en": "250 Kč / snížené 150 Kč",
     "tickets": {
-      "on_site": true
+      "on_site": true,
+      "online_url": "https://goout.net/cs/mezinarodni-setkani-kytarovych-orchestru/szbismy/"
     },
      "event_url": "https://www.nrpraha.cz/program/1575/mezinarodni-setkani-kytarovych-orchestru",
     "description_cs": "Mezinárodní setkání kytarových a mandolinových orchestrů, kde uslyšíte kromě nás také naše partnerské orchestry z Belgie a Francie, ke kterým se přidají i dva pražské orchestry. Celý večer vyvrcholí společným vystoupením téměř 100 kytaristů na jednom podiu.",
